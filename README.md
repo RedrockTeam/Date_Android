@@ -24,7 +24,7 @@
 	*	contentview命名：activity_功能模块.xml，fragment_功能模块.xml
 	
         >例如：activity_main.xml、activity_more.xml、fragment_main.xml
-    *	组件命名：组件简写_描述.xml
+    *	组件命名：组件简写\_模块\_描述.xml
     	*	Button：btn\_模块\_描述.xml
     	
     		>例如：btn\_main\_login.xml
