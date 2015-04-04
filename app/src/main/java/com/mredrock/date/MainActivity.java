@@ -17,6 +17,7 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         RequestManager.getInstance().init(this);
+        RequestManager.getInstance().setDebugMode(true,"Volly");
         setContentView(R.layout.activity_main);
         final TextView tv = (TextView) findViewById(R.id.text);
         ImageView img = (ImageView) findViewById(R.id.img);
@@ -29,12 +30,12 @@ public class MainActivity extends ActionBarActivity {
             }
 
             @Override
-            public void onSuccess(String response, String url) {
+            public void onSuccess(String response) {
                 tv.setText(response);
             }
 
             @Override
-            public void onError(String errorMsg, String url) {
+            public void onError(String errorMsg) {
 
             }
         });
