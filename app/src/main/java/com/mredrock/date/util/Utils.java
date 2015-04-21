@@ -59,7 +59,6 @@ public class Utils {
 	public static void initialize(Application app,String TAG,String outofdateKey){
 		mApplcationContent = app.getApplicationContext();
 		Utils.TAG = TAG;
-
         if (!getPreference().getString("outofdateKey","NULL").equals(outofdateKey)){
             AppDataCleaner.cleanApplicationData(app);
         }
@@ -391,7 +390,6 @@ public class Utils {
         try {
             f.createNewFile();
         } catch (IOException e) {
-            Utils.Toast("File Error:"+e.getLocalizedMessage());
             e.printStackTrace();
         }
         return f;
