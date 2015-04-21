@@ -25,4 +25,6 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:22.0.0'
     compile files('libs/gson-2.2.4.jar')
     compile files('libs/JVolly.jar')
+    compile 'com.facebook.fresco:fresco:0.3.0+'
+    compile project(':jpagerView')
 }
