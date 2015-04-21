@@ -27,4 +27,5 @@ dependencies {
     compile files('libs/JVolly.jar')
     compile 'com.facebook.fresco:fresco:0.3.0+'
     compile project(':jpagerView')
+    compile 'com.malinskiy:superrecyclerview:1.1.0'
 }
