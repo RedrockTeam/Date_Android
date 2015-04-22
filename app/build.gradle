@@ -30,6 +30,6 @@ dependencies {
     compile 'com.malinskiy:superrecyclerview:1.1.0'
     compile 'com.pnikosis:materialish-progress:1.5'
     compile 'com.umeng.analytics:analytics:latest.integration'
-    compile 'com.umeng:fb:5.1.0'
-    compile 'com.android.support:support-v4:21.+'
+    compile files('libs/umeng-update-v2.6.0.1.jar')
+    compile files('libs/com.umeng.message.lib_v2.0.0.jar')
 }

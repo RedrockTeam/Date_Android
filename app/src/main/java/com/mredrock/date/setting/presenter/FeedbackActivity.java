@@ -3,6 +3,7 @@ package com.mredrock.date.setting.presenter;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 
 import com.mredrock.date.R;
 import com.umeng.analytics.MobclickAgent;
@@ -31,6 +32,10 @@ public class FeedbackActivity extends ActionBarActivity {
                     .add(R.id.container,mFeedbackFragment,"feedback")
                     .commit();
         }
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     public void onResume() {
