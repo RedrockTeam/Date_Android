@@ -1,5 +1,6 @@
 package com.mredrock.date.widget;
 
+import android.support.annotation.LayoutRes;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +11,7 @@ abstract public class BaseViewHolder<M> extends RecyclerView.ViewHolder{
             super(itemView);
         }
 
-        public BaseViewHolder(ViewGroup parent,int res) {
+        public BaseViewHolder(ViewGroup parent,@LayoutRes int res) {
             super(LayoutInflater.from(parent.getContext()).inflate(res, parent, false));
         }
 

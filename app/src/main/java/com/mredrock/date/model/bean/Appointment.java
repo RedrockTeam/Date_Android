@@ -98,4 +98,7 @@ public class Appointment {
         this.count = count;
         this.releaseTime = releaseTime;
     }
+
+    public Appointment() {
+    }
 }

@@ -1,6 +1,7 @@
 package com.mredrock.date.model;
 
 import com.mredrock.date.model.bean.Banner;
+import com.mredrock.date.widget.OnDataCallback;
 
 /**
  * Created by Mr.Jude on 2015/4/22.
@@ -12,10 +13,6 @@ public class BannerModel {
             new Banner("http://imgsrc.baidu.com/forum/w%3D580/sign=c3cda9ccd11373f0f53f6f97940e4b8b/fbd1e31f3a292df5f2709da2bc315c6035a87390.jpg",""),
             new Banner("http://image.baidu.com/detail/newindex?col=%E5%A3%81%E7%BA%B8&tag=%E5%85%A8%E9%83%A8&tag3=&filter=&hasstock=&dresstype=&dressid=-1&req=&pn=10&pid=9423310821&aid=372237473&setid=-1&user_id=850006430&sort=0&width=1366&height=768&fr=&from=1",""),
     };
-
-    public interface onBannerCallback{
-        void callback(Banner[] banners);
-    }
 
     public Banner[] getBannerList(){
         return banners;
@@ -29,7 +26,7 @@ public class BannerModel {
         return banners.length;
     }
 
-    public void getBannerListFromServer(onBannerCallback callback){
+    public void getBannerListFromServer(OnDataCallback<Banner> callback){
         if (banners!=null)
             callback.callback(banners);
     }

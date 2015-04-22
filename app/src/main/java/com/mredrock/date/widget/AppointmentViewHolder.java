@@ -2,6 +2,7 @@ package com.mredrock.date.widget;
 
 import android.view.ViewGroup;
 
+import com.mredrock.date.R;
 import com.mredrock.date.model.bean.Appointment;
 
 /**
@@ -10,6 +11,6 @@ import com.mredrock.date.model.bean.Appointment;
 public class AppointmentViewHolder extends BaseViewHolder<Appointment> {
 
     public AppointmentViewHolder(ViewGroup parent) {
-        super(parent, 0);
+        super(parent, R.layout.item_appointment);
     }
 }
