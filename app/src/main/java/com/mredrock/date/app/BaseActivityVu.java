@@ -1,4 +1,4 @@
-package com.mredrock.date.config;
+package com.mredrock.date.app;
 
 import android.content.Context;
 import android.support.annotation.IdRes;

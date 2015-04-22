@@ -1,4 +1,4 @@
-package com.mredrock.date.config;
+package com.mredrock.date.app;
 
 /**
  * Created by Mr.Jude on 2015/4/21.
