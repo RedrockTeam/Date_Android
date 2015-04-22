@@ -24,18 +24,18 @@ public abstract class BaseActivityVu implements IVu{
     public final void init(LayoutInflater inflater, ViewGroup container) {
         this.inflater = inflater;
         context = inflater.getContext();
-        OnCreate();
+        onCreate();
     }
-    protected abstract void OnCreate();
+    protected abstract void onCreate();
 
     protected final void setContentView(View view){
         rootView = view;
-        initToolBar();
+        initToolbar();
     };
 
     protected final void setContentView(@LayoutRes int res){
         rootView = inflater.inflate(res,null);
-        initToolBar();
+        initToolbar();
     };
 
     protected final <E extends View> E $(View view,@IdRes int id){
@@ -45,17 +45,17 @@ public abstract class BaseActivityVu implements IVu{
         return (E)rootView.findViewById(id);
     }
 
-    private final void initToolBar(){
+    private final void initToolbar(){
         toolbar = $(rootView,R.id.toolbar);
         ActionBarActivity act = (ActionBarActivity)context;
         if (toolbar!=null){
             act.setSupportActionBar(toolbar);
             act.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
-        onToolBarInit(act,toolbar);
+        onToolbarInit(act, toolbar);
     }
 
-    protected void onToolBarInit(ActionBarActivity act,Toolbar toolbar){
+    protected void onToolbarInit(ActionBarActivity act, Toolbar toolbar){
     }
 
     @Override

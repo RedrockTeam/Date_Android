@@ -13,7 +13,7 @@ public class MainActivityPresenter extends BaseActivityPresenter<MainActivityVu>
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        vu.SayHello();
+        vu.sayHello();
         vu.setBannerAdapter(new BannerPagerAdapterPresenter());
     }
 

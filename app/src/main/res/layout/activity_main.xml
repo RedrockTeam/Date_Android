@@ -9,7 +9,7 @@
         layout="@layout/include_toolbar"
         />
     <com.jude.view.jpagerview.JPagerView
-        android:id="@+id/vp_banner"
+        android:id="@+id/jpv_banner"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         pager:hint_mode="point"

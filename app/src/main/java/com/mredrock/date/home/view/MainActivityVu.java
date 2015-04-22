@@ -13,25 +13,25 @@ import com.mredrock.date.app.BaseActivityVu;
  * Created by Mr.Jude on 2015/4/21.
  */
 public class MainActivityVu extends BaseActivityVu {
-    private JPagerView vpBanner;
+    private JPagerView jpvBanner;
 
     @Override
-    protected void OnCreate() {
+    protected void onCreate() {
         setContentView(R.layout.activity_main);
-        vpBanner = $(R.id.vp_banner);
+        jpvBanner = $(R.id.jpv_banner);
     }
 
     @Override
-    protected void onToolBarInit(ActionBarActivity act, Toolbar toolbar) {
+    protected void onToolbarInit(ActionBarActivity act, Toolbar toolbar) {
         toolbar.setLogo(R.mipmap.ic_launcher);
         act.getSupportActionBar().setDisplayHomeAsUpEnabled(false);
     }
 
     public void setBannerAdapter(PagerAdapter adapter){
-        vpBanner.setAdapter(adapter);
+        jpvBanner.setAdapter(adapter);
     }
 
-    public void SayHello(){
+    public void sayHello(){
         Toast.makeText(getContext(),"Hello World",Toast.LENGTH_SHORT);
     }
 }
