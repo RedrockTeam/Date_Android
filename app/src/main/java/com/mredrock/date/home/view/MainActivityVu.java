@@ -1,16 +1,16 @@
 package com.mredrock.date.home.view;
 
 import android.content.res.Configuration;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
-import com.jude.view.jpagerview.JPagerView;
+import com.malinskiy.superrecyclerview.SuperRecyclerView;
 import com.mredrock.date.R;
 import com.mredrock.date.app.BaseActivityVu;
 import com.mredrock.date.home.presenter.DrawerFragmentPresenter;
@@ -20,15 +20,20 @@ import com.mredrock.date.util.Utils;
  * Created by Mr.Jude on 2015/4/21.
  */
 public class MainActivityVu extends BaseActivityVu {
-    private JPagerView jpvBanner;
+    private SuperRecyclerView recyclerView;
     private ActionBarDrawerToggle mDrawerToggle;
     private DrawerLayout drawerLayout;
 
     @Override
     protected void onCreate() {
         setContentView(R.layout.activity_main);
-        jpvBanner = $(R.id.jpv_banner);
         drawerLayout = $(R.id.drawerLayout);
+        recyclerView = $(R.id.recyclerview);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+    }
+
+    public void setRecyclerViewAdapter(RecyclerView.Adapter adapter){
+        recyclerView.setAdapter(adapter);
     }
 
     public void addDrawer(final ActionBarActivity act,DrawerFragmentPresenter presenter){
@@ -66,13 +71,6 @@ public class MainActivityVu extends BaseActivityVu {
         act.getSupportFragmentManager().beginTransaction().add(R.id.drawer,presenter,"drawer").commit();
     }
 
-    public void setBannerAdapter(PagerAdapter adapter){
-        jpvBanner.setAdapter(adapter);
-    }
-
-    public void sayHello(){
-        Toast.makeText(getContext(),"Hello World",Toast.LENGTH_SHORT);
-    }
 
     public boolean onDrawerToggleSelected(MenuItem item){
         if (mDrawerToggle.onOptionsItemSelected(item)){

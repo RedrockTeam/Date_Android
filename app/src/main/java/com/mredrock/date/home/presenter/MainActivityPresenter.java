@@ -5,19 +5,23 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.mredrock.date.app.BaseActivityPresenter;
+import com.mredrock.date.home.MainHeader;
 import com.mredrock.date.home.view.MainActivityVu;
+import com.mredrock.date.widget.AppointmentArrayAdapter;
 
 /**
  * Created by zhuchenxi on 15/4/21.
  */
 public class MainActivityPresenter extends BaseActivityPresenter<MainActivityVu> {
+    private AppointmentArrayAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        vu.sayHello();
-        vu.setBannerAdapter(new BannerPagerAdapterPresenter());
         vu.addDrawer(this, new DrawerFragmentPresenter());
+        adapter = new AppointmentArrayAdapter(this);
+        adapter.addHeader(new MainHeader());
+        vu.setRecyclerViewAdapter(adapter);
     }
 
 

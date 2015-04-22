@@ -28,4 +28,6 @@ dependencies {
     compile 'com.facebook.fresco:fresco:0.3.0+'
     compile project(':jpagerView')
     compile 'com.malinskiy:superrecyclerview:1.1.0'
+    compile 'me.imid.swipebacklayout.lib:library:1.0.0'
+    compile 'com.pnikosis:materialish-progress:1.5'
 }

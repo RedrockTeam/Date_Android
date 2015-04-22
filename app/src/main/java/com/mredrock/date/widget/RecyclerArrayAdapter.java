@@ -428,7 +428,6 @@ abstract public class RecyclerArrayAdapter<T> extends RecyclerView.Adapter<BaseV
 
         public StateViewHolder(View itemView) {
             super(itemView);
-            setIsRecyclable(false);
         }
     }
 
