@@ -2,6 +2,7 @@ package com.mredrock.date.home.view;
 
 import android.content.res.Configuration;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.malinskiy.superrecyclerview.OnMoreListener;
 import com.malinskiy.superrecyclerview.SuperRecyclerView;
 import com.mredrock.date.R;
 import com.mredrock.date.app.BaseActivityVu;
@@ -34,6 +36,19 @@ public class MainActivityVu extends BaseActivityVu {
 
     public void setRecyclerViewAdapter(RecyclerView.Adapter adapter){
         recyclerView.setAdapter(adapter);
+    }
+
+    public void setOnRefreshListener(SwipeRefreshLayout.OnRefreshListener listener){
+        recyclerView.setRefreshListener(listener);
+    }
+
+    public void setOnLoadMoreListener(OnMoreListener listener){
+        recyclerView.setOnMoreListener(listener);
+    }
+
+    public void finishLoading(){
+        recyclerView.hideMoreProgress();
+        recyclerView.hideProgress();
     }
 
     public void addDrawer(final ActionBarActivity act,DrawerFragmentPresenter presenter){
