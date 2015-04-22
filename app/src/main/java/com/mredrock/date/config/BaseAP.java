@@ -2,16 +2,12 @@ package com.mredrock.date.config;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
-
-import com.mredrock.date.R;
 
 /**
  * Created by zhuchenxi on 15/4/21.
  */
-public abstract class BaseActivityPresenter<V extends IVu> extends ActionBarActivity implements IPresenter<V> {
-    protected Toolbar toolbar;
+public abstract class BaseAP<V extends IVu> extends ActionBarActivity implements IPresenter<V> {
+
     protected V vu;
 
     @Override
@@ -27,16 +23,6 @@ public abstract class BaseActivityPresenter<V extends IVu> extends ActionBarActi
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
-    }
-
-    protected <E extends View> E $(int id){
-        return (E)findViewById(id);
-    }
-
-    protected void setToolBar(boolean backAble){
-        toolbar = $(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(backAble);
     }
 
     @Override

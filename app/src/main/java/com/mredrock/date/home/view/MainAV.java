@@ -1,31 +1,32 @@
 package com.mredrock.date.home.view;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
 
+import com.jude.view.jpagerview.JPagerView;
 import com.mredrock.date.R;
-import com.mredrock.date.home.presenter.IMainAV;
+import com.mredrock.date.config.BaseAV;
 
 /**
  * Created by Mr.Jude on 2015/4/21.
  */
-public class MainAV implements IMainAV {
-    private View root;
+public class MainAV extends BaseAV {
+    private JPagerView vpBanner;
 
     @Override
-    public void init(LayoutInflater inflater, ViewGroup container) {
-        root = inflater.inflate(R.layout.activity_main,null);
+    protected void OnCreate() {
+        setContentView(R.layout.activity_main);
+        vpBanner = $(R.id.vp_banner);
     }
 
     @Override
-    public View getView() {
-        return root;
+    protected void onToolBarInit(ActionBarActivity act, Toolbar toolbar) {
+        toolbar.setLogo(R.mipmap.ic_launcher);
+        act.getSupportActionBar().setDisplayHomeAsUpEnabled(false);
     }
 
-    @Override
-    public void sayHello() {
-        Toast.makeText(root.getContext(),"Hello World",Toast.LENGTH_SHORT).show();
+    public void SayHello(){
+        Toast.makeText(getContext(),"Hello World",Toast.LENGTH_SHORT);
     }
 }
