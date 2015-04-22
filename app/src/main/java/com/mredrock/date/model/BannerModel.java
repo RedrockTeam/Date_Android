@@ -8,10 +8,11 @@ import com.mredrock.date.widget.OnDataCallback;
  */
 public class BannerModel {
     private Banner[] banners = {
-            new Banner("http://imgsrc.baidu.com/forum/w%3D580/sign=804a6a5da9ec8a13141a57e8c7029157/e8abb7c27d1ed21bd9926057ad6eddc450da3fec.jpg",""),
-            new Banner("http://imgsrc.baidu.com/forum/w%3D580/sign=dd0e8796b31bb0518f24b320067bda77/edb4b51ea8d3fd1f354d298e304e251f94ca5ff9.jpg",""),
-            new Banner("http://imgsrc.baidu.com/forum/w%3D580/sign=c3cda9ccd11373f0f53f6f97940e4b8b/fbd1e31f3a292df5f2709da2bc315c6035a87390.jpg",""),
-            new Banner("http://image.baidu.com/detail/newindex?col=%E5%A3%81%E7%BA%B8&tag=%E5%85%A8%E9%83%A8&tag3=&filter=&hasstock=&dresstype=&dressid=-1&req=&pn=10&pid=9423310821&aid=372237473&setid=-1&user_id=850006430&sort=0&width=1366&height=768&fr=&from=1",""),
+            new Banner("http://i1.hdslb.com/promote/8ff6cd36c2ba313bf887ed9f2a4f2d6e.jpg",""),
+            new Banner("http://i1.hdslb.com/u_user/fd74d9f013a6696214adc19ddee5c475.jpg",""),
+            new Banner("http://i0.hdslb.com/promote/33061005a8517b7d499b6fe9fa936318.jpg",""),
+            new Banner("http://i0.hdslb.com/promote/d5fd393d56d42dce351399fa599068e8.jpg",""),
+            new Banner("http://i1.hdslb.com/promote/5c617e96261a509786b4e941b88ffc1f.jpg",""),
     };
 
     public Banner[] getBannerList(){

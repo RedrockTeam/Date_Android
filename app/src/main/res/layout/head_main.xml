@@ -9,7 +9,7 @@
         <com.jude.view.jpagerview.JPagerView
             android:id="@+id/jpv_banner"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="170dp"
             pager:hint_mode="point"
             pager:hint_alpha="0"
             pager:autoplay="3000"/>

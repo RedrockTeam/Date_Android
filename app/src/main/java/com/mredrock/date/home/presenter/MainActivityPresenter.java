@@ -4,6 +4,7 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.MenuItem;
+
 import com.malinskiy.superrecyclerview.OnMoreListener;
 import com.mredrock.date.app.BaseActivityPresenter;
 import com.mredrock.date.home.MainHeader;
@@ -13,6 +14,9 @@ import com.mredrock.date.model.bean.Appointment;
 import com.mredrock.date.util.Utils;
 import com.mredrock.date.widget.AppointmentArrayAdapter;
 import com.mredrock.date.widget.OnDataCallback;
+import com.umeng.message.PushAgent;
+import com.umeng.message.UmengRegistrar;
+import com.umeng.update.UmengUpdateAgent;
 
 /**
  * Created by zhuchenxi on 15/4/21.
@@ -43,6 +47,15 @@ public class MainActivityPresenter extends BaseActivityPresenter<MainActivityVu>
         vu.setOnRefreshListener(mRefreshListener);
         vu.setOnLoadMoreListener(onMoreListener);
         addAppointment(0);
+
+        initUmengFamily();
+    }
+
+    private void initUmengFamily(){
+        PushAgent mPushAgent = PushAgent.getInstance(this);
+        mPushAgent.enable();
+        UmengUpdateAgent.update(this);
+        Utils.Log(UmengRegistrar.getRegistrationId(this));
     }
 
 
