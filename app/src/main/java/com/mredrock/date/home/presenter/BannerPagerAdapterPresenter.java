@@ -5,12 +5,11 @@ import android.view.ViewGroup;
 
 import com.jude.view.jpagerview.JPagerAdapter;
 import com.mredrock.date.config.IPresenter;
-import com.mredrock.date.home.view.BannerPagerDV;
 
 /**
  * Created by Mr.Jude on 2015/4/22.
  */
-public class BannerPagerDP extends JPagerAdapter implements IPresenter<BannerPagerDV>{
+public class BannerPagerAdapterPresenter extends JPagerAdapter implements IPresenter<com.mredrock.date.home.view.BannerPagerAdapterPresenter>{
     @Override
     public View getView(ViewGroup container, int position) {
         return null;
@@ -22,8 +21,8 @@ public class BannerPagerDP extends JPagerAdapter implements IPresenter<BannerPag
     }
 
     @Override
-    public Class<BannerPagerDV> getVuClass() {
-        return BannerPagerDV.class;
+    public Class<com.mredrock.date.home.view.BannerPagerAdapterPresenter> getVuClass() {
+        return com.mredrock.date.home.view.BannerPagerAdapterPresenter.class;
     }
 
     @Override

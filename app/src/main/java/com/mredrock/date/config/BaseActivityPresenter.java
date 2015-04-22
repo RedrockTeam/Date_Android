@@ -6,7 +6,7 @@ import android.support.v7.app.ActionBarActivity;
 /**
  * Created by zhuchenxi on 15/4/21.
  */
-public abstract class BaseAP<V extends IVu> extends ActionBarActivity implements IPresenter<V> {
+public abstract class BaseActivityPresenter<V extends IVu> extends ActionBarActivity implements IPresenter<V> {
 
     protected V vu;
 

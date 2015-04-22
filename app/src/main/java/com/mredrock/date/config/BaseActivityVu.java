@@ -14,7 +14,7 @@ import com.mredrock.date.R;
 /**
  * Created by Mr.Jude on 2015/4/22.
  */
-public abstract class BaseAV implements IVu{
+public abstract class BaseActivityVu implements IVu{
     private Context context;
     private LayoutInflater inflater;
     private Toolbar toolbar;

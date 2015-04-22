@@ -6,12 +6,12 @@ import android.widget.Toast;
 
 import com.jude.view.jpagerview.JPagerView;
 import com.mredrock.date.R;
-import com.mredrock.date.config.BaseAV;
+import com.mredrock.date.config.BaseActivityVu;
 
 /**
  * Created by Mr.Jude on 2015/4/21.
  */
-public class MainAV extends BaseAV {
+public class MainActivityPresenter extends BaseActivityVu {
     private JPagerView vpBanner;
 
     @Override
