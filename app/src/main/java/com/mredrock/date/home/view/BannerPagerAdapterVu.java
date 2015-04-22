@@ -9,7 +9,7 @@ import com.mredrock.date.config.IVu;
 /**
  * Created by Mr.Jude on 2015/4/22.
  */
-public class BannerPagerAdapterPresenter implements IVu {
+public class BannerPagerAdapterVu implements IVu {
     @Override
     public void init(LayoutInflater inflater, ViewGroup container) {
 

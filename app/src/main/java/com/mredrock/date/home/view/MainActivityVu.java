@@ -11,7 +11,7 @@ import com.mredrock.date.config.BaseActivityVu;
 /**
  * Created by Mr.Jude on 2015/4/21.
  */
-public class MainActivityPresenter extends BaseActivityVu {
+public class MainActivityVu extends BaseActivityVu {
     private JPagerView vpBanner;
 
     @Override
