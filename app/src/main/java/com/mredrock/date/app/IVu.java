@@ -1,4 +1,4 @@
-package com.mredrock.date.config;
+package com.mredrock.date.app;
 
 import android.view.LayoutInflater;
 import android.view.View;

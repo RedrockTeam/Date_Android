@@ -2,7 +2,7 @@ package com.mredrock.date.home.presenter;
 
 import android.os.Bundle;
 
-import com.mredrock.date.config.BaseActivityPresenter;
+import com.mredrock.date.app.BaseActivityPresenter;
 import com.mredrock.date.home.view.MainActivityVu;
 
 /**
@@ -14,6 +14,7 @@ public class MainActivityPresenter extends BaseActivityPresenter<MainActivityVu>
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         vu.SayHello();
+        vu.setBannerAdapter(new BannerPagerAdapterPresenter());
     }
 
 

@@ -11,7 +11,8 @@
     <com.jude.view.jpagerview.JPagerView
         android:id="@+id/vp_banner"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="200dp"
         pager:hint_mode="point"
+        pager:hint_alpha="0"
         pager:autoplay="3000"/>
 </LinearLayout>
