@@ -9,9 +9,14 @@ import com.mredrock.date.util.Utils;
  * Created by Mr.Jude on 2015/4/22.
  */
 public class APP extends Application {
+    private static APP instance;
+    public APP getInstence(){
+        return instance;
+    }
     @Override
     public void onCreate() {
         super.onCreate();
+        instance = this;
         Utils.initialize(this,"DateTag","0");
         Fresco.initialize(this);
     }

@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">如期</string>
+    <string name="drawer_open">open</string>
+    <string name="drawer_close">close</string>
 
 
 </resources>

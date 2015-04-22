@@ -59,11 +59,9 @@ public class BannerPagerAdapterPresenter extends JStatePagerAdapter implements I
 
     @Override
     public void onBindVu() {
-
     }
 
     @Override
     public void onDestroyVu() {
-
     }
 }
