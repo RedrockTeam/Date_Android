@@ -24,7 +24,6 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
@@ -56,13 +55,13 @@ public class Utils {
 
 	private static Context mApplcationContent;
 
-	public static void initialize(Application app,String TAG,String outofdateKey){
+	public static void initialize(Application app,String TAG,String outOfDateKey){
 		mApplcationContent = app.getApplicationContext();
 		Utils.TAG = TAG;
-        if (!getPreference().getString("outofdateKey","NULL").equals(outofdateKey)){
+        if (!getPreference().getString("outOfDateKey","NULL").equals(outOfDateKey)){
             AppDataCleaner.cleanApplicationData(app);
         }
-        getPreference().edit().putString("outofdateKey",outofdateKey).commit();
+        getPreference().edit().putString("outOfDateKey",outOfDateKey).commit();
 	}
 
 	public static void Log(String TAG,String text){
@@ -84,11 +83,11 @@ public class Utils {
 	}
 
 	public static void Toast(String text){
-		android.widget.Toast.makeText(mApplcationContent, text, android.widget.Toast.LENGTH_SHORT).show();;
+            android.widget.Toast.makeText(mApplcationContent, text, android.widget.Toast.LENGTH_SHORT).show();
 	}
 
 	public static void ToastLong(String text){
-		android.widget.Toast.makeText(mApplcationContent, text, android.widget.Toast.LENGTH_LONG).show();;
+            android.widget.Toast.makeText(mApplcationContent, text, android.widget.Toast.LENGTH_LONG).show();
 	}
 
 
@@ -390,6 +389,7 @@ public class Utils {
         try {
             f.createNewFile();
         } catch (IOException e) {
+            Utils.Toast("File Error:"+e.getLocalizedMessage());
             e.printStackTrace();
         }
         return f;
@@ -449,7 +449,6 @@ public class Utils {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (Exception e) {
-            // TODO: handle exception
             e.printStackTrace();
         }finally {
             if (objectIn != null) {
@@ -463,7 +462,6 @@ public class Utils {
                 try {
                     fileIn.close();
                 } catch (IOException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
             }
@@ -480,35 +478,24 @@ public class Utils {
         public void onListItemClickBack(ListPopupWindow popwindow, View parent, int position);
     }
 
-    public static void showListPopupWindows(final View parent, final ListAdapter adapter, final PopupListener listener){
-        final ListPopupWindow listPopupWindow = new ListPopupWindow(parent.getContext());
-        listPopupWindow.setAnchorView(parent);
+    public static ListPopupWindow creatListPopupWindows(Context ctx,final ListAdapter adapter, final PopupListener listener){
+        final ListPopupWindow listPopupWindow = new ListPopupWindow(ctx);
         listPopupWindow.setModal(true);
         listener.onListenerPop(listPopupWindow);
-        parent.getViewTreeObserver().addOnGlobalLayoutListener(
-                new ViewTreeObserver.OnGlobalLayoutListener() {
-                    @Override
-                    public void onGlobalLayout() {
-                        listPopupWindow.setWidth(parent.getWidth());
-                        listPopupWindow.setHeight(ListPopupWindow.WRAP_CONTENT);
-                        parent.getViewTreeObserver()
-                                .removeGlobalOnLayoutListener(this);
-                    }
-                });
         listPopupWindow.setAdapter(adapter);
         listPopupWindow.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> parents, View view,
                                     int position, long id) {
-                listener.onListItemClickBack(listPopupWindow,parent,position);
+                listener.onListItemClickBack(listPopupWindow,view,position);
             }
         });
-        listPopupWindow.show();
+        return listPopupWindow;
     }
 
-    public static void showTextListPopupWindows(final View parent, final String[] list, final PopupListener listener){
-        showListPopupWindows(parent, new BaseAdapter() {
+    public static ListPopupWindow creatTextListPopupWindows(final Context ctx, final String[] list, final PopupListener listener){
+        return creatListPopupWindows(ctx, new BaseAdapter() {
             @Override
             public int getCount() {
                 return list.length;
@@ -594,5 +581,4 @@ public class Utils {
         }
         return sb.toString();
     }
-
 }
