@@ -5,6 +5,9 @@ import android.app.Application;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.mredrock.date.util.Utils;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * Created by Mr.Jude on 2015/4/22.
  */
