@@ -11,8 +11,6 @@ import android.view.ViewGroup;
 
 import com.mredrock.date.R;
 
-import java.util.LinkedList;
-
 /**
  * Created by Mr.Jude on 2015/4/22.
  */
@@ -30,12 +28,12 @@ public abstract class BaseActivityVu implements IVu{
     }
     protected abstract void onCreate();
 
-    protected final void setContentView(View view){
+    protected final void setView(View view){
         rootView = view;
         initToolbar();
     };
 
-    protected final void setContentView(@LayoutRes int res){
+    protected final void setView(@LayoutRes int res){
         rootView = inflater.inflate(res,null);
         initToolbar();
     };

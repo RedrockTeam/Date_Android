@@ -28,7 +28,7 @@ public class MainActivityVu extends BaseActivityVu {
 
     @Override
     protected void onCreate() {
-        setContentView(R.layout.activity_main);
+        setView(R.layout.activity_main);
         drawerLayout = $(R.id.drawerLayout);
         recyclerView = $(R.id.recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
