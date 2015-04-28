@@ -40,6 +40,11 @@ public class MainActivityPresenter extends BaseActivityPresenter<MainActivityVu>
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+    }
+
+    @Override
+    public void onBindVu() {
         vu.addDrawer(this, new DrawerFragmentPresenter());
         mAdapter = new AppointmentArrayAdapter(this);
         mAdapter.addHeader(new MainHeader());
