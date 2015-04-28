@@ -1,55 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white">
-    <LinearLayout
+    android:background="@android:color/white"
+    android:clickable="true">
+    <RelativeLayout
+        android:id="@+id/container_face"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:background="@color/colorPrimary"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginLeft="16dp"
-        android:gravity="center_vertical"
-        android:text="what a fuck"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginLeft="16dp"
-        android:gravity="center_vertical"
-        android:text="what a fuck"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginLeft="16dp"
-        android:gravity="center_vertical"
-        android:text="what a fuck"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginLeft="16dp"
-        android:gravity="center_vertical"
-        android:text="what a fuck"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginLeft="16dp"
-        android:gravity="center_vertical"
-        android:text="what a fuck"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginLeft="16dp"
-        android:gravity="center_vertical"
-        android:text="what a fuck"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginLeft="16dp"
-        android:gravity="center_vertical"
-        android:text="what a fuck"/>
+        android:layout_height="200dp"
+        android:orientation="vertical"
+        android:layout_marginBottom="8dp"
+        android:background="@color/colorPrimary">
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/face"
+                android:layout_margin="16dp"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                app:roundAsCircle="true"/>
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:textSize="18sp"
+            android:gravity="center_vertical"
+            android:paddingLeft="16dp"
+            android:textColor="@android:color/white"
+            android:text="大王叫我来巡山"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorPrimary"/>
 
+        <ImageView
+            android:id="@+id/dropdownimg"
+            android:layout_width="16dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_dropdown_white"
+            android:adjustViewBounds="true"
+            android:layout_marginRight="16dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/name"
+            android:layout_alignBottom="@+id/name"/>
+        <View
+            android:id="@+id/dropdownbtn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignBottom="@+id/dropdownimg"
+            android:layout_marginBottom="-8dp"/>
+
+    </RelativeLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="48dp">
+        <TextView
+            android:id="@+id/message"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:paddingLeft="16dp"
+            android:gravity="center_vertical"
+            android:textSize="16sp"
+            android:textColor="@color/blackSubhead"
+            android:text="我的消息"/>
+        <TextView
+            android:id="@+id/message_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:textColor="@android:color/white"
+            android:text="7"
+            android:layout_marginRight="12dp"
+            android:background="@drawable/bubble_red"/>
+        </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="48dp">
+        <TextView
+            android:id="@+id/record"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:paddingLeft="16dp"
+            android:gravity="center_vertical"
+            android:textSize="16sp"
+            android:textColor="@color/blackSubhead"
+            android:text="约会记录"/>
+        <TextView
+            android:id="@+id/attention_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12"
+            android:layout_marginRight="16dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="48dp">
+        <TextView
+            android:id="@+id/collection"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:paddingLeft="16dp"
+            android:gravity="center_vertical"
+            android:textSize="16sp"
+            android:textColor="@color/blackSubhead"
+            android:text="我的收藏"/>
+        <TextView
+            android:id="@+id/collection_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12"
+            android:layout_marginRight="16dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="48dp">
+        <TextView
+            android:id="@+id/information"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:paddingLeft="16dp"
+            android:gravity="center_vertical"
+            android:textSize="16sp"
+            android:textColor="@color/blackSubhead"
+            android:text="个人资料"/>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/setting"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:paddingLeft="16dp"
+        android:gravity="center_vertical"
+        android:textSize="16sp"
+        android:textColor="@color/blackSubhead"
+        android:text="设置"/>
 
 </LinearLayout>

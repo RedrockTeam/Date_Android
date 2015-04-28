@@ -52,7 +52,6 @@ public class MainActivityPresenter extends BaseActivityPresenter<MainActivityVu>
         vu.setOnRefreshListener(mRefreshListener);
         vu.setOnLoadMoreListener(onMoreListener);
         addAppointment(0);
-
         initUmengFamily();
     }
 

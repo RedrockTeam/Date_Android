@@ -4,4 +4,7 @@
     <string name="drawer_close">close</string>
     <string name="no_data">暂无数据</string>
     <string name="activity_feekback">意见反馈</string>
+    <string name="type_all">全部分类</string>
+    <string name="sort_default">默认排序</string>
+    <string name="time_all">全部时间</string>
 </resources>
