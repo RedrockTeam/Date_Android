@@ -48,10 +48,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".home.presenter.RecordActivityPresenter"
+            android:label="@string/activity_record">
+        </activity>
 
         <activity android:name=".setting.presenter.FeedbackActivity"
             android:label="@string/activity_feekback">
         </activity>
+
+
         <!--友盟意见反馈-->
         <activity
             android:name="com.umeng.fb.ConversationActivity"/>

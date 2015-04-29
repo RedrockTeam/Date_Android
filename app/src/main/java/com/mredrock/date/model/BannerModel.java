@@ -8,9 +8,9 @@ import com.mredrock.date.widget.OnDataCallback;
  */
 public class BannerModel {
     private Banner[] banners = {
-            new Banner("http://i1.hdslb.com/promote/8ff6cd36c2ba313bf887ed9f2a4f2d6e.jpg",""),
-            new Banner("http://i1.hdslb.com/u_user/fd74d9f013a6696214adc19ddee5c475.jpg",""),
-            new Banner("http://i0.hdslb.com/promote/33061005a8517b7d499b6fe9fa936318.jpg",""),
+            new Banner("http://i2.hdslb.com/u_user/f234ff0f3e1c0e15d98a788a42e25bdf.jpg",""),
+            new Banner("http://i1.hdslb.com/u_user/033f010d2be727e0bf59ab6c739b53b5.jpg",""),
+            new Banner("http://i0.hdslb.com/u_user/725b729fb00b3545c404ee6e619a6045.jpg",""),
             new Banner("http://i0.hdslb.com/promote/d5fd393d56d42dce351399fa599068e8.jpg",""),
             new Banner("http://i1.hdslb.com/promote/5c617e96261a509786b4e941b88ffc1f.jpg",""),
     };

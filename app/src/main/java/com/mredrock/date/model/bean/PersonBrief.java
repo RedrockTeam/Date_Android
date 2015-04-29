@@ -7,6 +7,15 @@ public class PersonBrief {
     private String face;
     private String name;
     private String sign;
+    private int grade;
+
+    public int getGrade() {
+        return grade;
+    }
+
+    public void setGrade(int grade) {
+        this.grade = grade;
+    }
 
     public String getFace() {
         return face;
@@ -32,10 +41,10 @@ public class PersonBrief {
         this.sign = sign;
     }
 
-    public PersonBrief(String face, String name, String sign) {
-
+    public PersonBrief(String face, String name, String sign, int grade) {
         this.face = face;
         this.name = name;
         this.sign = sign;
+        this.grade = grade;
     }
 }

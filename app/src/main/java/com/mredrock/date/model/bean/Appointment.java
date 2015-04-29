@@ -4,15 +4,26 @@ package com.mredrock.date.model.bean;
  * Created by Mr.Jude on 2015/4/22.
  */
 public class Appointment {
+
+    private int type;
     private String title;
     private String address;
-    private String date;
+    private long date;
     private String cost;
     private String grade;
-    private String gender;
+    private int gender;
     private String college;
-    private String count;
+    private int count;
     private long  releaseTime;
+    private PersonBrief author;
+
+    public PersonBrief getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(PersonBrief author) {
+        this.author = author;
+    }
 
     public String getTitle() {
         return title;
@@ -30,11 +41,11 @@ public class Appointment {
         this.address = address;
     }
 
-    public String getDate() {
+    public long getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(long date) {
         this.date = date;
     }
 
@@ -54,11 +65,11 @@ public class Appointment {
         this.grade = grade;
     }
 
-    public String getGender() {
+    public int getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(int gender) {
         this.gender = gender;
     }
 
@@ -70,11 +81,11 @@ public class Appointment {
         this.college = college;
     }
 
-    public String getCount() {
+    public int getCount() {
         return count;
     }
 
-    public void setCount(String count) {
+    public void setCount(int count) {
         this.count = count;
     }
 
@@ -85,9 +96,16 @@ public class Appointment {
     public void setReleaseTime(long releaseTime) {
         this.releaseTime = releaseTime;
     }
+    public int getType() {
+        return type;
+    }
 
-    public Appointment(String title, String address, String date, String cost, String grade, String gender, String college, String count, long releaseTime) {
+    public void setType(int type) {
+        this.type = type;
+    }
 
+    public Appointment(PersonBrief author,String title, String address, long date, String cost, String grade, int gender, String college, int count, long releaseTime) {
+        this.author = author;
         this.title = title;
         this.address = address;
         this.date = date;

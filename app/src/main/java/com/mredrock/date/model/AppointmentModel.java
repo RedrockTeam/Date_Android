@@ -3,6 +3,7 @@ package com.mredrock.date.model;
 import android.os.Handler;
 
 import com.mredrock.date.model.bean.Appointment;
+import com.mredrock.date.model.bean.PersonBrief;
 import com.mredrock.date.widget.OnDataCallback;
 
 
@@ -25,18 +26,18 @@ public class AppointmentModel {
                     @Override
                     public void run() {
                         callback.callback(new Appointment[]{
-                                new Appointment(),
-                                new Appointment(),
-                                new Appointment(),
-                                new Appointment(),
-                                new Appointment(),
-                                new Appointment(),
-                                new Appointment(),
-                                new Appointment(),
-                                new Appointment(),
-                                new Appointment(),
-                                new Appointment(),
-                                new Appointment(),
+                                new Appointment(new PersonBrief("http://i0.hdslb.com/user/2168/216844/myface.jpg","王尼玛","王尼玛我要给你生猴子",0),"挺进大别山","大别山",1430452800,"888元","大一",0,"不限",8,1429675200),
+                                new Appointment(new PersonBrief("http://i0.hdslb.com/user/1228/122879/myface.jpg","赵日天","我的名字叫赵日天",1),"飞跃疯人院","疯人院",1430452800,"80元包吃住","不限",0,"不限",8,1430175600),
+                                new Appointment(new PersonBrief("http://i0.hdslb.com/user/2168/216844/myface.jpg","王尼玛","王尼玛我要给你生猴子",0),"挺进大别山","大别山",1430452800,"888元","大一",0,"不限",8,1430118000),
+                                new Appointment(new PersonBrief("http://i0.hdslb.com/user/1228/122879/myface.jpg","赵日天","我的名字叫赵日天",1),"飞跃疯人院","疯人院",1430452800,"80元包吃住","不限",0,"不限",8,1430362800),
+                                new Appointment(new PersonBrief("http://i0.hdslb.com/user/2168/216844/myface.jpg","王尼玛","王尼玛我要给你生猴子",0),"挺进大别山","大别山",1430452800,"888元","大一",0,"不限",8,1429675200),
+                                new Appointment(new PersonBrief("http://i0.hdslb.com/user/2168/216844/myface.jpg","王尼玛","王尼玛我要给你生猴子",0),"挺进大别山","大别山",1430452800,"888元","大一",0,"不限",8,1429675200),
+                                new Appointment(new PersonBrief("http://i0.hdslb.com/user/1228/122879/myface.jpg","赵日天","我的名字叫赵日天",1),"飞跃疯人院","疯人院",1430452800,"80元包吃住","不限",0,"不限",8,1430175600),
+                                new Appointment(new PersonBrief("http://i0.hdslb.com/user/2168/216844/myface.jpg","王尼玛","王尼玛我要给你生猴子",0),"挺进大别山","大别山",1430452800,"888元","大一",0,"不限",8,1429675200),
+                                new Appointment(new PersonBrief("http://i0.hdslb.com/user/1228/122879/myface.jpg","赵日天","我的名字叫赵日天",1),"飞跃疯人院","疯人院",1430452800,"80元包吃住","不限",0,"不限",8,1430175600),
+                                new Appointment(new PersonBrief("http://i0.hdslb.com/user/2168/216844/myface.jpg","王尼玛","王尼玛我要给你生猴子",0),"挺进大别山","大别山",1430452800,"888元","大一",0,"不限",8,1429675200),
+                                new Appointment(new PersonBrief("http://i0.hdslb.com/user/2168/216844/myface.jpg","王尼玛","王尼玛我要给你生猴子",0),"挺进大别山","大别山",1430452800,"888元","大一",0,"不限",8,1429675200),
+                                new Appointment(new PersonBrief("http://i0.hdslb.com/user/2168/216844/myface.jpg","王尼玛","王尼玛我要给你生猴子",0),"挺进大别山","大别山",1430452800,"888元","大一",0,"不限",8,1429675200),
                         });
                     }
                 });
