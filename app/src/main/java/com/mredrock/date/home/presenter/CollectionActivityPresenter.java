@@ -1,15 +1,15 @@
 package com.mredrock.date.home.presenter;
 
 import com.mredrock.date.app.BaseActivityPresenter;
-import com.mredrock.date.home.view.RecordActivityVu;
+import com.mredrock.date.home.view.CollectionActivityVu;
 import com.mredrock.date.model.AppointmentModel;
 import com.mredrock.date.model.bean.Appointment;
 import com.mredrock.date.widget.OnDataCallback;
 
 /**
- * Created by Mr.Jude on 2015/4/29.
+ * Created by zhuchenxi on 15/4/29.
  */
-public class RecordActivityPresenter extends BaseActivityPresenter<RecordActivityVu> {
+public class CollectionActivityPresenter extends BaseActivityPresenter<CollectionActivityVu> {
     private AppointmentModel mAppointmentModel = new AppointmentModel();
     @Override
     public void onBindVu() {
@@ -22,8 +22,9 @@ public class RecordActivityPresenter extends BaseActivityPresenter<RecordActivit
 
     }
 
+
     @Override
-    public Class<RecordActivityVu> getVuClass() {
-        return RecordActivityVu.class;
+    public Class<CollectionActivityVu> getVuClass() {
+        return CollectionActivityVu.class;
     }
 }

@@ -1,6 +1,7 @@
 package com.mredrock.date.home.view;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,9 @@ import android.widget.TextView;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.mredrock.date.R;
 import com.mredrock.date.app.IVu;
+import com.mredrock.date.home.presenter.CollectionActivityPresenter;
+import com.mredrock.date.home.presenter.RecordActivityPresenter;
+import com.mredrock.date.letter.presenter.LetterActivityPresenter;
 import com.mredrock.date.model.bean.PersonBrief;
 import com.mredrock.date.util.Utils;
 
@@ -96,10 +100,13 @@ public class DrawerFragmentVu implements IVu ,View.OnClickListener{
                 pop.show();
                 break;
             case R.id.record:
+                ctx.startActivity(new Intent(ctx, RecordActivityPresenter.class));
                 break;
             case R.id.collection:
+                ctx.startActivity(new Intent(ctx, CollectionActivityPresenter.class));
                 break;
             case R.id.message:
+                ctx.startActivity(new Intent(ctx, LetterActivityPresenter.class));
                 break;
             case R.id.setting:
                 break;

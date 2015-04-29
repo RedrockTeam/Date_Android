@@ -51,6 +51,9 @@
         <activity android:name=".home.presenter.RecordActivityPresenter"
             android:label="@string/activity_record">
         </activity>
+        <activity android:name=".home.presenter.CollectionActivityPresenter"
+            android:label="@string/activity_collection">
+        </activity>
 
         <activity android:name=".setting.presenter.FeedbackActivity"
             android:label="@string/activity_feekback">

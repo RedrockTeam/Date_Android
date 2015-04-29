@@ -100,4 +100,9 @@
                 android:src="@drawable/ic_dropdown"/>
         </LinearLayout>
     </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_gravity="bottom"
+        android:background="@drawable/bottom_shadow"/>
 </LinearLayout>
