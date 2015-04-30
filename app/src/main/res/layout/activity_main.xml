@@ -1,5 +1,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:ptr="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -9,16 +10,29 @@
         android:id="@+id/drawerLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <LinearLayout
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
             <include
                 layout="@layout/include_toolbar"
                 />
-            <include layout="@layout/include_recyclerview"/>
+            <include
+                layout="@layout/include_recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="56dp"/>
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                ptr:fab_icon="@drawable/ic_edit"
+                ptr:fab_colorNormal="@color/colorAccent"
+                ptr:fab_colorPressed="@color/colorAccentDark"
+                android:layout_margin="16dp"
+                android:layout_gravity="bottom|right"/>
 
-            </LinearLayout>
+        </FrameLayout>
 
 
         <FrameLayout
@@ -29,6 +43,7 @@
             android:layout_gravity="left" />
 
         </android.support.v4.widget.DrawerLayout>
+
 
 
 </LinearLayout>

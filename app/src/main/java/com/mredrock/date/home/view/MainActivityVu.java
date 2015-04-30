@@ -1,5 +1,6 @@
 package com.mredrock.date.home.view;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -11,11 +12,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.malinskiy.superrecyclerview.OnMoreListener;
 import com.malinskiy.superrecyclerview.SuperRecyclerView;
 import com.mredrock.date.R;
 import com.mredrock.date.app.BaseActivityVu;
 import com.mredrock.date.home.presenter.DrawerFragmentPresenter;
+import com.mredrock.date.home.presenter.EditActivityPresent;
 import com.mredrock.date.util.Utils;
 
 /**
@@ -25,12 +28,19 @@ public class MainActivityVu extends BaseActivityVu {
     private SuperRecyclerView recyclerView;
     private ActionBarDrawerToggle mDrawerToggle;
     private DrawerLayout drawerLayout;
-
+    private FloatingActionButton fab;
     @Override
     protected void onCreate() {
         setView(R.layout.activity_main);
         drawerLayout = $(R.id.drawerLayout);
         recyclerView = $(R.id.recyclerview);
+        fab = $(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getContext().startActivity(new Intent(getContext(), EditActivityPresent.class));
+            }
+        });
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
     }
 

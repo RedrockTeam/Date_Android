@@ -7,10 +7,16 @@
     <color name="pitchDark">#322E28</color>
     <color name="dark">#000000</color>
     <color name="red">#ff0000</color>
+    <color name="redDark">#c10101</color>
+    <color name="grayLight">#EEEFF0</color>
+    <color name="white">#ffffff</color>
+
 
     <color name="colorPrimary">@color/pitchDark</color>
     <color name="colorPrimaryDark">@color/dark</color>
     <color name="colorAccent">@color/red</color>
+    <color name="colorAccentDark">@color/redDark</color>
 
-    <color name="blackSubhead">#86000000</color>
+    <color name="blackSubhead">#D9000000</color>
+    <color name="blackHint">#4D000000</color>
 </resources>

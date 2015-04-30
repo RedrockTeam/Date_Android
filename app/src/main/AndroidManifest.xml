@@ -58,7 +58,9 @@
         <activity android:name=".setting.presenter.FeedbackActivity"
             android:label="@string/activity_feekback">
         </activity>
-
+        <activity android:name=".home.presenter.EditActivityPresent"
+            android:label="@string/activity_edit">
+        </activity>
 
         <!--友盟意见反馈-->
         <activity
