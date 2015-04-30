@@ -29,8 +29,13 @@ public abstract class JStatePagerAdapter extends PagerAdapter {
             itemView = getView(container,position);
             container.addView(itemView);
         }
+        onBind(itemView,position);
 		return itemView;
 	}
+
+    public void onBind(View view,int position){
+    }
+
 	public abstract View getView(ViewGroup container, int position);
 
 }
