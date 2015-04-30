@@ -21,9 +21,12 @@ public class CollectionActivityVu extends BaseActivityVu {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mAdapter = new AppointmentArrayAdapter(getContext());
         mRecyclerView.setAdapter(mAdapter);
+        mRecyclerView.showProgress();
     }
 
     public void setAppointment(Appointment[] appointments){
+        mRecyclerView.hideProgress();
+        mRecyclerView.showRecycler();
         mAdapter.addAll(appointments);
     }
 

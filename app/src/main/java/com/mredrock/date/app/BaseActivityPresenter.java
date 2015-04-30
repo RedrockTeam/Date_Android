@@ -2,6 +2,7 @@ package com.mredrock.date.app;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.view.MenuItem;
 
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.message.PushAgent;
@@ -44,6 +45,14 @@ public abstract class BaseActivityPresenter<V extends IVu> extends ActionBarActi
         onDestroyVu();
         vu = null;
         super.onDestroy();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home){
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     public void onBindVu(){};
