@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="style">
+        <item>类型一</item>
+        <item>类型二</item>
+        <item>类型三</item>
+        <item>类型四</item>
+        <item>类型五</item>
+        <item>类型六</item>
+        <item>类型七</item>
+        <item>类型八</item>
+    </array>
+    <array name="gender">
+        <item>不限</item>
+        <item>男</item>
+        <item>女</item>
+    </array>
+    <array name="grade">
+        <item>不限</item>
+        <item>大一</item>
+        <item>大二</item>
+        <item>大三</item>
+        <item>大四</item>
+    </array>
+    <array name="college">
+        <item>不限</item>
+        <item>计算机</item>
+        <item>通信</item>
+        <item>软件</item>
+        <item>传媒</item>
+        <item>自动化</item>
+        <item>光电</item>
+    </array>
+    <array name="cost">
+        <item>AA制</item>
+        <item>我请客</item>
+        <item>你掏钱</item>
+    </array>
+</resources>
