@@ -1,9 +1,5 @@
 package com.jude.view.jpagerview;
 
-import java.lang.reflect.Field;
-import java.util.Timer;
-import java.util.TimerTask;
-import com.jude.jpagerview.R;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
@@ -14,10 +10,17 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.widget.RelativeLayout;
 import android.widget.Scroller;
+
+import com.jude.jpagerview.R;
+
+import java.lang.reflect.Field;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * 支持轮播和提示的的viewpager
@@ -26,7 +29,7 @@ public class JPagerView extends RelativeLayout implements OnPageChangeListener{
 
 	private ViewPager mViewPager;
 	private PagerAdapter mAdapter;
-	
+	private boolean mTouched = false;
 	//播放延迟
 	private int delay;
 	
@@ -88,6 +91,7 @@ public class JPagerView extends RelativeLayout implements OnPageChangeListener{
 
 			@Override
 			public void run() {
+                if (isShown()&&!mTouched)
 				new Handler(Looper.getMainLooper()).post(new Runnable() {
 
 					@Override
@@ -208,7 +212,18 @@ public class JPagerView extends RelativeLayout implements OnPageChangeListener{
 		startPlay();
 	}
 
-	@Override
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        if (ev.getAction() == MotionEvent.ACTION_DOWN){
+            mTouched = true;
+        }
+        if (ev.getAction() == MotionEvent.ACTION_UP){
+            mTouched = false;
+        }
+        return super.dispatchTouchEvent(ev);
+    }
+
+    @Override
 	public void onPageScrollStateChanged(int arg0) {
 		// TODO Auto-generated method stub
 
