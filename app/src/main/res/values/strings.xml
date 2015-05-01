@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">约吧</string>
+    <string name="app_name">约</string>
     <string name="drawer_open">open</string>
     <string name="drawer_close">close</string>
     <string name="no_data">暂无数据</string>
@@ -10,4 +10,5 @@
     <string name="activity_record">约会记录</string>
     <string name="activity_collection">我的收藏</string>
     <string name="activity_edit">发布约会</string>
+    <string name="edit_send">发布</string>
 </resources>
