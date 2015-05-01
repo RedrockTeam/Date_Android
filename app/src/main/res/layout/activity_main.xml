@@ -22,15 +22,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="56dp"/>
-            <com.getbase.floatingactionbutton.FloatingActionButton
-                android:id="@+id/fab"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                ptr:fab_icon="@drawable/ic_edit"
-                ptr:fab_colorNormal="@color/colorAccent"
-                ptr:fab_colorPressed="@color/colorAccentDark"
-                android:layout_margin="16dp"
-                android:layout_gravity="bottom|right"/>
 
         </FrameLayout>
 

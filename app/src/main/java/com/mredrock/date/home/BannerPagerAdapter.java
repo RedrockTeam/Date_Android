@@ -32,7 +32,7 @@ public class BannerPagerAdapter extends JStatePagerAdapter {
     public View getView(final ViewGroup container, final int position) {
         SimpleDraweeView view = new SimpleDraweeView(container.getContext());
         view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        view.setImageURI(Uri.parse(model.getBanner(position).getImg()));
+        //view.setImageURI(Uri.parse(model.getBanner(position).getImg()));
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

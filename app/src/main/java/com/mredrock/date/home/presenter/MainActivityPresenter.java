@@ -1,11 +1,14 @@
 package com.mredrock.date.home.presenter;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.view.Menu;
 import android.view.MenuItem;
 
 import com.malinskiy.superrecyclerview.OnMoreListener;
+import com.mredrock.date.R;
 import com.mredrock.date.app.BaseActivityPresenter;
 import com.mredrock.date.home.MainHeader;
 import com.mredrock.date.home.view.MainActivityVu;
@@ -34,7 +37,6 @@ public class MainActivityPresenter extends BaseActivityPresenter<MainActivityVu>
         @Override
         public void onMoreAsked(int i, int i1, int i2) {
             addAppointment(mAdapter.getPage());
-            Utils.Log("i:"+i+"  i1:"+i1 +"  i2:"+i2);
         }
     };
     @Override
@@ -75,6 +77,12 @@ public class MainActivityPresenter extends BaseActivityPresenter<MainActivityVu>
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main,menu);
+        return true;
+    }
+
+    @Override
     public Class<MainActivityVu> getVuClass() {
         return MainActivityVu.class;
     }
@@ -82,6 +90,10 @@ public class MainActivityPresenter extends BaseActivityPresenter<MainActivityVu>
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (vu.onDrawerToggleSelected(item)){
+            return true;
+        }
+        if (item.getItemId() == R.id.add){
+            startActivity(new Intent(this,EditActivityPresent.class));
             return true;
         }
         return super.onOptionsItemSelected(item);
