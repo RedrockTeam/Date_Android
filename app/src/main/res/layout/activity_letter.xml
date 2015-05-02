@@ -20,14 +20,6 @@
 
             </LinearLayout>
 
-
-        <FrameLayout
-            android:id="@+id/drawer"
-            android:tag="personal_drawer"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="left" />
-
         </android.support.v4.widget.DrawerLayout>
 
 

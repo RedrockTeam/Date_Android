@@ -64,7 +64,7 @@ public class DrawerFragmentVu implements IVu ,View.OnClickListener{
                 pop.dismiss();
                 switch (position){
                     case 0:
-                        //ctx.startActivity(new Intent(ctx, PersonFaceEditActivity.class));
+                        ctx.startActivity(new Intent(ctx, LetterActivityPresenter.class));
                         break;
                     case 1:
                         //ctx.startActivity(new Intent(ctx, PersonNameEditActivity.class));

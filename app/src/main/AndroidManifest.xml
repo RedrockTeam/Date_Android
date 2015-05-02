@@ -29,19 +29,19 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <meta-data
-            android:value="5537a3f8e0f55ae07b0025c6"
-            android:name="UMENG_APPKEY"/>
+            android:name="UMENG_APPKEY"
+            android:value="5537a3f8e0f55ae07b0025c6"/>
         <meta-data
-            android:value="Channel ID"
-            android:name="UMENG_CHANNEL"/>
+            android:name="UMENG_CHANNEL"
+            android:value="Channel ID"/>
         <meta-data
             android:name="UMENG_MESSAGE_SECRET"
             android:value="fdaa1877573be3a627b986a7c8634cb8" />
 
 
         <activity android:name=".home.presenter.MainActivityPresenter"
-            android:label="@string/app_name"
             android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -60,6 +60,9 @@
         </activity>
         <activity android:name=".home.presenter.EditActivityPresent"
             android:label="@string/activity_edit">
+        </activity>
+        <activity android:name=".letter.presenter.LetterActivityPresenter"
+            android:label="@string/activity_letter">
         </activity>
 
         <!--友盟意见反馈-->
@@ -123,8 +126,8 @@
 
         <service
             android:name="com.umeng.message.UmengService"
-            android:label="PushService"
             android:exported="true"
+            android:label="PushService"
             android:process=":push" >
 
             <intent-filter>
