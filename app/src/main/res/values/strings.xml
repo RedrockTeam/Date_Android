@@ -10,6 +10,12 @@
     <string name="activity_record">约会记录</string>
     <string name="activity_collection">我的收藏</string>
     <string name="activity_edit">发布约会</string>
-    <string name="edit_send">发布</string>
     <string name="activity_letter">私信</string>
+    <string name="edit_send">发布</string>
+    <string name="edit_title_style">选择约会类别</string>
+    <string name="ok">确定</string>
+    <string name="edit_title_gender">选择对方性别</string>
+    <string name="edit_title_grade">选择对方年龄</string>
+    <string name="edit_title_college">选择对方学院</string>
+    <string name="edit_title_cost">选择消费方式</string>
 </resources>
