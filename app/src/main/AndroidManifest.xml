@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mredrock.date" >
+    package="com.mredrock.date">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -27,64 +28,63 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="5537a3f8e0f55ae07b0025c6"/>
+            android:value="5537a3f8e0f55ae07b0025c6" />
         <meta-data
             android:name="UMENG_CHANNEL"
-            android:value="Channel ID"/>
+            android:value="Channel ID" />
         <meta-data
             android:name="UMENG_MESSAGE_SECRET"
             android:value="fdaa1877573be3a627b986a7c8634cb8" />
 
 
-        <activity android:name=".home.presenter.MainActivityPresenter"
+        <activity
+            android:name=".home.presenter.MainActivityPresenter"
             android:icon="@mipmap/ic_launcher"
-            android:label="@string/app_name"
-            >
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".home.presenter.RecordActivityPresenter"
-            android:label="@string/activity_record">
-        </activity>
-        <activity android:name=".home.presenter.CollectionActivityPresenter"
-            android:label="@string/activity_collection">
-        </activity>
+        <activity
+            android:name=".home.presenter.RecordActivityPresenter"
+            android:label="@string/activity_record"></activity>
+        <activity
+            android:name=".home.presenter.CollectionActivityPresenter"
+            android:label="@string/activity_collection"></activity>
 
-        <activity android:name=".setting.presenter.FeedbackActivity"
-            android:label="@string/activity_feekback">
-        </activity>
-        <activity android:name=".home.presenter.EditActivityPresent"
-            android:label="@string/activity_edit">
-        </activity>
-        <activity android:name=".letter.presenter.LetterActivityPresenter"
-            android:label="@string/activity_letter">
-        </activity>
+        <activity
+            android:name=".setting.presenter.FeedbackActivity"
+            android:label="@string/activity_feekback"></activity>
+        <activity
+            android:name=".home.presenter.EditActivityPresent"
+            android:label="@string/activity_edit"></activity>
+        <activity
+            android:name=".letter.presenter.LetterActivityPresenter"
+            android:label="@string/activity_letter"></activity>
+        <activity
+            android:name=".detail.presenter.DetailActivityPresenter"
+            android:label="约会详"></activity>
 
         <!--友盟意见反馈-->
-        <activity
-            android:name="com.umeng.fb.ConversationActivity"/>
+        <activity android:name="com.umeng.fb.ConversationActivity" />
         <!--友盟自动更新-->
         <service
             android:name="com.umeng.update.net.DownloadingService"
-            android:process=":DownloadingService" >
-        </service>
+            android:process=":DownloadingService"></service>
         <activity
             android:name="com.umeng.update.UpdateDialogActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
-        </activity>
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"></activity>
         <!--友盟推送-->
         <receiver
             android:name="com.umeng.message.NotificationProxyBroadcastReceiver"
-            android:exported="false" >
-        </receiver>
+            android:exported="false"></receiver>
         <receiver
             android:name="com.umeng.message.SystemReceiver"
-            android:process=":push" >
+            android:process=":push">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
@@ -98,14 +98,14 @@
         </receiver>
         <receiver
             android:name="com.umeng.message.MessageReceiver"
-            android:process=":push" >
+            android:process=":push">
             <intent-filter>
                 <action android:name="org.agoo.android.intent.action.RECEIVE" />
             </intent-filter>
         </receiver>
         <receiver
             android:name="com.umeng.message.ElectionReceiver"
-            android:process=":push" >
+            android:process=":push">
             <intent-filter>
                 <action android:name="org.agoo.android.intent.action.ELECTION_RESULT_V4" />
                 <category android:name="umeng" />
@@ -113,12 +113,12 @@
         </receiver>
         <receiver
             android:name="com.umeng.message.RegistrationReceiver"
-            android:exported="false" >
+            android:exported="false">
             <intent-filter>
                 <action android:name="com.mredrock.date.intent.action.COMMAND" />
             </intent-filter>
         </receiver>
-        <receiver android:name="com.umeng.message.BootBroadcastReceiver" >
+        <receiver android:name="com.umeng.message.BootBroadcastReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
@@ -128,7 +128,7 @@
             android:name="com.umeng.message.UmengService"
             android:exported="true"
             android:label="PushService"
-            android:process=":push" >
+            android:process=":push">
 
             <intent-filter>
                 <action android:name="com.mredrock.date.intent.action.START" />

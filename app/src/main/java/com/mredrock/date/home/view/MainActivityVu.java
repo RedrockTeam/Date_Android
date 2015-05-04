@@ -25,8 +25,6 @@ public class MainActivityVu extends BaseActivityVu {
     private SuperRecyclerView recyclerView;
     private ActionBarDrawerToggle mDrawerToggle;
     private DrawerLayout drawerLayout;
-
-
     @Override
     protected void onCreate() {
         setView(R.layout.activity_main);
@@ -51,8 +49,6 @@ public class MainActivityVu extends BaseActivityVu {
         recyclerView.hideMoreProgress();
         recyclerView.hideProgress();
     }
-
-
 
     public void addDrawer(final ActionBarActivity act,DrawerFragmentPresenter presenter){
         mDrawerToggle = new ActionBarDrawerToggle(act, drawerLayout, getToolbar(), R.string.drawer_open, R.string.drawer_close){
