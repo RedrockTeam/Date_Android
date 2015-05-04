@@ -11,6 +11,7 @@
     <string name="activity_collection">我的收藏</string>
     <string name="activity_edit">发布约会</string>
     <string name="activity_letter">私信</string>
+    <string name="activity_detail">约会详情</string>
     <string name="edit_send">发布</string>
     <string name="edit_title_style">选择约会类别</string>
     <string name="ok">确定</string>

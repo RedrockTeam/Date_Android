@@ -12,10 +12,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.gson.Gson;
 import com.malinskiy.superrecyclerview.OnMoreListener;
 import com.malinskiy.superrecyclerview.SuperRecyclerView;
 import com.mredrock.date.R;
 import com.mredrock.date.app.BaseActivityVu;
+import com.mredrock.date.config.C;
 import com.mredrock.date.detail.presenter.DetailActivityPresenter;
 import com.mredrock.date.home.presenter.DrawerFragmentPresenter;
 import com.mredrock.date.util.Utils;
@@ -110,7 +112,9 @@ public class MainActivityVu extends BaseActivityVu implements RecyclerArrayAdapt
 
     @Override
     public void onItemClick(View v, int position) {
-        context.startActivity(new Intent(context, DetailActivityPresenter.class));
-        adapter.getItem(position);
+        Intent intent = new Intent();
+        intent.setClass(context, DetailActivityPresenter.class);
+        intent.putExtra(C.DETAIL_TAG, new Gson().toJson(adapter.getItem(position)));
+        context.startActivity(intent);
     }
 }

@@ -67,7 +67,7 @@
             android:label="@string/activity_letter"></activity>
         <activity
             android:name=".detail.presenter.DetailActivityPresenter"
-            android:label="约会详"></activity>
+            android:label="@string/activity_detail"></activity>
 
         <!--友盟意见反馈-->
         <activity android:name="com.umeng.fb.ConversationActivity" />
