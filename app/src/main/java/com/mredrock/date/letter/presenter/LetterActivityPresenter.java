@@ -1,9 +1,11 @@
 package com.mredrock.date.letter.presenter;
 
 import android.content.Context;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
+import com.malinskiy.superrecyclerview.OnMoreListener;
 import com.mredrock.date.app.BaseActivityPresenter;
 import com.mredrock.date.letter.view.LetterActivityVu;
 import com.mredrock.date.letter.view.LetterViewHolder;
@@ -16,7 +18,8 @@ import com.mredrock.date.widget.RecyclerArrayAdapter;
  */
 public class LetterActivityPresenter extends BaseActivityPresenter<LetterActivityVu>{
     private RecyclerView.Adapter letterAdapter;
-
+    private SwipeRefreshLayout.OnRefreshListener refreshListener;
+    private OnMoreListener onMoreListener;
 
     @Override
     public Class<LetterActivityVu> getVuClass() {
@@ -25,8 +28,26 @@ public class LetterActivityPresenter extends BaseActivityPresenter<LetterActivit
 
     @Override
     public void onBindVu() {
-        //TODO 这里做View的初始化操作，如准备数据，设置adapter，设置下拉刷新上拉加载状态等等与vu相关的操作
+        initData();
+        vu.setLetterAdapter(letterAdapter);
+        vu.setRefreshListener(refreshListener);
+        vu.setOnMoreListener(onMoreListener);
+    }
 
+    private void initData() {
+        letterAdapter = new LetterAdapter(this);
+        refreshListener = new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+
+            }
+        };
+        onMoreListener = new OnMoreListener() {
+            @Override
+            public void onMoreAsked(int i, int i2, int i3) {
+
+            }
+        };
     }
 
 
