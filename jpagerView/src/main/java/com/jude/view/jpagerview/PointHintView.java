@@ -27,6 +27,7 @@ public class PointHintView extends LinearLayout implements HintView {
 
 	@Override
 	public void initView(int length, int gravity) {
+        removeAllViews();
 		setOrientation(HORIZONTAL);
 		switch (gravity) {
 		case 0:
