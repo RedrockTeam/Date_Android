@@ -1,13 +1,11 @@
 package com.mredrock.date.home.view;
 
-import android.content.res.Configuration;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -51,23 +49,7 @@ public class MainActivityVu extends BaseActivityVu {
     }
 
     public void addDrawer(final ActionBarActivity act,DrawerFragmentPresenter presenter){
-        mDrawerToggle = new ActionBarDrawerToggle(act, drawerLayout, getToolbar(), R.string.drawer_open, R.string.drawer_close){
-
-            /** Called when a drawer has settled in a completely closed state. */
-            public void onDrawerClosed(View view)
-            {
-                act.invalidateOptionsMenu(); // creates call to
-                // onPrepareOptionsMenu()
-            }
-
-            /** Called when a drawer has settled in a completely open state. */
-            public void onDrawerOpened(View drawerView)
-            {
-
-                act.invalidateOptionsMenu(); // creates call to
-                // onPrepareOptionsMenu()
-            }
-        };
+        mDrawerToggle = new ActionBarDrawerToggle(act, drawerLayout, getToolbar(), R.string.drawer_open, R.string.drawer_close);
         drawerLayout.setDrawerListener(mDrawerToggle);
         drawerLayout.post(new Runnable() {
             @Override
@@ -85,23 +67,4 @@ public class MainActivityVu extends BaseActivityVu {
         act.getSupportFragmentManager().beginTransaction().add(R.id.drawer,presenter,"drawer").commit();
     }
 
-
-    public boolean onDrawerToggleSelected(MenuItem item){
-        if (mDrawerToggle.onOptionsItemSelected(item)){
-            return true;
-        }
-        return false;
-    }
-
-    public void onPostCreate()
-    {
-        mDrawerToggle.syncState();
-    }
-
-
-    public void onConfigurationChanged(Configuration newConfig)
-    {
-        mDrawerToggle.onConfigurationChanged(newConfig);
-
-    }
 }
