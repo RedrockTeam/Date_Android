@@ -66,6 +66,9 @@
             android:name=".letter.presenter.LetterActivityPresenter"
             android:label="@string/activity_letter"></activity>
         <activity
+            android:name=".letter.presenter.LetterDetailActivityPresenter"
+            android:label="@string/activity_letter_detail"></activity>
+        <activity
             android:name=".detail.presenter.DetailActivityPresenter"
             android:label="@string/activity_detail"></activity>
 

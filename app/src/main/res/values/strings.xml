@@ -19,4 +19,5 @@
     <string name="edit_title_grade">选择对方年龄</string>
     <string name="edit_title_college">选择对方学院</string>
     <string name="edit_title_cost">选择消费方式</string>
+    <string name="activity_letter_detail">私信详情</string>
 </resources>
