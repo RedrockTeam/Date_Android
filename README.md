@@ -42,3 +42,21 @@
        >例如：include_head.xml、include_bottom.xml
 
 	
+##API
+*   私信模块
+
+        {
+            state : 200,
+            info : "请求成功",
+            data : {
+                "user_id" : 123,
+                "user_name" : "Lecion",
+                "user_signature" : "个性签名",
+                "user_avatar" : "http://****.jpg",	//用户头像
+                "user_gender" : 2, 		//1是男，2是女
+                "content" : "约了我的炮",
+                "date_id" : 12,		//约会的id，只针对系统发送的含有约会的私信
+                "letter_status" : 1,	//私信状态，1 => 未读， 2 => 已读
+                "user_data_status" : 2,	//用户和约会的状态,0 => , 1 => 以接受, 2 => 默认（未处理）
+            }
+        }
