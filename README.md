@@ -46,7 +46,7 @@
 *   私信模块
 
         {
-            state : 200,
+            status : 200,
             info : "请求成功",
             data : {
                 "user_id" : 123,
