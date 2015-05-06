@@ -66,8 +66,11 @@
             android:name=".letter.presenter.LetterActivityPresenter"
             android:label="@string/activity_letter"></activity>
         <activity
+            android:name=".letter.presenter.LetterDetailActivityPresenter"
+            android:label="@string/activity_letter_detail"></activity>
+        <activity
             android:name=".detail.presenter.DetailActivityPresenter"
-            android:label="约会详"></activity>
+            android:label="@string/activity_detail"></activity>
 
         <!--友盟意见反馈-->
         <activity android:name="com.umeng.fb.ConversationActivity" />

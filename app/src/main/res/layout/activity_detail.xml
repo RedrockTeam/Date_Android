@@ -2,11 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <include layout="@layout/include_toolbar" />
 
-    <FrameLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -59,11 +60,11 @@
                 android:textSize="14sp" />
 
             <View
-                android:background="#dddddd"
-                android:layout_marginTop="8dp"
-                android:layout_below="@+id/author_face_detail"
                 android:layout_width="match_parent"
-                android:layout_height="0.5dp"/>
+                android:layout_height="0.5dp"
+                android:layout_below="@+id/author_face_detail"
+                android:layout_marginTop="8dp"
+                android:background="#dddddd" />
 
             <TextView
                 android:id="@+id/title_detail"
@@ -96,7 +97,7 @@
                 android:text="地点：" />
 
             <TextView
-                android:id="@+id/address_detail_detail"
+                android:id="@+id/address_detail"
                 android:layout_width="wrap_content"
                 android:layout_height="18dp"
                 android:layout_alignBottom="@+id/img_address_detail"
@@ -153,7 +154,7 @@
                 android:text="花费：" />
 
             <TextView
-                android:id="@+id/cost"
+                android:id="@+id/cost_detail"
                 android:layout_width="wrap_content"
                 android:layout_height="18dp"
                 android:layout_alignBottom="@+id/img_cost_detail"
@@ -168,7 +169,128 @@
                 android:layout_alignBottom="@+id/img_cost_detail"
                 android:layout_alignParentRight="true"
                 android:text="3分钟前" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@+id/cost_detail"
+                android:layout_marginTop="8dp"
+                android:background="#dddddd" />
+
+            <TextView
+                android:id="@+id/post_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/cost_detail"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="16dp"
+                android:text="要求"
+                android:textColor="@color/blackSubhead"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/lable_grade_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+                android:layout_below="@+id/post_detail"
+                android:gravity="bottom"
+                android:text="年级：" />
+
+            <TextView
+                android:id="@+id/grade_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+                android:layout_alignBottom="@+id/lable_grade_detail"
+                android:layout_toRightOf="@+id/lable_grade_detail"
+                android:gravity="bottom"
+                android:text="大二、大三" />
+
+            <TextView
+                android:id="@+id/lable_sex_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+                android:layout_below="@+id/grade_detail"
+                android:layout_marginTop="8dp"
+                android:gravity="bottom"
+                android:text="性别：" />
+
+            <TextView
+                android:id="@+id/sex_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+                android:layout_alignBottom="@+id/lable_sex_detail"
+                android:layout_toRightOf="@+id/lable_sex_detail"
+                android:gravity="bottom"
+                android:text="不限" />
+
+            <TextView
+                android:id="@+id/lable_college_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+                android:layout_below="@+id/sex_detail"
+                android:layout_marginTop="8dp"
+                android:gravity="bottom"
+                android:text="学院：" />
+
+            <TextView
+                android:id="@+id/college_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+                android:layout_alignBottom="@+id/lable_college_detail"
+                android:layout_toRightOf="@+id/lable_college_detail"
+                android:gravity="bottom"
+                android:text="传媒艺术学院" />
+
+            <TextView
+                android:id="@+id/lable_number_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+                android:layout_below="@+id/college_detail"
+                android:layout_marginTop="8dp"
+                android:gravity="bottom"
+                android:text="人数：" />
+
+            <TextView
+                android:id="@+id/number_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+                android:layout_alignBottom="@+id/lable_number_detail"
+                android:layout_toRightOf="@+id/lable_number_detail"
+                android:gravity="bottom"
+                android:text="2人" />
+
         </RelativeLayout>
 
-    </FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
+            <TextView
+                android:background="@android:color/white"
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColor="@color/blackSubhead"
+                android:textSize="20sp"
+                android:text="收藏"/>
+
+            <View
+                android:background="#dddddd"
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"/>
+
+            <TextView
+                android:background="@android:color/white"
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColor="#ff7d63"
+                android:textSize="20sp"
+                android:text="我要报名"/>
+        </LinearLayout>
+
+    </RelativeLayout>
 </LinearLayout>
