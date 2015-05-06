@@ -21,5 +21,6 @@ public class APP extends Application {
         Utils.initialize(this,"DateTag","0");
         Fresco.initialize(this);
         RequestManager.getInstance().init(getApplicationContext());
+        RequestManager.getInstance().setDebugMode(true, "NETDEBUG");
     }
 }

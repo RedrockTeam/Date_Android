@@ -4,29 +4,41 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import com.google.gson.annotations.SerializedName;
+import com.mredrock.date.config.Api;
 
 /**
  * Created by Lecion on 5/5/15.
  */
 public class Letter implements Parcelable{
-    @SerializedName("user_id")
+
+    @SerializedName(Api.Key.Letter.LETTER_ID)
+    private int letterId;
+    @SerializedName(Api.Key.Letter.USER_ID)
     private int userId;
-    @SerializedName("user_name")
+    @SerializedName(Api.Key.Letter.USER_NAME)
     private String userName;
-    @SerializedName("user_signature")
+    @SerializedName(Api.Key.Letter.USER_SIGNATURE)
     private String userSignature;
-    @SerializedName("user_avatar")
+    @SerializedName(Api.Key.Letter.USER_AVATAR)
     private String userAvatar;
-    @SerializedName("userGender")
+    @SerializedName(Api.Key.Letter.USER_GENDER)
     private int userGender;
-    @SerializedName("content")
+    @SerializedName(Api.Key.Letter.CONTENT)
     private String content;
-    @SerializedName("data_id")
+    @SerializedName(Api.Key.Letter.DATA_ID)
     private int dateId;
-    @SerializedName("letter_status")
+    @SerializedName(Api.Key.Letter.LETTER_STATUS)
     private LetterStatus letterStatus;
-    @SerializedName("user_date_status")
+    @SerializedName(Api.Key.Letter.USER_DATE_STATUS)
     private int userDateStatus;
+
+    public int getLetterId() {
+        return letterId;
+    }
+
+    public void setLetterId(int letterId) {
+        this.letterId = letterId;
+    }
 
     public int getUserId() {
         return userId;

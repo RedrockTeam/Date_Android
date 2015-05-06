@@ -19,6 +19,8 @@ import java.util.List;
  */
 public abstract class AbsModel {
 
+    public static final String TAG = "AbsModel";
+
     protected String url(String method) {
         StringBuilder sb = new StringBuilder();
         sb.append(Api.BASE_URL).append(Api.SEPERATOR).append(module()).append(Api.SEPERATOR).append(method);
@@ -55,7 +57,7 @@ public abstract class AbsModel {
                 if (callback != null) {
                     callback.onPre();
                 }
-                Log.d("AbsModel", url(method));
+                Log.d(TAG, url(method));
             }
 
             @Override
@@ -66,7 +68,8 @@ public abstract class AbsModel {
                         JSONObject jsonObject = new JSONObject(s);
                         int status = jsonObject.getInt(Api.Key.STATUS);
                         //状态码正常
-                        if (status != Api.Code.OK) {
+                        Log.d(TAG, "status => " + status);
+                        if (status == Api.Code.OK) {
                             JSONArray data = jsonObject.getJSONArray(Api.Key.DATA);
                             Gson gson = new Gson();
                             List<T> lists = gson.fromJson(data.toString(), new TypeToken<T>(){}.getType());

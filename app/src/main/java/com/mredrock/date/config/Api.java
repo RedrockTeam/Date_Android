@@ -14,6 +14,21 @@ public class Api {
         public static final String UID = "uid";
         public static final String PAGE = "page";
         public static final String SIZE = "size";
+
+        public class Letter {
+            public static final String LETTER_ID = "letter_id";
+            public static final String USER_ID = "user_id";
+            public static final String USER_NAME = "user_name";
+            public static final String USER_SIGNATURE = "user_signature";
+            public static final String USER_AVATAR = "user_avatar";
+            public static final String USER_GENDER = "userGender";
+            public static final String CONTENT = "content";
+            public static final String DATA_ID = "data_id";
+            public static final String LETTER_STATUS = "letter_status";
+            public static final String USER_DATE_STATUS = "user_date_status";
+        }
+
+
     }
 
 
