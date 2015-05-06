@@ -10,7 +10,6 @@ import com.jude.view.jpagerview.JStatePagerAdapter;
 import com.mredrock.date.model.BannerModel;
 import com.mredrock.date.model.bean.Banner;
 import com.mredrock.date.setting.presenter.FeedbackActivity;
-import com.mredrock.date.util.Utils;
 import com.mredrock.date.widget.OnDataCallback;
 
 /**
@@ -45,7 +44,6 @@ public class BannerPagerAdapter extends JStatePagerAdapter {
     @Override
     public void onBind(View view, int position) {
         ((SimpleDraweeView)view).setImageURI(Uri.parse(model.getBanner(position).getImg()));
-        Utils.Log("onBind"+position);
     }
 
     @Override

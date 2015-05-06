@@ -3,7 +3,9 @@ package com.mredrock.date.home.presenter;
 import android.text.InputType;
 import android.view.Menu;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.TextView;
+import android.widget.TimePicker;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.mredrock.date.R;
@@ -21,8 +23,33 @@ public class EditActivityPresent extends BaseActivityPresenter<EditActivityVu> {
         return true;
     }
 
+
+
     public void onClick(final View v) {
         switch (v.getId()){
+            case R.id.btn_time:
+                new MaterialDialog.Builder(this)
+                        .title(getString(R.string.edit_title_time))
+                        .customView(new DatePicker(EditActivityPresent.this), false)
+                        .positiveText(R.string.ok)
+                        .callback(new MaterialDialog.ButtonCallback() {
+                            @Override
+                            public void onPositive(MaterialDialog dialog) {
+                                new MaterialDialog.Builder(EditActivityPresent.this)
+                                        .title(getString(R.string.edit_title_time))
+                                        .customView(new TimePicker(EditActivityPresent.this), false)
+                                        .positiveText(R.string.ok)
+                                        .callback(new MaterialDialog.ButtonCallback() {
+                                            @Override
+                                            public void onPositive(MaterialDialog dialog) {
+
+                                            }
+                                        })
+                                        .show();
+                            }
+                        })
+                        .show();
+                break;
             case R.id.btn_style:
                 new MaterialDialog.Builder(this)
                         .title(R.string.edit_title_style)

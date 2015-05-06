@@ -1,12 +1,15 @@
 package com.mredrock.date.widget;
 
+import android.content.Intent;
 import android.net.Uri;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.mredrock.date.R;
+import com.mredrock.date.detail.presenter.DetailActivityPresenter;
 import com.mredrock.date.model.bean.Appointment;
 import com.mredrock.date.util.RecentDateFormater;
 import com.mredrock.date.util.TimeTransform;
@@ -25,7 +28,6 @@ public class AppointmentViewHolder extends BaseViewHolder<Appointment> {
     private TextView releaseTime;
     private SimpleDraweeView authorFace;
 
-
     public AppointmentViewHolder(ViewGroup parent) {
         super(parent, R.layout.item_appointment);
         authorName = (TextView) itemView.findViewById(R.id.author_name);
@@ -40,8 +42,16 @@ public class AppointmentViewHolder extends BaseViewHolder<Appointment> {
     }
 
     @Override
-    public void setData(Appointment data) {
+    public void setData(final Appointment data) {
         super.setData(data);
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(itemView.getContext(), DetailActivityPresenter.class);
+                i.putExtra("id",data.getId());
+                itemView.getContext().startActivity(i);
+            }
+        });
         authorName.setText(data.getAuthor().getName());
         authorSign.setText(data.getAuthor().getSign());
         authorFace.setImageURI(Uri.parse(data.getAuthor().getFace()));

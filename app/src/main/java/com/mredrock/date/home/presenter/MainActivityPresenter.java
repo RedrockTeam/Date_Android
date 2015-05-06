@@ -1,7 +1,6 @@
 package com.mredrock.date.home.presenter;
 
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.Menu;
@@ -89,9 +88,6 @@ public class MainActivityPresenter extends BaseActivityPresenter<MainActivityVu>
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (vu.onDrawerToggleSelected(item)){
-            return true;
-        }
         if (item.getItemId() == R.id.add){
             startActivity(new Intent(this,EditActivityPresent.class));
             return true;
@@ -99,18 +95,5 @@ public class MainActivityPresenter extends BaseActivityPresenter<MainActivityVu>
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    protected void onPostCreate(Bundle savedInstanceState)
-    {
-        super.onPostCreate(savedInstanceState);
-        vu.onPostCreate();
-    }
-
-    @Override
-    public void onConfigurationChanged(Configuration newConfig)
-    {
-        super.onConfigurationChanged(newConfig);
-        vu.onConfigurationChanged(newConfig);
-    }
 
 }
