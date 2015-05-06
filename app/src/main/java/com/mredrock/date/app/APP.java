@@ -2,11 +2,9 @@ package com.mredrock.date.app;
 
 import android.app.Application;
 
+import com.android.http.RequestManager;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.mredrock.date.util.Utils;
-
-import java.util.LinkedList;
-import java.util.Queue;
 
 /**
  * Created by Mr.Jude on 2015/4/22.
@@ -22,5 +20,6 @@ public class APP extends Application {
         instance = this;
         Utils.initialize(this,"DateTag","0");
         Fresco.initialize(this);
+        RequestManager.getInstance().init(getApplicationContext());
     }
 }

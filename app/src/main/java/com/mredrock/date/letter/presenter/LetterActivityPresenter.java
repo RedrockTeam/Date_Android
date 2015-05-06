@@ -3,15 +3,20 @@ package com.mredrock.date.letter.presenter;
 import android.content.Context;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.ViewGroup;
 
 import com.malinskiy.superrecyclerview.OnMoreListener;
 import com.mredrock.date.app.BaseActivityPresenter;
 import com.mredrock.date.letter.view.LetterActivityVu;
 import com.mredrock.date.letter.view.LetterViewHolder;
+import com.mredrock.date.model.LetterModel;
+import com.mredrock.date.model.NetworkCallback;
 import com.mredrock.date.model.bean.Letter;
 import com.mredrock.date.widget.BaseViewHolder;
 import com.mredrock.date.widget.RecyclerArrayAdapter;
+
+import java.util.List;
 
 /**
  * Created by Lecion on 4/28/15.
@@ -20,6 +25,8 @@ public class LetterActivityPresenter extends BaseActivityPresenter<LetterActivit
     private RecyclerView.Adapter letterAdapter;
     private SwipeRefreshLayout.OnRefreshListener refreshListener;
     private OnMoreListener onMoreListener;
+    private LetterModel letterModel;
+    private int page = 1;
 
     @Override
     public Class<LetterActivityVu> getVuClass() {
@@ -35,6 +42,7 @@ public class LetterActivityPresenter extends BaseActivityPresenter<LetterActivit
     }
 
     private void initData() {
+        letterModel = new LetterModel();
         letterAdapter = new LetterAdapter(this);
         refreshListener = new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -48,6 +56,23 @@ public class LetterActivityPresenter extends BaseActivityPresenter<LetterActivit
 
             }
         };
+        letterModel.getLetters(page, new NetworkCallback<Letter>() {
+            @Override
+            public void onPre() {
+
+            }
+
+            @Override
+            public void onSuccess(List<Letter> data) {
+                Log.d("LetterActivity", data.toString());
+            }
+
+            @Override
+            public void onFailure(String info) {
+
+            }
+        });
+
     }
 
 
