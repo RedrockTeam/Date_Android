@@ -5,14 +5,13 @@ import android.util.Log;
 import com.android.http.RequestManager;
 import com.android.http.RequestMap;
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.mredrock.date.config.Api;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.List;
+import java.util.Arrays;
 
 /**
  * Created by Lecion on 5/5/15.
@@ -50,7 +49,7 @@ public abstract class AbsModel {
     }
 
 
-    protected <T> void post (final String method, RequestMap map, final NetworkCallback<T> callback) {
+    protected <T> void post (final String method, RequestMap map, final NetworkCallback<T> callback, final Class<T[]> clazz) {
         RequestManager.getInstance().post(url(method), map, new RequestManager.RequestListener() {
             @Override
             public void onRequest() {
@@ -72,8 +71,10 @@ public abstract class AbsModel {
                         if (status == Api.Code.OK) {
                             JSONArray data = jsonObject.getJSONArray(Api.Key.DATA);
                             Gson gson = new Gson();
-                            List<T> lists = gson.fromJson(data.toString(), new TypeToken<T>(){}.getType());
-                            callback.onSuccess(lists);
+                            Log.d(TAG, "dataArr => " + data.toString() );
+                            T[] arr = gson.fromJson(data.toString(), clazz);
+
+                            callback.onSuccess(Arrays.asList(arr));
                         } else {
                             //状态码不正常
                             callback.onFailure(getResponseInfo(status));
@@ -99,5 +100,6 @@ public abstract class AbsModel {
     protected abstract String module();
 
     protected abstract int page();
+
 
 }

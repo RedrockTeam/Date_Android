@@ -18,7 +18,7 @@ public class LetterModel extends AbsModel{
         map.put(Api.Key.TOKEN, "token");
         map.put(Api.Key.PAGE, String.valueOf(page));
         map.put(Api.Key.UID, String.valueOf(1));
-        post(Api.Method.GET_LETTER, map, callback);
+        post(Api.Method.GET_LETTER, map, callback, Letter[].class);
     }
 
     @Override
@@ -30,4 +30,6 @@ public class LetterModel extends AbsModel{
     protected int page() {
         return 10;
     }
+
+
 }

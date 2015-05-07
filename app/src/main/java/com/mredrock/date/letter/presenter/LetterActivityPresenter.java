@@ -2,7 +2,6 @@ package com.mredrock.date.letter.presenter;
 
 import android.content.Context;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.ViewGroup;
 
@@ -22,7 +21,7 @@ import java.util.List;
  * Created by Lecion on 4/28/15.
  */
 public class LetterActivityPresenter extends BaseActivityPresenter<LetterActivityVu>{
-    private RecyclerView.Adapter letterAdapter;
+    private LetterAdapter letterAdapter;
     private SwipeRefreshLayout.OnRefreshListener refreshListener;
     private OnMoreListener onMoreListener;
     private LetterModel letterModel;
@@ -64,7 +63,8 @@ public class LetterActivityPresenter extends BaseActivityPresenter<LetterActivit
 
             @Override
             public void onSuccess(List<Letter> data) {
-                Log.d("LetterActivity", data.toString());
+                Log.d("LetterActivity", data.get(0).getContent());
+                letterAdapter.add(data.get(0));
             }
 
             @Override
@@ -94,5 +94,6 @@ public class LetterActivityPresenter extends BaseActivityPresenter<LetterActivit
         public void OnBindViewHolder(BaseViewHolder holder, int position) {
             holder.setData(getItem(position));
         }
+
     }
 }
