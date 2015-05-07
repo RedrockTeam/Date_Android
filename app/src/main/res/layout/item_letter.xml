@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/sdv_avatar"
+        android:layout_width="@dimen/material_40"
+        android:layout_height="@dimen/material_40"
+        android:layout_centerVertical="true"
+        android:layout_margin="@dimen/material_16"
+        app:roundAsCircle="true"
+        />
+    <TextView
+        android:id="@+id/tv_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/sdv_avatar"
+        android:layout_centerVertical="true"
+        android:text="王尼玛"
+        android:autoLink="all"
+        android:textColor="@android:color/holo_blue_light"
+        />
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/tv_user_name"
+        android:layout_centerVertical="true"
+        android:text="约了你的“如果今天下午有时间一起就下山去看电影吧”"
+        android:singleLine="true"
+        android:ellipsize="end"
+        />
+
+
+</RelativeLayout>
