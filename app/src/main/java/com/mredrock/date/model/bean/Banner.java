@@ -4,28 +4,28 @@ package com.mredrock.date.model.bean;
  * Created by Mr.Jude on 2015/4/22.
  */
 public class Banner {
-    private String img;
-    private String link;
+    private String src;
+    private String url;
 
     public Banner(String img, String link) {
-        this.img = img;
-        this.link = link;
+        this.src = img;
+        this.url = link;
     }
 
-    public String getImg() {
+    public String getSrc() {
 
-        return img;
+        return src;
     }
 
-    public void setImg(String img) {
-        this.img = img;
+    public void setSrc(String src) {
+        this.src = src;
     }
 
-    public String getLink() {
-        return link;
+    public String getUrl() {
+        return url;
     }
 
-    public void setLink(String link) {
-        this.link = link;
+    public void setUrl(String url) {
+        this.url = url;
     }
 }
