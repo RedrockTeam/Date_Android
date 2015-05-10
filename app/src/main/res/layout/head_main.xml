@@ -71,34 +71,6 @@
                 android:layout_marginLeft="8dp"
                 android:src="@drawable/ic_dropdown"/>
         </LinearLayout>
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:background="@android:color/darker_gray"/>
-        <LinearLayout
-            android:id="@+id/btn_time"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:clickable="true"
-            android:gravity="center">
-            <TextView
-                android:id="@+id/time"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:textColor="@android:color/black"
-                android:textSize="14sp"
-                android:gravity="center"
-                android:singleLine="true"
-                android:text="@string/time_all"/>
-            <ImageView
-                android:layout_width="10dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="8dp"
-                android:src="@drawable/ic_dropdown"/>
-        </LinearLayout>
     </LinearLayout>
     <View
         android:layout_width="match_parent"
