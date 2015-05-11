@@ -34,4 +34,5 @@ dependencies {
     compile 'com.afollestad:material-dialogs:0.7.3.1'
     compile 'com.getbase:floatingactionbutton:1.9.0'
     compile 'com.android.support:appcompat-v7:22.0.0'
+    compile 'com.alibaba:fastjson:1.2.5'
 }

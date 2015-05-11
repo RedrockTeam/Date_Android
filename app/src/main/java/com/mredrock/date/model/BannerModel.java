@@ -5,14 +5,13 @@ import com.mredrock.date.app.SimpleRequestCallback;
 import com.mredrock.date.app.TokenParams;
 import com.mredrock.date.config.Api;
 import com.mredrock.date.model.bean.Banner;
-import com.mredrock.date.model.bean.Result;
 import com.mredrock.date.widget.OnDataCallback;
 
 /**
  * Created by Mr.Jude on 2015/4/22.
  */
 public class BannerModel {
-    private Banner[] banners;
+    private Banner[] banners = {};
 
     public Banner[] getBannerList(){
         return banners;

@@ -1,7 +1,7 @@
 package com.mredrock.date.app;
 
+import com.alibaba.fastjson.JSON;
 import com.android.http.RequestManager;
-import com.google.gson.Gson;
 import com.mredrock.date.config.Api;
 import com.mredrock.date.util.Utils;
 
@@ -21,7 +21,7 @@ public abstract class SimpleRequestCallback<T> implements RequestManager.Request
 
     @Override
     public void onSuccess(String s) {
-        Result result = new Gson().fromJson(s,Result.class);
+        Result result = JSON.parseObject(s, Result.class);
         if (result.status == Api.Code.OK){
             success(result.info,result.data);
         }else if (result.status == Api.Code.PERMISSION_DENIED){
