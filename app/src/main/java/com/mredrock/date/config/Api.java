@@ -7,7 +7,11 @@ public class Api {
     public static final String BASE_URL = "http://106.184.7.12:8002/index.php/api";
     public static final String SEPERATOR = "/";
 
-    public static final String Banner = BASE_URL + "/public/banner";
+
+
+    public class Url {
+        public static final String Banner = BASE_URL + "/public/banner";
+    }
 
     public class Key {
         public static final String STATUS = "status";
