@@ -2,6 +2,7 @@ package com.jude.view.jpagerview;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.database.DataSetObserver;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Handler;
@@ -29,7 +30,7 @@ public class JPagerView extends RelativeLayout implements OnPageChangeListener{
 
 	private ViewPager mViewPager;
 	private PagerAdapter mAdapter;
-	private boolean mTouched = false;
+	private long mRecentTouchTime;
 	//播放延迟
 	private int delay;
 	
@@ -44,7 +45,7 @@ public class JPagerView extends RelativeLayout implements OnPageChangeListener{
 	
 	
 	private View mHintView;
-	private Timer timer = new Timer();
+	private Timer timer;
 
 
 	public JPagerView(Context context){
@@ -52,7 +53,7 @@ public class JPagerView extends RelativeLayout implements OnPageChangeListener{
 	}
 
 	public JPagerView(Context context, AttributeSet attrs) {
-		this(context,attrs,0);
+		this(context, attrs, 0);
 
 	}
 
@@ -85,13 +86,16 @@ public class JPagerView extends RelativeLayout implements OnPageChangeListener{
 		if(delay==0||mAdapter.getCount()<=1){
 			return;
 		}
-		
+		if (timer!=null){
+			timer.cancel();
+		}
+		timer = new Timer();
 		//用一个timer定时设置当前项为下一项
 		timer.schedule(new TimerTask() {
 
 			@Override
 			public void run() {
-                if (isShown()&&!mTouched)
+                if (isShown()&&System.currentTimeMillis()-mRecentTouchTime>delay)
 				new Handler(Looper.getMainLooper()).post(new Runnable() {
 
 					@Override
@@ -207,19 +211,33 @@ public class JPagerView extends RelativeLayout implements OnPageChangeListener{
 		mViewPager.setAdapter(adapter);
 		mViewPager.setOnPageChangeListener(this);
 		mAdapter = adapter;
-        if(mHintView!=null)
-		((HintView) mHintView).initView(adapter.getCount(), gravity);
-		startPlay();
+		dataSetChanged();
+		adapter.registerDataSetObserver(new JPagerObserver());
+
 	}
+
+	private class JPagerObserver extends DataSetObserver {
+		@Override
+		public void onChanged() {
+			dataSetChanged();
+		}
+
+		@Override
+		public void onInvalidated() {
+			dataSetChanged();
+		}
+	}
+
+	private void dataSetChanged(){
+		startPlay();
+		if(mHintView!=null)
+			((HintView) mHintView).initView(mAdapter.getCount(), gravity);
+	}
+
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
-        if (ev.getAction() == MotionEvent.ACTION_DOWN){
-            mTouched = true;
-        }
-        if (ev.getAction() == MotionEvent.ACTION_UP){
-            mTouched = false;
-        }
+		mRecentTouchTime = System.currentTimeMillis();
         return super.dispatchTouchEvent(ev);
     }
 
