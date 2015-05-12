@@ -21,7 +21,6 @@ public class Api {
         public static final String UID = "uid";
         public static final String PAGE = "page";
         public static final String SIZE = "size";
-        public static final String INFO = "info";
 
         public class Letter {
             public static final String LETTER_ID = "letter_id";
