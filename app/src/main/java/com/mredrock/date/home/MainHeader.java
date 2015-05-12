@@ -19,6 +19,8 @@ import com.mredrock.date.R;
 import com.mredrock.date.util.Utils;
 import com.mredrock.date.widget.RecyclerArrayAdapter;
 
+import java.util.LinkedList;
+
 /**
  * Created by Mr.Jude on 2015/4/22.
  */
@@ -137,7 +139,6 @@ public class MainHeader implements RecyclerArrayAdapter.HeaderView ,View.OnClick
     }
 
 
-
     private PopupWindow createPopupWindow(View view, int height){
         LinearLayout layout = new LinearLayout(view.getContext());
         layout.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT));
@@ -162,7 +163,6 @@ public class MainHeader implements RecyclerArrayAdapter.HeaderView ,View.OnClick
 
     @Override
     public void onBindView(View headerView) {
-        Utils.Log("headbind");
         view = headerView;
         jpvBanner = (JPagerView) view.findViewById(R.id.jpv_banner);
         mSelectGroup = view.findViewById(R.id.select_group);

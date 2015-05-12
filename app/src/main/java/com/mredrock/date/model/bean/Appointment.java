@@ -4,17 +4,7 @@ package com.mredrock.date.model.bean;
  * Created by Mr.Jude on 2015/4/22.
  */
 public class Appointment {
-
     private String id;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
     private int type;
     private String title;
     private String address;
@@ -27,6 +17,13 @@ public class Appointment {
     private long  releaseTime;
     private PersonBrief author;
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
     public PersonBrief getAuthor() {
         return author;
     }
