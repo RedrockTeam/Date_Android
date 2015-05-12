@@ -12,8 +12,10 @@ public class Banner {
         this.url = link;
     }
 
-    public String getSrc() {
+    public Banner() {
+    }
 
+    public String getSrc() {
         return src;
     }
 

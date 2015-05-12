@@ -5,31 +5,55 @@ import com.android.http.RequestManager;
 import com.mredrock.date.config.Api;
 import com.mredrock.date.util.Utils;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
+
 /**
  * Created by zhuchenxi on 15/5/11.
  */
 public abstract class SimpleRequestCallback<T> implements RequestManager.RequestListener {
-    private class Result{
-        private int status;
-        private String info;
-        private T data;
+    private Class<T> clazz;
+    public SimpleRequestCallback(Class<T> clazz){
+        this.clazz = clazz;
     }
 
     @Override
     public void onRequest() {
+        Type sType = getClass().getGenericSuperclass();
+        Type[] generics = ((ParameterizedType) sType).getActualTypeArguments();
+        for (Type t:generics){
+            if (t instanceof Class){
+                clazz = (Class<T>) (t);
+
+            }
+            Utils.Log(t.getClass().getName());
+        }
+
     }
 
     @Override
     public void onSuccess(String s) {
-        Result result = JSON.parseObject(s, Result.class);
-        if (result.status == Api.Code.OK){
-            success(result.info,result.data);
-        }else if (result.status == Api.Code.PERMISSION_DENIED){
-            authorizationFailure();
-        }else if (result.status == Api.Code.SERVER_ERROR){
-            error("服务器错误");
-        }else{
-            Utils.Log("未知状态:"+result.status);
+        JSONObject jsonObject;
+        try {
+            jsonObject = new JSONObject(s);
+            int status = jsonObject.getInt(Api.Key.STATUS);
+            String info = jsonObject.getString(Api.Key.INFO);
+            T data = JSON.parseObject(jsonObject.getString(Api.Key.DATA), clazz);
+            if (status == Api.Code.OK){
+                success(info,data);
+            }else if (status == Api.Code.PERMISSION_DENIED){
+                authorizationFailure();
+            }else if (status == Api.Code.SERVER_ERROR){
+                error("服务器错误");
+            }else{
+                error("未知错误");
+                Utils.Log("未知状态:"+status);
+            }
+        } catch (JSONException e) {
+            error("数据解析错误");
         }
     }
 
