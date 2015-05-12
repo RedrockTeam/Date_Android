@@ -6,6 +6,9 @@ package com.mredrock.date.model.bean;
 public class Result {
     private int status;
 
+    public Result() {
+    }
+
     public int getStatus() {
         return status;
     }

@@ -19,13 +19,10 @@ import com.mredrock.date.R;
 import com.mredrock.date.util.Utils;
 import com.mredrock.date.widget.RecyclerArrayAdapter;
 
-import java.util.LinkedList;
-
 /**
  * Created by Mr.Jude on 2015/4/22.
  */
 public class MainHeader implements RecyclerArrayAdapter.HeaderView ,View.OnClickListener{
-    private View parentView;
     private View view;
     private JPagerView jpvBanner;
     private View mSelectGroup;

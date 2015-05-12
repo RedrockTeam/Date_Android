@@ -21,7 +21,7 @@ public class BannerPagerAdapter extends JStatePagerAdapter {
     public BannerPagerAdapter(){
         model.getBannerListFromServer(new OnDataCallback<Banner>() {
             @Override
-            public void callback(Banner[] banners) {
+            public void callback(Banner... banners) {
                 notifyDataSetChanged();
             }
         });

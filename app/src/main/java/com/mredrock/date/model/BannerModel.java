@@ -26,7 +26,7 @@ public class BannerModel {
     }
 
     public void getBannerListFromServer(final OnDataCallback<Banner> callback){
-        RequestManager.getInstance().post(Api.Url.Banner, new TokenParams(), new SimpleRequestCallback<Banner[]>() {
+        RequestManager.getInstance().post(Api.Url.Banner, new TokenParams(), new SimpleRequestCallback<Banner[]>(Banner[].class) {
             @Override
             public void success(String info, Banner[] data) {
                 banners = data;
