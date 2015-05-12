@@ -16,6 +16,7 @@ public class Api {
     public class Key {
         public static final String STATUS = "status";
         public static final String DATA = "data";
+        public static final String INFO = "info";
         public static final String TOKEN = "token";
         public static final String UID = "uid";
         public static final String PAGE = "page";

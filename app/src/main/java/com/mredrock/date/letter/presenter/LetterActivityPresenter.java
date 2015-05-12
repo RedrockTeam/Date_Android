@@ -15,8 +15,6 @@ import com.mredrock.date.model.bean.Letter;
 import com.mredrock.date.widget.BaseViewHolder;
 import com.mredrock.date.widget.RecyclerArrayAdapter;
 
-import java.util.List;
-
 /**
  * Created by Lecion on 4/28/15.
  */
@@ -55,20 +53,21 @@ public class LetterActivityPresenter extends BaseActivityPresenter<LetterActivit
 
             }
         };
-        letterModel.getLetters(page, new NetworkCallback<Letter>() {
+        letterModel.getLetters(page, new NetworkCallback<Letter[]>() {
+
             @Override
-            public void onPre() {
+            protected void pre() {
 
             }
 
             @Override
-            public void onSuccess(List<Letter> data) {
-                Log.d("LetterActivity", data.get(0).getContent());
-                letterAdapter.add(data.get(0));
+            protected void success(Letter[] data) {
+                Log.d("success", data.toString());
+                letterAdapter.addAll(data);
             }
 
             @Override
-            public void onFailure(String info) {
+            protected void error(int errCode, String info) {
 
             }
         });

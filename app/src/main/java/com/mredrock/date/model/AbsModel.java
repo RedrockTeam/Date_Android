@@ -1,17 +1,8 @@
 package com.mredrock.date.model;
 
-import android.util.Log;
-
 import com.android.http.RequestManager;
 import com.android.http.RequestMap;
-import com.google.gson.Gson;
 import com.mredrock.date.config.Api;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.Arrays;
 
 /**
  * Created by Lecion on 5/5/15.
@@ -49,57 +40,33 @@ public abstract class AbsModel {
     }
 
 
-    protected <T> void post (final String method, RequestMap map, final NetworkCallback<T> callback, final Class<T[]> clazz) {
-        RequestManager.getInstance().post(url(method), map, new RequestManager.RequestListener() {
-            @Override
-            public void onRequest() {
-                if (callback != null) {
-                    callback.onPre();
-                }
-                Log.d(TAG, url(method));
-            }
-
-            @Override
-            public void onSuccess(String s) {
-                if (callback != null) {
-                    try {
-                        //json能成功解析
-                        JSONObject jsonObject = new JSONObject(s);
-                        int status = jsonObject.getInt(Api.Key.STATUS);
-                        //状态码正常
-                        Log.d(TAG, "status => " + status);
-                        if (status == Api.Code.OK) {
-                            JSONArray data = jsonObject.getJSONArray(Api.Key.DATA);
-                            Gson gson = new Gson();
-                            Log.d(TAG, "dataArr => " + data.toString() );
-                            T[] arr = gson.fromJson(data.toString(), clazz);
-
-                            callback.onSuccess(Arrays.asList(arr));
-                        } else {
-                            //状态码不正常
-                            callback.onFailure(getResponseInfo(status));
-                        }
-
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                        //json解析失败，归为服务器端错误
-                        callback.onFailure(getResponseInfo(Api.Code.SERVER_ERROR));
-                    }
-                }
-            }
-
-            @Override
-            public void onError(String s) {
-                if (callback != null) {
-                    callback.onFailure(getResponseInfo(Api.Code.SERVER_ERROR));
-                }
-            }
-        });
+    protected <T> void post (final String method, RequestMap map, final NetworkCallback<T> callback) {
+        RequestManager.getInstance().post(url(method), map, callback);
     }
 
     protected abstract String module();
 
     protected abstract int page();
 
+
+
+    class SimpleCallback<T> implements RequestManager.RequestListener {
+
+
+        @Override
+        public void onRequest() {
+
+        }
+
+        @Override
+        public void onSuccess(String s) {
+
+        }
+
+        @Override
+        public void onError(String s) {
+
+        }
+    }
 
 }
