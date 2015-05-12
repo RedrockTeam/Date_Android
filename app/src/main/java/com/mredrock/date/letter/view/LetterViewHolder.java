@@ -1,5 +1,6 @@
 package com.mredrock.date.letter.view;
 
+import android.net.Uri;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -24,10 +25,16 @@ public class LetterViewHolder extends BaseViewHolder<Letter> implements View.OnC
     @Override
     public void setData(Letter data) {
         super.setData(data);
+        initView();
+        sdvAvatar.setImageURI(Uri.parse(data.getUserAvatar()));
+        tvUserName.setText(data.getUserName());
+        tvContent.setText(data.getContent());
+    }
+
+    private void initView() {
         sdvAvatar = $(R.id.sdv_avatar);
         tvUserName = $(R.id.tv_user_name);
         tvContent = $(R.id.tv_content);
-
         sdvAvatar.setOnClickListener(this);
         tvUserName.setOnClickListener(this);
     }

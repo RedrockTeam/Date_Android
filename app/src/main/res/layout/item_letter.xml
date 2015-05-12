@@ -18,7 +18,6 @@
         android:layout_toRightOf="@id/sdv_avatar"
         android:layout_centerVertical="true"
         android:text="王尼玛"
-        android:autoLink="all"
         android:textColor="@android:color/holo_blue_light"
         />
 
