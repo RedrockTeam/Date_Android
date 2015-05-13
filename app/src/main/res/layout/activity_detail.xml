@@ -9,288 +9,371 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <RelativeLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="2dp"
-            android:layout_marginTop="2dp"
-            android:background="@android:color/white"
-            android:padding="16dp">
+            android:layout_height="match_parent">
 
-            <com.facebook.drawee.view.SimpleDraweeView
-                android:id="@+id/author_face_detail"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                app:progressBarImage="@drawable/ic_loading"
-                app:progressBarImageScaleType="centerInside"
-                app:roundAsCircle="true" />
-
-            <TextView
-                android:id="@+id/author_name_detail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_toRightOf="@+id/author_face_detail"
-                android:text="Jude95"
-                android:textSize="16sp" />
-
-            <ImageView
-                android:id="@+id/author_gender_detail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/author_name_detail"
-                android:layout_alignTop="@+id/author_name_detail"
-                android:layout_toRightOf="@+id/author_name_detail"
-                android:adjustViewBounds="true"
-                android:padding="2.5dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/ic_man" />
-
-            <TextView
-                android:id="@+id/author_sign_detail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/author_face_detail"
-                android:layout_marginLeft="16dp"
-                android:layout_toRightOf="@+id/author_face_detail"
-                android:text="大王叫我来巡山"
-                android:textSize="14sp" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:layout_below="@+id/author_face_detail"
-                android:layout_marginTop="8dp"
-                android:background="#dddddd" />
-
-            <TextView
-                android:id="@+id/title_detail"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/author_face_detail"
-                android:layout_marginBottom="16dp"
-                android:layout_marginTop="16dp"
-                android:text="下午一起去吃饭，有约的吗"
-                android:textColor="@color/blackSubhead"
-                android:textSize="20sp" />
+                android:layout_marginBottom="2dp"
+                android:layout_marginTop="2dp"
+                android:background="@android:color/white">
 
-            <!--Address-->
-            <ImageView
-                android:id="@+id/img_address_detail"
-                android:layout_width="18dp"
-                android:layout_height="18dp"
-                android:layout_below="@+id/title_detail"
-                android:background="@drawable/ic_address"
-                android:scaleType="fitCenter" />
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/author_face_detail"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:paddingLeft="16dp"
+                    app:progressBarImage="@drawable/ic_loading"
+                    app:progressBarImageScaleType="centerInside"
+                    app:roundAsCircle="true" />
 
-            <TextView
-                android:id="@+id/lable_address_detail"
-                android:layout_width="wrap_content"
-                android:layout_height="18dp"
-                android:layout_alignBottom="@+id/img_address_detail"
-                android:layout_marginLeft="8dp"
-                android:layout_toRightOf="@+id/img_address_detail"
-                android:gravity="center_vertical"
-                android:text="地点：" />
+                <TextView
+                    android:id="@+id/author_name_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_toRightOf="@+id/author_face_detail"
+                    android:text="Jude95"
+                    android:textSize="16sp" />
 
-            <TextView
-                android:id="@+id/address_detail"
-                android:layout_width="wrap_content"
-                android:layout_height="18dp"
-                android:layout_alignBottom="@+id/img_address_detail"
-                android:layout_toRightOf="@+id/lable_address_detail"
-                android:gravity="center_vertical"
-                android:text="老校门口" />
-            <!--Time-->
-            <ImageView
-                android:id="@+id/img_date_detail"
-                android:layout_width="18dp"
-                android:layout_height="18dp"
-                android:layout_below="@+id/img_address_detail"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/ic_time"
-                android:scaleType="fitCenter" />
+                <ImageView
+                    android:id="@+id/author_gender_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/author_name_detail"
+                    android:layout_alignTop="@+id/author_name_detail"
+                    android:layout_toRightOf="@+id/author_name_detail"
+                    android:adjustViewBounds="true"
+                    android:padding="2.5dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_man" />
 
-            <TextView
-                android:id="@+id/lable_date_detail"
-                android:layout_width="wrap_content"
-                android:layout_height="18dp"
-                android:layout_alignBottom="@+id/img_date_detail"
-                android:layout_marginLeft="8dp"
-                android:layout_toRightOf="@+id/img_date_detail"
-                android:gravity="center_vertical"
-                android:text="时间：" />
+                <LinearLayout
+                    android:id="@+id/author_start_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/author_face_detail"
+                    android:layout_marginLeft="16dp"
+                    android:layout_toRightOf="@+id/author_face_detail"
+                    android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/date_detail"
-                android:layout_width="wrap_content"
-                android:layout_height="18dp"
-                android:layout_alignBottom="@+id/img_date_detail"
-                android:layout_toRightOf="@+id/lable_date_detail"
-                android:gravity="center_vertical"
-                android:text="今天下午6：00" />
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:padding="2dp"
+                        android:src="@drawable/star_all" />
 
-            <!--Cost-->
-            <ImageView
-                android:id="@+id/img_cost_detail"
-                android:layout_width="18dp"
-                android:layout_height="18dp"
-                android:layout_below="@+id/img_date_detail"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/ic_cost"
-                android:scaleType="fitCenter" />
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:padding="2dp"
+                        android:src="@drawable/star_all" />
 
-            <TextView
-                android:id="@+id/lable_cost_detail"
-                android:layout_width="wrap_content"
-                android:layout_height="18dp"
-                android:layout_alignBottom="@+id/img_cost_detail"
-                android:layout_marginLeft="8dp"
-                android:layout_toRightOf="@+id/img_cost_detail"
-                android:gravity="center_vertical"
-                android:text="花费：" />
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:padding="2dp"
+                        android:src="@drawable/star_all" />
 
-            <TextView
-                android:id="@+id/cost_detail"
-                android:layout_width="wrap_content"
-                android:layout_height="18dp"
-                android:layout_alignBottom="@+id/img_cost_detail"
-                android:layout_toRightOf="@+id/lable_cost_detail"
-                android:gravity="center_vertical"
-                android:text="我请客" />
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:padding="2dp"
+                        android:src="@drawable/star_all" />
 
-            <TextView
-                android:id="@+id/releaseTime_detail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/img_cost_detail"
-                android:layout_alignParentRight="true"
-                android:text="3分钟前" />
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:padding="2dp"
+                        android:src="@drawable/star_half" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:layout_below="@+id/cost_detail"
-                android:layout_marginTop="8dp"
-                android:background="#dddddd" />
+                </LinearLayout>
 
-            <TextView
-                android:id="@+id/post_detail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/cost_detail"
-                android:layout_marginBottom="16dp"
-                android:layout_marginTop="16dp"
-                android:text="要求"
-                android:textColor="@color/blackSubhead"
-                android:textSize="20sp" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_below="@+id/author_face_detail"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/grayLight" />
 
-            <TextView
-                android:id="@+id/lable_grade_detail"
-                android:layout_width="wrap_content"
-                android:layout_height="18dp"
-                android:layout_below="@+id/post_detail"
-                android:gravity="bottom"
-                android:text="年级：" />
+                <TextView
+                    android:id="@+id/title_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/author_face_detail"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="16dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:text="下午一起去吃饭，有约的吗"
+                    android:textColor="@color/blackSubhead"
+                    android:textSize="20sp" />
 
-            <TextView
-                android:id="@+id/grade_detail"
-                android:layout_width="wrap_content"
-                android:layout_height="18dp"
-                android:layout_alignBottom="@+id/lable_grade_detail"
-                android:layout_toRightOf="@+id/lable_grade_detail"
-                android:gravity="bottom"
-                android:text="大二、大三" />
+                <TextView
+                    android:id="@+id/content_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/title_detail"
+                    android:layout_marginBottom="16dp"
+                    android:lineSpacingMultiplier="1.4"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:text="今天下午，在老校门我们一起去吃饭，不要迟到。今天下午在老校门一起吃饭，不要迟到。" />
 
-            <TextView
-                android:id="@+id/lable_sex_detail"
-                android:layout_width="wrap_content"
-                android:layout_height="18dp"
-                android:layout_below="@+id/grade_detail"
-                android:layout_marginTop="8dp"
-                android:gravity="bottom"
-                android:text="性别：" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_below="@+id/content_detail"
+                    android:background="@color/grayLight" />
 
-            <TextView
-                android:id="@+id/sex_detail"
-                android:layout_width="wrap_content"
-                android:layout_height="18dp"
-                android:layout_alignBottom="@+id/lable_sex_detail"
-                android:layout_toRightOf="@+id/lable_sex_detail"
-                android:gravity="bottom"
-                android:text="不限" />
+                <!--Address-->
+                <ImageView
+                    android:id="@+id/img_address_detail"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_below="@+id/content_detail"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/ic_address"
+                    android:scaleType="fitCenter" />
 
-            <TextView
-                android:id="@+id/lable_college_detail"
-                android:layout_width="wrap_content"
-                android:layout_height="18dp"
-                android:layout_below="@+id/sex_detail"
-                android:layout_marginTop="8dp"
-                android:gravity="bottom"
-                android:text="学院：" />
+                <TextView
+                    android:id="@+id/lable_address_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:layout_alignBottom="@+id/img_address_detail"
+                    android:layout_marginLeft="8dp"
+                    android:layout_toRightOf="@+id/img_address_detail"
+                    android:gravity="center_vertical"
+                    android:text="地点：" />
 
-            <TextView
-                android:id="@+id/college_detail"
-                android:layout_width="wrap_content"
-                android:layout_height="18dp"
-                android:layout_alignBottom="@+id/lable_college_detail"
-                android:layout_toRightOf="@+id/lable_college_detail"
-                android:gravity="bottom"
-                android:text="传媒艺术学院" />
+                <TextView
+                    android:id="@+id/address_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:layout_alignBottom="@+id/img_address_detail"
+                    android:layout_toRightOf="@+id/lable_address_detail"
+                    android:gravity="center_vertical"
+                    android:paddingRight="16dp"
+                    android:text="老校门口" />
+                <!--Time-->
+                <ImageView
+                    android:id="@+id/img_date_detail"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_below="@+id/img_address_detail"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/ic_time"
+                    android:scaleType="fitCenter" />
 
-            <TextView
-                android:id="@+id/lable_number_detail"
-                android:layout_width="wrap_content"
-                android:layout_height="18dp"
-                android:layout_below="@+id/college_detail"
-                android:layout_marginTop="8dp"
-                android:gravity="bottom"
-                android:text="人数：" />
+                <TextView
+                    android:id="@+id/lable_date_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:layout_alignBottom="@+id/img_date_detail"
+                    android:layout_marginLeft="8dp"
+                    android:layout_toRightOf="@+id/img_date_detail"
+                    android:gravity="center_vertical"
+                    android:text="时间：" />
 
-            <TextView
-                android:id="@+id/number_detail"
-                android:layout_width="wrap_content"
-                android:layout_height="18dp"
-                android:layout_alignBottom="@+id/lable_number_detail"
-                android:layout_toRightOf="@+id/lable_number_detail"
-                android:gravity="bottom"
-                android:text="2人" />
+                <TextView
+                    android:id="@+id/date_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:layout_alignBottom="@+id/img_date_detail"
+                    android:layout_toRightOf="@+id/lable_date_detail"
+                    android:gravity="center_vertical"
+                    android:text="今天下午6：00" />
 
-        </RelativeLayout>
+                <!--Cost-->
+                <ImageView
+                    android:id="@+id/img_cost_detail"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_below="@+id/img_date_detail"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/ic_cost"
+                    android:scaleType="fitCenter" />
+
+                <TextView
+                    android:id="@+id/lable_cost_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:layout_alignBottom="@+id/img_cost_detail"
+                    android:layout_marginLeft="8dp"
+                    android:layout_toRightOf="@+id/img_cost_detail"
+                    android:gravity="center_vertical"
+                    android:text="花费：" />
+
+                <TextView
+                    android:id="@+id/cost_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:layout_alignBottom="@+id/img_cost_detail"
+                    android:layout_toRightOf="@+id/lable_cost_detail"
+                    android:gravity="center_vertical"
+                    android:paddingRight="16dp"
+                    android:text="我请客" />
+
+                <TextView
+                    android:id="@+id/releaseTime_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/img_cost_detail"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="16dp"
+                    android:text="3分钟前" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_below="@+id/cost_detail"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/grayLight" />
+
+                <TextView
+                    android:id="@+id/post_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/cost_detail"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="要求"
+                    android:textColor="@color/blackSubhead"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/lable_grade_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:layout_below="@+id/post_detail"
+                    android:layout_marginLeft="16dp"
+                    android:gravity="bottom"
+                    android:text="年级：" />
+
+                <TextView
+                    android:id="@+id/grade_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:layout_alignBottom="@+id/lable_grade_detail"
+                    android:layout_toRightOf="@+id/lable_grade_detail"
+                    android:gravity="bottom"
+                    android:text="大二、大三" />
+
+                <TextView
+                    android:id="@+id/lable_sex_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:layout_below="@+id/grade_detail"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="8dp"
+                    android:gravity="bottom"
+                    android:text="性别：" />
+
+                <TextView
+                    android:id="@+id/sex_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:layout_alignBottom="@+id/lable_sex_detail"
+                    android:layout_toRightOf="@+id/lable_sex_detail"
+                    android:gravity="bottom"
+                    android:text="不限" />
+
+                <TextView
+                    android:id="@+id/lable_college_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:layout_below="@+id/sex_detail"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="8dp"
+                    android:gravity="bottom"
+                    android:text="学院：" />
+
+                <TextView
+                    android:id="@+id/college_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:layout_alignBottom="@+id/lable_college_detail"
+                    android:layout_toRightOf="@+id/lable_college_detail"
+                    android:gravity="bottom"
+                    android:text="传媒艺术学院" />
+
+                <TextView
+                    android:id="@+id/lable_number_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:layout_below="@+id/college_detail"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="8dp"
+                    android:gravity="bottom"
+                    android:text="人数：" />
+
+                <TextView
+                    android:id="@+id/number_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:layout_alignBottom="@+id/lable_number_detail"
+                    android:layout_toRightOf="@+id/lable_number_detail"
+                    android:gravity="bottom"
+                    android:text="2人" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="8dp"
+                    android:layout_below="@+id/number_detail"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/grayLight" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_below="@+id/number_detail"
+                    android:background="@android:color/white"
+                    android:orientation="horizontal">
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </ScrollView>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_alignParentBottom="true"
             android:orientation="horizontal">
+
             <TextView
-                android:background="@android:color/white"
-                android:gravity="center"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="@android:color/white"
+                android:gravity="center"
+                android:text="收藏"
                 android:textColor="@color/blackSubhead"
-                android:textSize="20sp"
-                android:text="收藏"/>
+                android:textSize="20sp" />
 
             <View
-                android:background="#dddddd"
                 android:layout_width="0.5dp"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:background="#dddddd" />
 
             <TextView
-                android:background="@android:color/white"
-                android:gravity="center"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="@android:color/white"
+                android:gravity="center"
+                android:text="我要报名"
                 android:textColor="#ff7d63"
-                android:textSize="20sp"
-                android:text="我要报名"/>
+                android:textSize="20sp" />
         </LinearLayout>
-
     </RelativeLayout>
 </LinearLayout>
