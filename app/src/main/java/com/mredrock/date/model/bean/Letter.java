@@ -28,7 +28,7 @@ public class Letter implements Parcelable{
     @SerializedName(Api.Key.Letter.DATA_ID)
     private int dateId;
     @SerializedName(Api.Key.Letter.LETTER_STATUS)
-    private LetterStatus letterStatus;
+    private int letterStatus;
     @SerializedName(Api.Key.Letter.USER_DATE_STATUS)
     private int userDateStatus;
 
@@ -41,17 +41,9 @@ public class Letter implements Parcelable{
         userGender = in.readInt();
         content = in.readString();
         dateId = in.readInt();
-        letterStatus = LetterStatus.valueOf(in.readInt());
+        letterStatus = in.readInt();
         userDateStatus = in.readInt();
     }
-
-//    public int getLetterId() {
-//        return letterId;
-//    }
-
-//    public void setLetterId(int letterId) {
-//        this.letterId = letterId;
-//    }
 
     public int getLetterId() {
         return letterId;
@@ -117,11 +109,11 @@ public class Letter implements Parcelable{
         this.dateId = dateId;
     }
 
-    public LetterStatus getLetterStatus() {
+    public int getLetterStatus() {
         return letterStatus;
     }
 
-    public void setLetterStatus(LetterStatus letterStatus) {
+    public void setLetterStatus(int letterStatus) {
         this.letterStatus = letterStatus;
     }
 
@@ -148,7 +140,7 @@ public class Letter implements Parcelable{
         dest.writeInt(userGender);
         dest.writeString(content);
         dest.writeInt(dateId);
-        dest.writeInt(letterStatus.value());
+        dest.writeInt(letterStatus);
         dest.writeInt(userDateStatus);
     }
 
@@ -162,28 +154,15 @@ public class Letter implements Parcelable{
         }
     };
 
-    public enum LetterStatus {
-        UNREAD(1), READ(2);
-        private int value;
-
-        private LetterStatus(int value) {
-            this.value = value;
-        }
-
-        public int value() {
-            return this.value;
-        }
-
-        public static LetterStatus valueOf(int value) {
-            switch (value) {
-                case 1:
-                    return UNREAD;
-                case 2:
-                    return READ;
-                default:
-                    return null;
-            }
-        }
+    public class LetterStatus {
+        public static final int UNREAD = 1;
+        public static final int READ = 2;
     }
 
+    @Override
+    public String toString() {
+        return String.format("letterId: %s, userId: %s, userName: %s, userSignature: %s, userAvatar: %s, userGender: %s, " +
+                "content: %s, dateId: %s, letterStatus: %s, userDateStatus: %s",
+                letterId, userId, userName, userSignature, userAvatar, userGender, content, dateId, letterStatus, userDateStatus);
+    }
 }

@@ -8,7 +8,6 @@ import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.mredrock.date.R;
-import com.mredrock.date.config.Api;
 import com.mredrock.date.letter.presenter.LetterDetailActivityPresenter;
 import com.mredrock.date.model.bean.Letter;
 import com.mredrock.date.widget.BaseViewHolder;
@@ -33,7 +32,7 @@ public class LetterViewHolder extends BaseViewHolder<Letter> implements View.OnC
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(itemView.getContext(), LetterDetailActivityPresenter.class);
-                intent.putExtra(Api.Key.Letter.LETTER_ID, data.getLetterId());
+                intent.putExtra("letter", data);
                 itemView.getContext().startActivity(intent);
             }
         });
