@@ -1,5 +1,6 @@
 package com.mredrock.date.letter.view;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,6 +8,8 @@ import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.mredrock.date.R;
+import com.mredrock.date.config.Api;
+import com.mredrock.date.letter.presenter.LetterDetailActivityPresenter;
 import com.mredrock.date.model.bean.Letter;
 import com.mredrock.date.widget.BaseViewHolder;
 
@@ -23,9 +26,17 @@ public class LetterViewHolder extends BaseViewHolder<Letter> implements View.OnC
     }
 
     @Override
-    public void setData(Letter data) {
+    public void setData(final Letter data) {
         super.setData(data);
         initView();
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(itemView.getContext(), LetterDetailActivityPresenter.class);
+                intent.putExtra(Api.Key.Letter.LETTER_ID, data.getLetterId());
+                itemView.getContext().startActivity(intent);
+            }
+        });
         sdvAvatar.setImageURI(Uri.parse(data.getUserAvatar()));
         tvUserName.setText(data.getUserName());
         tvContent.setText(data.getContent());

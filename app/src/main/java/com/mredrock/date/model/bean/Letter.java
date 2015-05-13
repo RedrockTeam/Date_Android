@@ -11,8 +11,8 @@ import com.mredrock.date.config.Api;
  */
 public class Letter implements Parcelable{
 
-//    @SerializedName(Api.Key.Letter.LETTER_ID)
-//    private int letterId;
+    @SerializedName(Api.Key.Letter.LETTER_ID)
+    private int letterId;
     @SerializedName(Api.Key.Letter.USER_ID)
     private int userId;
     @SerializedName(Api.Key.Letter.USER_NAME)
@@ -39,6 +39,14 @@ public class Letter implements Parcelable{
 //    public void setLetterId(int letterId) {
 //        this.letterId = letterId;
 //    }
+
+    public int getLetterId() {
+        return letterId;
+    }
+
+    public void setLetterId(int letterId) {
+        this.letterId = letterId;
+    }
 
     public int getUserId() {
         return userId;
