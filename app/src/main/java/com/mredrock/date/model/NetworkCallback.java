@@ -49,6 +49,4 @@ public abstract class NetworkCallback<T> implements RequestManager.RequestListen
     protected abstract void success(T data);
 
     protected abstract void error(int errCode, String info);
-
-
 }

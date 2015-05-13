@@ -44,7 +44,26 @@ public class LetterActivityPresenter extends BaseActivityPresenter<LetterActivit
         refreshListener = new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
+                letterModel.getLetters(page, new NetworkCallback<Letter[]>() {
 
+                    @Override
+                    protected void pre() {
+
+                    }
+
+                    @Override
+                    protected void success(Letter[] data) {
+                        Log.d("success", data.toString());
+                        letterAdapter.clear();
+                        letterAdapter.addAll(data);
+                        vu.hideProgress();
+                    }
+
+                    @Override
+                    protected void error(int errCode, String info) {
+                        vu.hideProgress();
+                    }
+                });
             }
         };
         onMoreListener = new OnMoreListener() {
