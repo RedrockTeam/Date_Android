@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" tools:context="com.mredrock.date.letter.presenter.LetterDetailActivityPresenter"
+    >
+    <item
+        android:id="@+id/user_info"
+        android:title="个人信息"
+        android:textSize="14sp"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_user_info"
+        />
+</menu>
