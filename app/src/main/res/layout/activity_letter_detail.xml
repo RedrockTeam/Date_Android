@@ -1,12 +1,129 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <include layout="@layout/include_toolbar" />
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/include_toolbar" />
 
-    <include layout="@layout/include_recyclerview" />
+    <RelativeLayout
+        android:layout_below="@id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        >
 
-</LinearLayout>
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/sdv_avatar"
+            android:layout_width="@dimen/material_40"
+            android:layout_height="@dimen/material_40"
+            android:layout_margin="@dimen/material_16"
+            app:progressBarImage="@drawable/ic_loading"
+            app:progressBarImageScaleType="centerInside"
+            app:roundAsCircle="true" />
+
+        <TextView
+            android:id="@+id/tv_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@+id/sdv_avatar"
+            android:text="Lecion"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/iv_gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tv_user_name"
+            android:layout_alignTop="@+id/tv_user_name"
+            android:layout_toRightOf="@+id/tv_user_name"
+            android:adjustViewBounds="true"
+            android:padding="2.5dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_man" />
+
+        <LinearLayout
+            android:id="@+id/ll_user_star_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/sdv_avatar"
+            android:layout_toRightOf="@id/sdv_avatar"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:padding="2dp"
+                android:src="@drawable/star_all" />
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:padding="2dp"
+                android:src="@drawable/star_all" />
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:padding="2dp"
+                android:src="@drawable/star_all" />
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:padding="2dp"
+                android:src="@drawable/star_all" />
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:padding="2dp"
+                android:src="@drawable/star_half" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/sdv_avatar"
+            android:background="@color/grayLight" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider"
+            android:background="@color/white"
+            android:padding="@dimen/material_16"
+            android:text="他报名了“你的啊啊啊啊啊啊啊啊啊啊啊”活动。" />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        >
+        <Button
+            android:id="@+id/btn_reject"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:text="拒绝"
+            android:textSize="16sp"
+            />
+        <Button
+            android:id="@+id/btn_receive"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:text="接受"
+            android:textSize="16sp"
+            />
+        </LinearLayout>
+
+</RelativeLayout>

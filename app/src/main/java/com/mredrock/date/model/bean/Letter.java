@@ -32,6 +32,19 @@ public class Letter implements Parcelable{
     @SerializedName(Api.Key.Letter.USER_DATE_STATUS)
     private int userDateStatus;
 
+    public Letter(Parcel in) {
+        letterId = in.readInt();
+        userId = in.readInt();
+        userName = in.readString();
+        userSignature = in.readString();
+        userAvatar = in.readString();
+        userGender = in.readInt();
+        content = in.readString();
+        dateId = in.readInt();
+        letterStatus = LetterStatus.valueOf(in.readInt());
+        userDateStatus = in.readInt();
+    }
+
 //    public int getLetterId() {
 //        return letterId;
 //    }
@@ -127,7 +140,27 @@ public class Letter implements Parcelable{
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(letterId);
+        dest.writeInt(userId);
+        dest.writeString(userName);
+        dest.writeString(userSignature);
+        dest.writeString(userAvatar);
+        dest.writeInt(userGender);
+        dest.writeString(content);
+        dest.writeInt(dateId);
+        dest.writeInt(letterStatus.value());
+        dest.writeInt(userDateStatus);
     }
+
+    public static final Parcelable.Creator<Letter> CREATOR = new Parcelable.Creator<Letter>() {
+        public Letter createFromParcel(Parcel in) {
+            return new Letter(in);
+        }
+
+        public Letter[] newArray(int size) {
+            return new Letter[size];
+        }
+    };
 
     public enum LetterStatus {
         UNREAD(1), READ(2);
