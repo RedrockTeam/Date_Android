@@ -44,34 +44,20 @@ public class LetterActivityPresenter extends BaseActivityPresenter<LetterActivit
         refreshListener = new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                letterModel.getLetters(page, new NetworkCallback<Letter[]>() {
-
-                    @Override
-                    protected void pre() {
-
-                    }
-
-                    @Override
-                    protected void success(Letter[] data) {
-                        Log.d("success", data.toString());
-                        letterAdapter.clear();
-                        letterAdapter.addAll(data);
-                        vu.hideProgress();
-                    }
-
-                    @Override
-                    protected void error(int errCode, String info) {
-                        vu.hideProgress();
-                    }
-                });
+                addLetters(0);
             }
         };
         onMoreListener = new OnMoreListener() {
             @Override
             public void onMoreAsked(int i, int i2, int i3) {
-
+                addLetters(letterAdapter.getPage());
             }
         };
+        addLetters(0);
+    }
+
+    private void addLetters(final int page) {
+
         letterModel.getLetters(page, new NetworkCallback<Letter[]>() {
 
             @Override
@@ -82,7 +68,15 @@ public class LetterActivityPresenter extends BaseActivityPresenter<LetterActivit
             @Override
             protected void success(Letter[] data) {
                 Log.d("success", data.toString());
-                letterAdapter.addAll(data);
+                if (page == 0) {
+                    letterAdapter.clear();
+                }
+                //请求到的数据为空
+                if (data.length < 1) {
+                    //做提示操作：0页的时候暂无私信，非0页的时候，提示没有更多数据加载
+                } else {
+                    letterAdapter.addAll(data);
+                }
             }
 
             @Override

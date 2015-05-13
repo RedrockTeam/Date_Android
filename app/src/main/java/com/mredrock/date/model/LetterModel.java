@@ -12,7 +12,7 @@ public class LetterModel extends AbsModel{
     public static final String TAG = "LetterModel";
 
     public <T> void getLetters(int page, NetworkCallback<T> callback) {
-        Log.d(TAG, "getLetters");
+        Log.d(TAG, "getLetters page " + page );
         TokenParams params = new TokenParams();
         params.put(Api.Key.PAGE, String.valueOf(page));
         post(Api.Method.GET_LETTER, params, callback);

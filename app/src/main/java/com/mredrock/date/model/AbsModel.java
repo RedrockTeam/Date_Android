@@ -47,26 +47,4 @@ public abstract class AbsModel {
     protected abstract String module();
 
     protected abstract int page();
-
-
-
-    class SimpleCallback<T> implements RequestManager.RequestListener {
-
-
-        @Override
-        public void onRequest() {
-
-        }
-
-        @Override
-        public void onSuccess(String s) {
-
-        }
-
-        @Override
-        public void onError(String s) {
-
-        }
-    }
-
 }
