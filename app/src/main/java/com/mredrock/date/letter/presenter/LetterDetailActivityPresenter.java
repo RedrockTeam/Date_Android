@@ -10,7 +10,9 @@ import com.mredrock.date.app.BaseActivityPresenter;
 import com.mredrock.date.app.VuCallback;
 import com.mredrock.date.letter.view.LetterDetailActivityVu;
 import com.mredrock.date.model.LetterModel;
+import com.mredrock.date.model.NetworkCallback;
 import com.mredrock.date.model.bean.Letter;
+import com.umeng.message.proguard.T;
 
 /**
  * Created by Lecion on 5/5/15.
@@ -25,6 +27,7 @@ public class LetterDetailActivityPresenter extends BaseActivityPresenter<LetterD
     private boolean isChange = false;
 
     private int position;
+    private Letter letter;
 
     @Override
     public Class<LetterDetailActivityVu> getVuClass() {
@@ -36,7 +39,7 @@ public class LetterDetailActivityPresenter extends BaseActivityPresenter<LetterD
         super.onBindVu();
         Intent i = getIntent();
         letterModel = new LetterModel();
-        final Letter letter =  i.getParcelableExtra("letter");
+        letter =  i.getParcelableExtra("letter");
         position = i.getIntExtra("position", -1);
         vu.setData(letter);
         switch (letter.getUserDateStatus()) {
@@ -55,9 +58,9 @@ public class LetterDetailActivityPresenter extends BaseActivityPresenter<LetterD
             public void onClick(View view) {
                 if (view.getId() == R.id.btn_receive) {
                     letter.setUserDateStatus(Letter.UserDataStatus.RECEIVE);
+                    setResult(letter);
                     vu.showReceive();
                     isChange = true;
-                    setResult(letter);
                 } else if (view.getId() == R.id.btn_reject) {
                     letter.setUserDateStatus(Letter.UserDataStatus.REJECT);
                     isChange = true;
@@ -75,6 +78,29 @@ public class LetterDetailActivityPresenter extends BaseActivityPresenter<LetterD
         intent.putExtra("position", position);
         intent.putExtra("letter", letter);
         setResult(RESULT_LETTER, intent);
+    }
+
+    public void doReject() {
+        letterModel.dateAction(letter.getDateId(), letter.getUserId(), Letter.UserDataStatus.REJECT, new NetworkCallback<T>() {
+            @Override
+            protected void pre() {
+
+            }
+
+            @Override
+            protected void success(T data) {
+
+            }
+
+            @Override
+            protected void error(int errCode, String info) {
+
+            }
+        });
+    }
+
+    public void doReceive() {
+
     }
 
     @Override
