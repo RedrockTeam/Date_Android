@@ -1,6 +1,7 @@
 package com.mredrock.date.letter.presenter;
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -58,13 +59,10 @@ public class LetterDetailActivityPresenter extends BaseActivityPresenter<LetterD
                 if (view.getId() == R.id.btn_receive) {
                     letter.setUserDateStatus(Letter.UserDataStatus.RECEIVE);
                     setResult(letter);
+                    isChange = true;
                     vu.showReceive();
-                    isChange = true;
                 } else if (view.getId() == R.id.btn_reject) {
-                    letter.setUserDateStatus(Letter.UserDataStatus.REJECT);
-                    isChange = true;
-                    vu.showReject();
-                    setResult(letter);
+                    doReject();
                 }
             }
         });
@@ -89,7 +87,11 @@ public class LetterDetailActivityPresenter extends BaseActivityPresenter<LetterD
 
             @Override
             protected void success(String data) {
-
+                Log.d("doReject", data);
+                letter.setUserDateStatus(Letter.UserDataStatus.REJECT);
+                isChange = true;
+                vu.showReject();
+                setResult(letter);
             }
 
             @Override
