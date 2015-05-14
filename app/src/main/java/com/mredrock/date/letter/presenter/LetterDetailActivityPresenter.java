@@ -4,9 +4,11 @@ import android.content.Intent;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.mredrock.date.R;
 import com.mredrock.date.app.BaseActivityPresenter;
+import com.mredrock.date.app.VuCallback;
 import com.mredrock.date.letter.view.LetterDetailActivityVu;
 import com.mredrock.date.model.bean.Letter;
 
@@ -26,8 +28,31 @@ public class LetterDetailActivityPresenter extends BaseActivityPresenter<LetterD
     public void onBindVu() {
         super.onBindVu();
         Intent i = getIntent();
-        Letter letter =  i.getParcelableExtra("letter");
+        final Letter letter =  i.getParcelableExtra("letter");
         vu.setData(letter);
+        switch (letter.getUserDateStatus()) {
+            case Letter.UserDataStatus.RECEIVE:
+                vu.showReceive();
+                break;
+            case Letter.UserDataStatus.REJECT:
+                vu.showReject();
+                break;
+            case Letter.UserDataStatus.DEFAULT:
+                vu.showDefault();
+        }
+
+        vu.setVuCallback(new VuCallback() {
+            @Override
+            public void onClick(View view) {
+                if (view.getId() == R.id.btn_receive) {
+                    letter.setUserDateStatus(Letter.UserDataStatus.RECEIVE);
+                    vu.showReceive();
+                } else if (view.getId() == R.id.btn_reject) {
+                    letter.setUserDateStatus(Letter.UserDataStatus.REJECT);
+                    vu.showReject();
+                }
+            }
+        });
         Log.d(TAG, letter.toString());
     }
 
@@ -42,4 +67,5 @@ public class LetterDetailActivityPresenter extends BaseActivityPresenter<LetterD
 
         return super.onOptionsItemSelected(item);
     }
+
 }

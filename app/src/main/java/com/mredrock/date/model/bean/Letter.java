@@ -159,6 +159,18 @@ public class Letter implements Parcelable{
         public static final int READ = 2;
     }
 
+    public class UserDataStatus {
+        public static final int REJECT = 0;
+        public static final int RECEIVE = 1;
+        public static final int DEFAULT = 2;
+    }
+
+    public class Gender {
+        public static final int MALE = 1;
+        public static final int FEMALE = 2;
+
+    }
+
     @Override
     public String toString() {
         return String.format("letterId: %s, userId: %s, userName: %s, userSignature: %s, userAvatar: %s, userGender: %s, " +
