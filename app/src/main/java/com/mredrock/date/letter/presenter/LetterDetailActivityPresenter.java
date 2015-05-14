@@ -27,6 +27,7 @@ public class LetterDetailActivityPresenter extends BaseActivityPresenter<LetterD
         super.onBindVu();
         Intent i = getIntent();
         Letter letter =  i.getParcelableExtra("letter");
+        vu.setData(letter);
         Log.d(TAG, letter.toString());
     }
 
