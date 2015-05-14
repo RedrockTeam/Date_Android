@@ -12,7 +12,6 @@ import com.mredrock.date.letter.view.LetterDetailActivityVu;
 import com.mredrock.date.model.LetterModel;
 import com.mredrock.date.model.NetworkCallback;
 import com.mredrock.date.model.bean.Letter;
-import com.umeng.message.proguard.T;
 
 /**
  * Created by Lecion on 5/5/15.
@@ -81,14 +80,15 @@ public class LetterDetailActivityPresenter extends BaseActivityPresenter<LetterD
     }
 
     public void doReject() {
-        letterModel.dateAction(letter.getDateId(), letter.getUserId(), Letter.UserDataStatus.REJECT, new NetworkCallback<T>() {
+        letterModel.dateAction(letter.getDateId(), letter.getUserId(), Letter.UserDataStatus.REJECT, new NetworkCallback<String>() {
+
             @Override
             protected void pre() {
 
             }
 
             @Override
-            protected void success(T data) {
+            protected void success(String data) {
 
             }
 
@@ -97,6 +97,7 @@ public class LetterDetailActivityPresenter extends BaseActivityPresenter<LetterD
 
             }
         });
+
     }
 
     public void doReceive() {
