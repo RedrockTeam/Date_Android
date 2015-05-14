@@ -18,6 +18,7 @@ public class LetterModel extends AbsModel{
         post(Api.Method.GET_LETTER, params, callback);
     }
 
+
     @Override
     protected String module() {
         return Api.Module.LETTER;

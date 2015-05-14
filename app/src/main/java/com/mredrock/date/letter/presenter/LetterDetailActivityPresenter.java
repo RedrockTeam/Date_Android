@@ -1,7 +1,6 @@
 package com.mredrock.date.letter.presenter;
 
 import android.content.Intent;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -10,14 +9,22 @@ import com.mredrock.date.R;
 import com.mredrock.date.app.BaseActivityPresenter;
 import com.mredrock.date.app.VuCallback;
 import com.mredrock.date.letter.view.LetterDetailActivityVu;
+import com.mredrock.date.model.LetterModel;
 import com.mredrock.date.model.bean.Letter;
 
 /**
  * Created by Lecion on 5/5/15.
  */
 public class LetterDetailActivityPresenter extends BaseActivityPresenter<LetterDetailActivityVu>{
+    private LetterModel letterModel;
 
     public static final String TAG = "LetterDetailActivityPresenter";
+
+    public static int RESULT_LETTER = 1;
+
+    private boolean isChange = false;
+
+    private int position;
 
     @Override
     public Class<LetterDetailActivityVu> getVuClass() {
@@ -28,7 +35,9 @@ public class LetterDetailActivityPresenter extends BaseActivityPresenter<LetterD
     public void onBindVu() {
         super.onBindVu();
         Intent i = getIntent();
+        letterModel = new LetterModel();
         final Letter letter =  i.getParcelableExtra("letter");
+        position = i.getIntExtra("position", -1);
         vu.setData(letter);
         switch (letter.getUserDateStatus()) {
             case Letter.UserDataStatus.RECEIVE:
@@ -47,13 +56,25 @@ public class LetterDetailActivityPresenter extends BaseActivityPresenter<LetterD
                 if (view.getId() == R.id.btn_receive) {
                     letter.setUserDateStatus(Letter.UserDataStatus.RECEIVE);
                     vu.showReceive();
+                    isChange = true;
+                    setResult(letter);
                 } else if (view.getId() == R.id.btn_reject) {
                     letter.setUserDateStatus(Letter.UserDataStatus.REJECT);
+                    isChange = true;
                     vu.showReject();
+                    setResult(letter);
                 }
             }
         });
-        Log.d(TAG, letter.toString());
+        setResult(letter);
+    }
+
+    public void setResult(Letter letter) {
+        Intent intent = new Intent();
+        intent.putExtra("flag", isChange);
+        intent.putExtra("position", position);
+        intent.putExtra("letter", letter);
+        setResult(RESULT_LETTER, intent);
     }
 
     @Override
