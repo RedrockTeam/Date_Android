@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.mredrock.date.R;
 import com.mredrock.date.app.BaseActivityPresenter;
@@ -57,10 +58,7 @@ public class LetterDetailActivityPresenter extends BaseActivityPresenter<LetterD
             @Override
             public void onClick(View view) {
                 if (view.getId() == R.id.btn_receive) {
-                    letter.setUserDateStatus(Letter.UserDataStatus.RECEIVE);
-                    setResult(letter);
-                    isChange = true;
-                    vu.showReceive();
+                    doReceive();
                 } else if (view.getId() == R.id.btn_reject) {
                     doReject();
                 }
@@ -103,7 +101,27 @@ public class LetterDetailActivityPresenter extends BaseActivityPresenter<LetterD
     }
 
     public void doReceive() {
+        letterModel.dateAction(letter.getDateId(), letter.getUserId(), Letter.UserDataStatus.RECEIVE, new NetworkCallback<String>() {
 
+            @Override
+            protected void pre() {
+
+            }
+
+            @Override
+            protected void success(String data) {
+                Log.d("doReceive", data);
+                letter.setUserDateStatus(Letter.UserDataStatus.RECEIVE);
+                isChange = true;
+                vu.showReceive();
+                setResult(letter);
+            }
+
+            @Override
+            protected void error(int errCode, String info) {
+                Toast.makeText(getApplicationContext(), "网络异常，请检查网络设置！", Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     @Override
