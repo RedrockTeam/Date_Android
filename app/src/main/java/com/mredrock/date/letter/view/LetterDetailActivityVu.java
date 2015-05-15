@@ -27,7 +27,6 @@ public class LetterDetailActivityVu extends BaseActivityVu implements View.OnCli
     private TextView tvContent;
     private Button btnReject;
     private Button btnReceive;
-    private Letter letter;
     private VuCallback vuCallback;
 
     @Override
@@ -48,12 +47,11 @@ public class LetterDetailActivityVu extends BaseActivityVu implements View.OnCli
     }
 
     public void setData(Letter letter) {
-        this.letter = letter;
         //TODO 设置数据
         sdvAvatar.setImageURI(Uri.parse(letter.getUserAvatar()));
         tvUserName.setText(letter.getUserName());
         ivGender.setImageResource(getGenderImg(letter.getUserGender()));
-        tvContent.setText(letter.getContent());
+        tvContent.setText("TA" + letter.getContent());
         btnReceive.setOnClickListener(this);
         btnReject.setOnClickListener(this);
     }

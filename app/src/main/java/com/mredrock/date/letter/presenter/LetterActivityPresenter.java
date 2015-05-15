@@ -52,7 +52,9 @@ public class LetterActivityPresenter extends BaseActivityPresenter<LetterActivit
         onMoreListener = new OnMoreListener() {
             @Override
             public void onMoreAsked(int i, int i2, int i3) {
+                //TODO 解决回调问题
                 addLetters(letterAdapter.getPage());
+                Log.d("LetterActivityPresenter", "addLetters" + letterAdapter.getPage());
             }
         };
         addLetters(0);
