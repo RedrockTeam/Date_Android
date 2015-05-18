@@ -11,8 +11,8 @@ import com.mredrock.date.config.Api;
  */
 public class Letter implements Parcelable{
 
-//    @SerializedName(Api.Key.Letter.LETTER_ID)
-//    private int letterId;
+    @SerializedName(Api.Key.Letter.LETTER_ID)
+    private int letterId;
     @SerializedName(Api.Key.Letter.USER_ID)
     private int userId;
     @SerializedName(Api.Key.Letter.USER_NAME)
@@ -28,17 +28,30 @@ public class Letter implements Parcelable{
     @SerializedName(Api.Key.Letter.DATA_ID)
     private int dateId;
     @SerializedName(Api.Key.Letter.LETTER_STATUS)
-    private LetterStatus letterStatus;
+    private int letterStatus;
     @SerializedName(Api.Key.Letter.USER_DATE_STATUS)
     private int userDateStatus;
 
-//    public int getLetterId() {
-//        return letterId;
-//    }
+    public Letter(Parcel in) {
+        letterId = in.readInt();
+        userId = in.readInt();
+        userName = in.readString();
+        userSignature = in.readString();
+        userAvatar = in.readString();
+        userGender = in.readInt();
+        content = in.readString();
+        dateId = in.readInt();
+        letterStatus = in.readInt();
+        userDateStatus = in.readInt();
+    }
 
-//    public void setLetterId(int letterId) {
-//        this.letterId = letterId;
-//    }
+    public int getLetterId() {
+        return letterId;
+    }
+
+    public void setLetterId(int letterId) {
+        this.letterId = letterId;
+    }
 
     public int getUserId() {
         return userId;
@@ -96,11 +109,11 @@ public class Letter implements Parcelable{
         this.dateId = dateId;
     }
 
-    public LetterStatus getLetterStatus() {
+    public int getLetterStatus() {
         return letterStatus;
     }
 
-    public void setLetterStatus(LetterStatus letterStatus) {
+    public void setLetterStatus(int letterStatus) {
         this.letterStatus = letterStatus;
     }
 
@@ -119,30 +132,49 @@ public class Letter implements Parcelable{
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(letterId);
+        dest.writeInt(userId);
+        dest.writeString(userName);
+        dest.writeString(userSignature);
+        dest.writeString(userAvatar);
+        dest.writeInt(userGender);
+        dest.writeString(content);
+        dest.writeInt(dateId);
+        dest.writeInt(letterStatus);
+        dest.writeInt(userDateStatus);
     }
 
-    public enum LetterStatus {
-        UNREAD(1), READ(2);
-        private int value;
-
-        private LetterStatus(int value) {
-            this.value = value;
+    public static final Parcelable.Creator<Letter> CREATOR = new Parcelable.Creator<Letter>() {
+        public Letter createFromParcel(Parcel in) {
+            return new Letter(in);
         }
 
-        public int value() {
-            return this.value;
+        public Letter[] newArray(int size) {
+            return new Letter[size];
         }
+    };
 
-        public static LetterStatus valueOf(int value) {
-            switch (value) {
-                case 1:
-                    return UNREAD;
-                case 2:
-                    return READ;
-                default:
-                    return null;
-            }
-        }
+    public class LetterStatus {
+        public static final int UNREAD = 1;
+        public static final int READ = 2;
     }
 
+    public class UserDataStatus {
+        public static final int REJECT = 0;
+        public static final int RECEIVE = 1;
+        public static final int DEFAULT = 2;
+    }
+
+    public class Gender {
+        public static final int MALE = 1;
+        public static final int FEMALE = 2;
+
+    }
+
+    @Override
+    public String toString() {
+        return String.format("letterId: %s, userId: %s, userName: %s, userSignature: %s, userAvatar: %s, userGender: %s, " +
+                "content: %s, dateId: %s, letterStatus: %s, userDateStatus: %s",
+                letterId, userId, userName, userSignature, userAvatar, userGender, content, dateId, letterStatus, userDateStatus);
+    }
 }

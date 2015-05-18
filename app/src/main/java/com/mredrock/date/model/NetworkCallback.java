@@ -31,9 +31,14 @@ public abstract class NetworkCallback<T> implements RequestManager.RequestListen
             JSONObject jsonObject = new JSONObject(s);
             int status = jsonObject.getInt(Api.Key.STATUS);
             if (status == Api.Code.OK) {
-                JSONArray dataArr = jsonObject.getJSONArray(Api.Key.DATA);
-                T data = new Gson().fromJson(dataArr.toString(), ((ParameterizedType)getClass().getGenericSuperclass()).getActualTypeArguments()[0]);
-                success(data);
+                if (jsonObject.has(Api.Key.DATA)) {
+                    JSONArray dataArr = jsonObject.getJSONArray(Api.Key.DATA);
+                    T data = new Gson().fromJson(dataArr.toString(), ((ParameterizedType)getClass().getGenericSuperclass()).getActualTypeArguments()[0]);
+                    success(data);
+                } else {
+                    success((T) jsonObject.getString(Api.Key.INFO));
+                }
+
             } else {
                 error(status, jsonObject.getString(Api.Key.INFO));
             }
@@ -49,6 +54,4 @@ public abstract class NetworkCallback<T> implements RequestManager.RequestListen
     protected abstract void success(T data);
 
     protected abstract void error(int errCode, String info);
-
-
 }

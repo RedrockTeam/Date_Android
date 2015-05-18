@@ -30,12 +30,12 @@ public class Api {
             public static final String USER_AVATAR = "user_avatar";
             public static final String USER_GENDER = "userGender";
             public static final String CONTENT = "content";
-            public static final String DATA_ID = "data_id";
+            public static final String DATA_ID = "date_id";
             public static final String LETTER_STATUS = "letter_status";
             public static final String USER_DATE_STATUS = "user_date_status";
+            public static final String TO_ID = "to_id";
+            public static final String ACTION = "action";
         }
-
-
     }
 
 
@@ -45,6 +45,7 @@ public class Api {
 
     public class Method {
         public static final String GET_LETTER = "getletter";
+        public static final String DATE_ACTION = "dateaction";
     }
 
     public class Code {

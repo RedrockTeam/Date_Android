@@ -1,6 +1,7 @@
 package com.mredrock.date.letter.presenter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.ViewGroup;
@@ -24,6 +25,7 @@ public class LetterActivityPresenter extends BaseActivityPresenter<LetterActivit
     private OnMoreListener onMoreListener;
     private LetterModel letterModel;
     private int page = 1;
+    public static int REQUEST_LETTER = 1;
 
     @Override
     public Class<LetterActivityVu> getVuClass() {
@@ -44,15 +46,22 @@ public class LetterActivityPresenter extends BaseActivityPresenter<LetterActivit
         refreshListener = new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-
+                addLetters(0);
             }
         };
         onMoreListener = new OnMoreListener() {
             @Override
             public void onMoreAsked(int i, int i2, int i3) {
-
+                //TODO 解决回调问题
+                addLetters(letterAdapter.getPage());
+                Log.d("LetterActivityPresenter", "addLetters" + letterAdapter.getPage());
             }
         };
+        addLetters(0);
+    }
+
+    private void addLetters(final int page) {
+
         letterModel.getLetters(page, new NetworkCallback<Letter[]>() {
 
             @Override
@@ -63,7 +72,15 @@ public class LetterActivityPresenter extends BaseActivityPresenter<LetterActivit
             @Override
             protected void success(Letter[] data) {
                 Log.d("success", data.toString());
-                letterAdapter.addAll(data);
+                if (page == 0) {
+                    letterAdapter.clear();
+                }
+                //请求到的数据为空
+                if (data.length < 1) {
+                    //做提示操作：0页的时候暂无私信，非0页的时候，提示没有更多数据加载
+                } else {
+                    letterAdapter.addAll(data);
+                }
             }
 
             @Override
@@ -74,6 +91,17 @@ public class LetterActivityPresenter extends BaseActivityPresenter<LetterActivit
 
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_LETTER && resultCode == LetterDetailActivityPresenter.RESULT_LETTER) {
+//            Log.d("onActivityResult", "position" + data.getIntExtra("position", -1) + " \n" + data.getParcelableExtra("letter") + " isChange " + data.getBooleanExtra("flag", false));
+            int position = data.getIntExtra("position", -1);
+            Letter letter = data.getParcelableExtra("letter");
+            letterAdapter.getItem(position).setUserDateStatus(letter.getUserDateStatus());
+            letterAdapter.notifyDataSetChanged();
+        }
+    }
 
     /**
      * 私信列表适配器
@@ -91,8 +119,9 @@ public class LetterActivityPresenter extends BaseActivityPresenter<LetterActivit
 
         @Override
         public void OnBindViewHolder(BaseViewHolder holder, int position) {
-            holder.setData(getItem(position));
+            ((LetterViewHolder)holder).setData(getItem(position), position);
         }
+
 
     }
 }
