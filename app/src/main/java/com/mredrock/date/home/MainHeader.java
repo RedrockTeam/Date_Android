@@ -168,5 +168,4 @@ public class MainHeader implements RecyclerArrayAdapter.HeaderView ,View.OnClick
         view.findViewById(R.id.btn_sort).setOnClickListener(this);
     }
 
-
 }
