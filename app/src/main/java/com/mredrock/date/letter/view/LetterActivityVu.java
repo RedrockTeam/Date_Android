@@ -22,7 +22,7 @@ public class LetterActivityVu extends BaseActivityVu {
         setView(R.layout.activity_letter);
         rvLetter = $(R.id.recyclerview);
         rvLetter.setLayoutManager(new LinearLayoutManager(getContext()));
-
+        rvLetter.setNumberBeforeMoreIsCalled(0);
     }
 
 
