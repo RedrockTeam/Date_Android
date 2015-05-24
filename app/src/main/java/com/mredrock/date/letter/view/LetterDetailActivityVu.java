@@ -21,6 +21,7 @@ import com.mredrock.date.model.bean.Letter;
  * Created by Lecion on 5/5/15.
  */
 public class LetterDetailActivityVu extends BaseActivityVu implements View.OnClickListener {
+    //TODO 完成点击用户头像跳转
     private SimpleDraweeView sdvAvatar;
     private TextView tvUserName;
     private ImageView ivGender;
@@ -48,7 +49,6 @@ public class LetterDetailActivityVu extends BaseActivityVu implements View.OnCli
     }
 
     public void setData(Letter letter) {
-        //TODO 设置数据
         sdvAvatar.setImageURI(Uri.parse(letter.getUserAvatar()));
         tvUserName.setText(letter.getUserName());
         ivGender.setImageResource(getGenderImg(letter.getUserGender()));
