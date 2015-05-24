@@ -35,6 +35,7 @@ public class Api {
             public static final String USER_DATE_STATUS = "user_date_status";
             public static final String TO_ID = "to_id";
             public static final String ACTION = "action";
+            public static final String USER_SCORE = "user_score";
         }
     }
 

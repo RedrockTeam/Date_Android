@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -54,6 +55,32 @@ public class LetterDetailActivityVu extends BaseActivityVu implements View.OnCli
         tvContent.setText("TA" + letter.getContent());
         btnReceive.setOnClickListener(this);
         btnReject.setOnClickListener(this);
+        setUserScore(letter.getUserScore());
+    }
+
+    private void setUserScore(int userScore) {
+        boolean isHalf = false;
+        int integer = (int) userScore;
+        double delta = userScore - integer;
+        if (delta > 0) {
+            Log.d("TestDiv", "小数"+ userScore );
+            isHalf = true;
+        }
+        if (isHalf) {
+            llUserStarContainer.getChildAt(5).setVisibility(View.VISIBLE);
+        } else {
+            llUserStarContainer.getChildAt(5).setVisibility(View.GONE);
+        }
+        for (int i = 0; i < 11; i++) {
+            if (i < 5 && i >= integer) {
+                llUserStarContainer.getChildAt(i).setVisibility(View.GONE);
+            }
+            if (i > 5) {
+                if (isHalf && (i - 5) >= (integer + 1) || !isHalf && (i - 5) >= integer) {
+                    llUserStarContainer.getChildAt(i).setVisibility(View.GONE);
+                }
+            }
+        }
     }
 
     public void showReject() {
