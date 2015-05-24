@@ -29,7 +29,12 @@ public class MainHeader implements RecyclerArrayAdapter.HeaderView ,View.OnClick
 
     @Override
     public View onCreateView(ViewGroup parent) {
-        return LayoutInflater.from(parent.getContext()).inflate(R.layout.head_main, parent, false);
+        view = LayoutInflater.from(parent.getContext()).inflate(R.layout.head_main, parent, false);
+        jpvBanner = (JPagerView) view.findViewById(R.id.jpv_banner);
+        jpvBanner.setAdapter(new BannerPagerAdapter());
+        view.findViewById(R.id.btn_type).setOnClickListener(this);
+        view.findViewById(R.id.btn_sort).setOnClickListener(this);
+        return view;
     }
 
     @Override
@@ -46,7 +51,7 @@ public class MainHeader implements RecyclerArrayAdapter.HeaderView ,View.OnClick
 
     private void showTypeSelectView(final Context ctx){
         GridView gridView = new GridView(ctx);
-        gridView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT));
+        gridView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         gridView.setNumColumns(3);
         gridView.setBackgroundColor(Color.WHITE);
         gridView.setHorizontalSpacing(Utils.dip2px(0.5f));
@@ -160,12 +165,7 @@ public class MainHeader implements RecyclerArrayAdapter.HeaderView ,View.OnClick
 
     @Override
     public void onBindView(View headerView) {
-        view = headerView;
-        jpvBanner = (JPagerView) view.findViewById(R.id.jpv_banner);
-        mSelectGroup = view.findViewById(R.id.select_group);
-        jpvBanner.setAdapter(new BannerPagerAdapter());
-        view.findViewById(R.id.btn_type).setOnClickListener(this);
-        view.findViewById(R.id.btn_sort).setOnClickListener(this);
+        mSelectGroup = headerView.findViewById(R.id.select_group);
     }
 
 

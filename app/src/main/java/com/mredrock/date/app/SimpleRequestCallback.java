@@ -8,9 +8,6 @@ import com.mredrock.date.util.Utils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
-
 /**
  * Created by zhuchenxi on 15/5/11.
  */
@@ -22,16 +19,6 @@ public abstract class SimpleRequestCallback<T> implements RequestManager.Request
 
     @Override
     public void onRequest() {
-        Type sType = getClass().getGenericSuperclass();
-        Type[] generics = ((ParameterizedType) sType).getActualTypeArguments();
-        for (Type t:generics){
-            if (t instanceof Class){
-                clazz = (Class<T>) (t);
-
-            }
-            Utils.Log(t.getClass().getName());
-        }
-
     }
 
     @Override

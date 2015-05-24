@@ -35,6 +35,7 @@ public class BannerModel {
             }
 
             @Override
+
             public void error(String errorInfo) {
 
             }

@@ -4,7 +4,7 @@ package com.mredrock.date.model.bean;
  * Created by Mr.Jude on 2015/4/22.
  */
 public class Appointment {
-    private String id;
+    private String date_id;
     private int type;
     private String title;
     private String address;
@@ -15,21 +15,14 @@ public class Appointment {
     private String college;
     private int count;
     private long  releaseTime;
-    private PersonBrief author;
+    private String user_id;
 
-    public String getId() {
-        return id;
+    public String getDate_id() {
+        return date_id;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-    public PersonBrief getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(PersonBrief author) {
-        this.author = author;
+    public void setDate_id(String date_id) {
+        this.date_id = date_id;
     }
 
     public String getTitle() {
@@ -112,7 +105,6 @@ public class Appointment {
     }
 
     public Appointment(PersonBrief author,String title, String address, long date, String cost, String grade, int gender, String college, int count, long releaseTime) {
-        this.author = author;
         this.title = title;
         this.address = address;
         this.date = date;

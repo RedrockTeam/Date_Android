@@ -48,13 +48,13 @@ public class AppointmentViewHolder extends BaseViewHolder<Appointment> {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(itemView.getContext(), DetailActivityPresenter.class);
-                i.putExtra("id",data.getId());
+                i.putExtra("id",data.getDate_id());
                 itemView.getContext().startActivity(i);
             }
         });
-        authorName.setText(data.getAuthor().getName());
-        authorSign.setText(data.getAuthor().getSign());
-        authorFace.setImageURI(Uri.parse(data.getAuthor().getFace()));
+        authorName.setText("");
+        authorSign.setText("");
+        authorFace.setImageURI(Uri.parse(""));
         authorGender.setImageResource(data.getAuthor().getGrade()==0?R.drawable.ic_man:R.drawable.ic_woman);
         title.setText(data.getTitle());
         address.setText(data.getAddress());
