@@ -32,7 +32,7 @@ public class Letter implements Parcelable{
     @SerializedName(Api.Key.Letter.USER_DATE_STATUS)
     private int userDateStatus;
     @SerializedName(Api.Key.Letter.USER_SCORE)
-    private int userScore;
+    private double userScore;
 
     public Letter(Parcel in) {
         letterId = in.readInt();
@@ -45,7 +45,7 @@ public class Letter implements Parcelable{
         dateId = in.readInt();
         letterStatus = in.readInt();
         userDateStatus = in.readInt();
-        userScore = in.readInt();
+        userScore = in.readDouble();
     }
 
     public int getLetterId() {
@@ -145,7 +145,7 @@ public class Letter implements Parcelable{
         dest.writeInt(dateId);
         dest.writeInt(letterStatus);
         dest.writeInt(userDateStatus);
-        dest.writeInt(userScore);
+        dest.writeDouble(userScore);
     }
 
     public static final Parcelable.Creator<Letter> CREATOR = new Parcelable.Creator<Letter>() {
@@ -158,11 +158,11 @@ public class Letter implements Parcelable{
         }
     };
 
-    public int getUserScore() {
+    public double getUserScore() {
         return userScore;
     }
 
-    public void setUserScore(int userScore) {
+    public void setUserScore(double userScore) {
         this.userScore = userScore;
     }
 

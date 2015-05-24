@@ -58,7 +58,7 @@ public class LetterDetailActivityVu extends BaseActivityVu implements View.OnCli
         setUserScore(letter.getUserScore());
     }
 
-    private void setUserScore(int userScore) {
+    private void setUserScore(double userScore) {
         boolean isHalf = false;
         int integer = (int) userScore;
         double delta = userScore - integer;
@@ -76,8 +76,9 @@ public class LetterDetailActivityVu extends BaseActivityVu implements View.OnCli
                 llUserStarContainer.getChildAt(i).setVisibility(View.GONE);
             }
             if (i > 5) {
-                if (isHalf && (i - 5) >= (integer + 1) || !isHalf && (i - 5) >= integer) {
+                if (isHalf && (i - 5) > (5 - (integer + 1)) || !isHalf && (i - 5) > (5 - integer)) {
                     llUserStarContainer.getChildAt(i).setVisibility(View.GONE);
+                    Log.d("setUserScore", i + "");
                 }
             }
         }
