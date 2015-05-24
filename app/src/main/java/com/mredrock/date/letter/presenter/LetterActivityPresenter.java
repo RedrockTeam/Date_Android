@@ -24,7 +24,6 @@ public class LetterActivityPresenter extends BaseActivityPresenter<LetterActivit
     private SwipeRefreshLayout.OnRefreshListener refreshListener;
     private OnMoreListener onMoreListener;
     private LetterModel letterModel;
-    private int page = 1;
     public static int REQUEST_LETTER = 1;
 
     @Override
@@ -43,6 +42,7 @@ public class LetterActivityPresenter extends BaseActivityPresenter<LetterActivit
     private void initData() {
         letterModel = new LetterModel();
         letterAdapter = new LetterAdapter(this);
+        addLetters(0);
         refreshListener = new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -52,12 +52,10 @@ public class LetterActivityPresenter extends BaseActivityPresenter<LetterActivit
         onMoreListener = new OnMoreListener() {
             @Override
             public void onMoreAsked(int i, int i2, int i3) {
-                //TODO 解决回调问题
                 addLetters(letterAdapter.getPage());
-                Log.d("LetterActivityPresenter", "addLetters" + letterAdapter.getPage());
+                Log.d("LetterActivityPresenter", "addLetters" + letterAdapter.getPage() + "  itemCount " + letterAdapter.getItemCount() + String.format("i = %s i2 = %s i3 = %s", i, i2, i3));
             }
         };
-        addLetters(0);
     }
 
     private void addLetters(final int page) {

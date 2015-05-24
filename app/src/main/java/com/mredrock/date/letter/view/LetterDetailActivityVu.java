@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -20,6 +21,7 @@ import com.mredrock.date.model.bean.Letter;
  * Created by Lecion on 5/5/15.
  */
 public class LetterDetailActivityVu extends BaseActivityVu implements View.OnClickListener {
+    //TODO 完成点击用户头像跳转
     private SimpleDraweeView sdvAvatar;
     private TextView tvUserName;
     private ImageView ivGender;
@@ -47,13 +49,39 @@ public class LetterDetailActivityVu extends BaseActivityVu implements View.OnCli
     }
 
     public void setData(Letter letter) {
-        //TODO 设置数据
         sdvAvatar.setImageURI(Uri.parse(letter.getUserAvatar()));
         tvUserName.setText(letter.getUserName());
         ivGender.setImageResource(getGenderImg(letter.getUserGender()));
         tvContent.setText("TA" + letter.getContent());
         btnReceive.setOnClickListener(this);
         btnReject.setOnClickListener(this);
+        setUserScore(letter.getUserScore());
+    }
+
+    private void setUserScore(double userScore) {
+        boolean isHalf = false;
+        int integer = (int) userScore;
+        double delta = userScore - integer;
+        if (delta > 0) {
+            Log.d("TestDiv", "小数"+ userScore );
+            isHalf = true;
+        }
+        if (isHalf) {
+            llUserStarContainer.getChildAt(5).setVisibility(View.VISIBLE);
+        } else {
+            llUserStarContainer.getChildAt(5).setVisibility(View.GONE);
+        }
+        for (int i = 0; i < 11; i++) {
+            if (i < 5 && i >= integer) {
+                llUserStarContainer.getChildAt(i).setVisibility(View.GONE);
+            }
+            if (i > 5) {
+                if (isHalf && (i - 5) > (5 - (integer + 1)) || !isHalf && (i - 5) > (5 - integer)) {
+                    llUserStarContainer.getChildAt(i).setVisibility(View.GONE);
+                    Log.d("setUserScore", i + "");
+                }
+            }
+        }
     }
 
     public void showReject() {

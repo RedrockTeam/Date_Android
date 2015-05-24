@@ -18,7 +18,7 @@
         android:layout_toRightOf="@id/sdv_avatar"
         android:layout_centerVertical="true"
         android:text="王尼玛"
-        android:textColor="@android:color/holo_blue_light"
+        android:textColor="@color/blue_de_france"
         />
 
     <TextView

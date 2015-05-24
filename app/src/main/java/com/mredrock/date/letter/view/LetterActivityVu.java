@@ -10,6 +10,7 @@ import com.malinskiy.superrecyclerview.OnMoreListener;
 import com.malinskiy.superrecyclerview.SuperRecyclerView;
 import com.mredrock.date.R;
 import com.mredrock.date.app.BaseActivityVu;
+import com.mredrock.date.widget.DividerItemDecoration;
 
 /**
  * Created by Lecion on 4/28/15.
@@ -22,7 +23,8 @@ public class LetterActivityVu extends BaseActivityVu {
         setView(R.layout.activity_letter);
         rvLetter = $(R.id.recyclerview);
         rvLetter.setLayoutManager(new LinearLayoutManager(getContext()));
-
+        rvLetter.setNumberBeforeMoreIsCalled(0);
+        rvLetter.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL_LIST));
     }
 
 

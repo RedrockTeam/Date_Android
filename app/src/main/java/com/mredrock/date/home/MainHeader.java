@@ -168,5 +168,4 @@ public class MainHeader implements RecyclerArrayAdapter.HeaderView ,View.OnClick
         mSelectGroup = headerView.findViewById(R.id.select_group);
     }
 
-
 }

@@ -82,9 +82,40 @@
                 android:layout_width="16dp"
                 android:layout_height="16dp"
                 android:padding="2dp"
-                android:src="@drawable/star_half" />
+                android:src="@drawable/star_all" />
 
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:padding="2dp"
+                android:src="@drawable/star_half" />
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:padding="2dp"
+                android:src="@drawable/star_null" />
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:padding="2dp"
+                android:src="@drawable/star_null" />
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:padding="2dp"
+                android:src="@drawable/star_null" />
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:padding="2dp"
+                android:src="@drawable/star_null" />
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:padding="2dp"
+                android:src="@drawable/star_null" />
         </LinearLayout>
+
 
         <View
             android:id="@+id/divider"
