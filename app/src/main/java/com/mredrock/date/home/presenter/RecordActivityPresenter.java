@@ -13,11 +13,16 @@ public class RecordActivityPresenter extends BaseActivityPresenter<RecordActivit
     private AppointmentModel mAppointmentModel = new AppointmentModel();
     @Override
     public void onBindVu() {
-        mAppointmentModel.getAppointmentFromServer(0, new OnDataCallback<Appointment>() {
+        mAppointmentModel.getJoinFromServer(new OnDataCallback<Appointment>() {
             @Override
             public void callback(Appointment... list) {
                 if (vu!=null)
                     vu.setAppointment(list);
+            }
+
+            @Override
+            public void error(String info) {
+
             }
         });
 

@@ -5,4 +5,5 @@ package com.mredrock.date.widget;
  */
 public interface OnDataCallback<T> {
     void callback(T... list);
+    void error(String info);
 }

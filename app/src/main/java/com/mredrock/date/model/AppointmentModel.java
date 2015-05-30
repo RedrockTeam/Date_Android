@@ -1,9 +1,11 @@
 package com.mredrock.date.model;
 
-import android.os.Handler;
-
+import com.android.http.RequestManager;
+import com.mredrock.date.app.ResultRequestCallback;
+import com.mredrock.date.app.SimpleRequestCallback;
+import com.mredrock.date.app.TokenParams;
+import com.mredrock.date.config.Api;
 import com.mredrock.date.model.bean.Appointment;
-import com.mredrock.date.model.bean.PersonBrief;
 import com.mredrock.date.widget.OnDataCallback;
 
 
@@ -12,38 +14,80 @@ import com.mredrock.date.widget.OnDataCallback;
  */
 public class AppointmentModel {
 
-    public void getAppointmentFromServer(int page, final OnDataCallback<Appointment> callback){
-        final Handler handler = new Handler();
-        new Thread(new Runnable() {
+    public void getAppointmentFromServer(int page, int dateType,int order,final OnDataCallback<Appointment> callback){
+        TokenParams params = new TokenParams();
+        params.put(Api.Key.DATE_TYPE,dateType+"");
+        params.put(Api.Key.PAGE,page+"");
+        params.put(Api.Key.SIZE,30+"");
+        params.put(Api.Key.ORDER,order+"");
+        RequestManager.getInstance().post(Api.Url.DateList, params, new SimpleRequestCallback<Appointment[]>(Appointment[].class) {
             @Override
-            public void run() {
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        callback.callback(new Appointment[]{
-                                new Appointment(new PersonBrief("http://i0.hdslb.com/user/2168/216844/myface.jpg","王尼玛","王尼玛我要给你生猴子",0),"挺进大别山","大别山",1430452800,"888元","大一",0,"不限",8,1429675200),
-                                new Appointment(new PersonBrief("http://i0.hdslb.com/user/1228/122879/myface.jpg","赵日天","我的名字叫赵日天",1),"飞跃疯人院","疯人院",1430452800,"80元包吃住","不限",0,"不限",8,1430175600),
-                                new Appointment(new PersonBrief("http://i0.hdslb.com/user/2168/216844/myface.jpg","王尼玛","王尼玛我要给你生猴子",0),"挺进大别山","大别山",1430452800,"888元","大一",0,"不限",8,1430118000),
-                                new Appointment(new PersonBrief("http://i0.hdslb.com/user/1228/122879/myface.jpg","赵日天","我的名字叫赵日天",1),"飞跃疯人院","疯人院",1430452800,"80元包吃住","不限",0,"不限",8,1430362800),
-                                new Appointment(new PersonBrief("http://i0.hdslb.com/user/2168/216844/myface.jpg","王尼玛","王尼玛我要给你生猴子",0),"挺进大别山","大别山",1430452800,"888元","大一",0,"不限",8,1429675200),
-                                new Appointment(new PersonBrief("http://i0.hdslb.com/user/2168/216844/myface.jpg","王尼玛","王尼玛我要给你生猴子",0),"挺进大别山","大别山",1430452800,"888元","大一",0,"不限",8,1429675200),
-                                new Appointment(new PersonBrief("http://i0.hdslb.com/user/1228/122879/myface.jpg","赵日天","我的名字叫赵日天",1),"飞跃疯人院","疯人院",1430452800,"80元包吃住","不限",0,"不限",8,1430175600),
-                                new Appointment(new PersonBrief("http://i0.hdslb.com/user/2168/216844/myface.jpg","王尼玛","王尼玛我要给你生猴子",0),"挺进大别山","大别山",1430452800,"888元","大一",0,"不限",8,1429675200),
-                                new Appointment(new PersonBrief("http://i0.hdslb.com/user/1228/122879/myface.jpg","赵日天","我的名字叫赵日天",1),"飞跃疯人院","疯人院",1430452800,"80元包吃住","不限",0,"不限",8,1430175600),
-                                new Appointment(new PersonBrief("http://i0.hdslb.com/user/2168/216844/myface.jpg","王尼玛","王尼玛我要给你生猴子",0),"挺进大别山","大别山",1430452800,"888元","大一",0,"不限",8,1429675200),
-                                new Appointment(new PersonBrief("http://i0.hdslb.com/user/2168/216844/myface.jpg","王尼玛","王尼玛我要给你生猴子",0),"挺进大别山","大别山",1430452800,"888元","大一",0,"不限",8,1429675200),
-                                new Appointment(new PersonBrief("http://i0.hdslb.com/user/2168/216844/myface.jpg","王尼玛","王尼玛我要给你生猴子",0),"挺进大别山","大别山",1430452800,"888元","大一",0,"不限",8,1429675200),
-                        });
-                    }
-                });
+            public void success(String info, Appointment[] data) {
+                callback.callback(data);
             }
-        }).start();
 
+            @Override
+            public void error(String errorInfo) {
+                callback.error(errorInfo);
+            }
+        });
+    }
+
+    public void getCollectionFromServer(final OnDataCallback<Appointment> callback){
+        RequestManager.getInstance().post(Api.Url.CollectionList, new TokenParams(), new SimpleRequestCallback<Appointment[]>(Appointment[].class) {
+            @Override
+            public void success(String info, Appointment[] data) {
+                callback.callback(data);
+            }
+
+            @Override
+            public void error(String errorInfo) {
+                callback.error(errorInfo);
+            }
+        });
+    }
+
+    public void getJoinFromServer(final OnDataCallback<Appointment> callback){
+        RequestManager.getInstance().post(Api.Url.CollectionList, new TokenParams(), new SimpleRequestCallback<Appointment[]>(Appointment[].class) {
+            @Override
+            public void success(String info, Appointment[] data) {
+                callback.callback(data);
+            }
+
+            @Override
+            public void error(String errorInfo) {
+                callback.error(errorInfo);
+            }
+        });
+    }
+
+    public void postAppointmentToServer(Appointment appointment,final OnDataCallback<String> callback){
+        TokenParams params = new TokenParams();
+        params.put("date_type",appointment.getDate_type()+"");
+        params.put("title",appointment.getTitle());
+        params.put("content",appointment.getContent());
+        params.put("date_time",appointment.getDate_at()+"");
+        params.put("date_place",appointment.getPlace());
+        params.put("date_people",appointment.getPeople_limit()+"");
+        params.put("gender_limit",appointment.getGender_limit()+"");
+        if (appointment.getGrade_limit()!=null)
+            for (int i:appointment.getGrade_limit()){
+                params.put("grade_limit[]",i+"");
+            }
+        params.put("academy_select_model","1");
+        params.put("grade_select_model","1");
+        params.put("cost_model",appointment.getCost_model()+"");
+        RequestManager.getInstance().post(Api.Url.CollectionList, params, new ResultRequestCallback() {
+            @Override
+            public void success(String info) {
+                callback.callback(info);
+            }
+
+            @Override
+            public void error(String errorInfo) {
+                callback.error(errorInfo);
+            }
+        });
     }
 
 }

@@ -24,6 +24,11 @@ public class BannerPagerAdapter extends JStatePagerAdapter {
             public void callback(Banner... banners) {
                 notifyDataSetChanged();
             }
+
+            @Override
+            public void error(String info) {
+
+            }
         });
     }
 

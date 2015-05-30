@@ -13,11 +13,17 @@ public class CollectionActivityPresenter extends BaseActivityPresenter<Collectio
     private AppointmentModel mAppointmentModel = new AppointmentModel();
     @Override
     public void onBindVu() {
-        mAppointmentModel.getAppointmentFromServer(0, new OnDataCallback<Appointment>() {
+
+        mAppointmentModel.getCollectionFromServer(new OnDataCallback<Appointment>() {
             @Override
             public void callback(Appointment... list) {
                 if (vu!=null)
                     vu.setAppointment(list);
+            }
+
+            @Override
+            public void error(String info) {
+
             }
         });
 

@@ -4,65 +4,48 @@ package com.mredrock.date.model.bean;
  * Created by Mr.Jude on 2015/4/22.
  */
 public class Appointment {
-    private String date_id;
-    private int type;
-    private String title;
-    private String address;
-    private long date;
-    private String cost;
-    private String grade;
+    public static final String[] COSTMODEL = {"你掏钱","AA制","我请客"};
+
+    private String nickname;
+    private String head;
     private int gender;
-    private String college;
-    private int count;
-    private long  releaseTime;
+    private String date_id;
     private String user_id;
+    private long created_at;
+    private long date_at;
+    private String place;
+    private String title;
+    private int date_type;
+    private int category_id;
+    private int people_limit;
+    private int gender_limit;
+    private int[] grade_limit;
+    private int cost_model = -1;
+    private String signature;
+    private String content;
 
-    public String getDate_id() {
-        return date_id;
+    public String getContent() {
+        return content;
     }
 
-    public void setDate_id(String date_id) {
-        this.date_id = date_id;
+    public void setContent(String content) {
+        this.content = content;
     }
 
-    public String getTitle() {
-        return title;
+    public String getNickname() {
+        return nickname;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
-    public String getAddress() {
-        return address;
+    public String getHead() {
+        return head;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public long getDate() {
-        return date;
-    }
-
-    public void setDate(long date) {
-        this.date = date;
-    }
-
-    public String getCost() {
-        return cost;
-    }
-
-    public void setCost(String cost) {
-        this.cost = cost;
-    }
-
-    public String getGrade() {
-        return grade;
-    }
-
-    public void setGrade(String grade) {
-        this.grade = grade;
+    public void setHead(String head) {
+        this.head = head;
     }
 
     public int getGender() {
@@ -73,49 +56,109 @@ public class Appointment {
         this.gender = gender;
     }
 
-    public String getCollege() {
-        return college;
+    public String getDate_id() {
+        return date_id;
     }
 
-    public void setCollege(String college) {
-        this.college = college;
+    public void setDate_id(String date_id) {
+        this.date_id = date_id;
     }
 
-    public int getCount() {
-        return count;
+    public String getUser_id() {
+        return user_id;
     }
 
-    public void setCount(int count) {
-        this.count = count;
+    public void setUser_id(String user_id) {
+        this.user_id = user_id;
     }
 
-    public long getReleaseTime() {
-        return releaseTime;
+    public long getCreated_at() {
+        return created_at;
     }
 
-    public void setReleaseTime(long releaseTime) {
-        this.releaseTime = releaseTime;
-    }
-    public int getType() {
-        return type;
+    public void setCreated_at(long created_at) {
+        this.created_at = created_at;
     }
 
-    public void setType(int type) {
-        this.type = type;
+    public long getDate_at() {
+        return date_at;
     }
 
-    public Appointment(PersonBrief author,String title, String address, long date, String cost, String grade, int gender, String college, int count, long releaseTime) {
+    public void setDate_at(long date_at) {
+        this.date_at = date_at;
+    }
+
+    public String getPlace() {
+        return place;
+    }
+
+    public void setPlace(String place) {
+        this.place = place;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
         this.title = title;
-        this.address = address;
-        this.date = date;
-        this.cost = cost;
-        this.grade = grade;
-        this.gender = gender;
-        this.college = college;
-        this.count = count;
-        this.releaseTime = releaseTime;
     }
 
-    public Appointment() {
+    public int getDate_type() {
+        return date_type;
+    }
+
+    public void setDate_type(int date_type) {
+        this.date_type = date_type;
+    }
+
+    public int getCategory_id() {
+        return category_id;
+    }
+
+    public void setCategory_id(int category_id) {
+        this.category_id = category_id;
+    }
+
+
+    public int getCost_model() {
+        return cost_model;
+    }
+
+    public void setCost_model(int cost_model) {
+        this.cost_model = cost_model;
+    }
+
+    public String getSignature() {
+        return signature;
+    }
+
+    public void setSignature(String signature) {
+        this.signature = signature;
+    }
+
+
+    public int getPeople_limit() {
+        return people_limit;
+    }
+
+    public void setPeople_limit(int people_limit) {
+        this.people_limit = people_limit;
+    }
+
+    public int getGender_limit() {
+        return gender_limit;
+    }
+
+    public void setGender_limit(int gender_limit) {
+        this.gender_limit = gender_limit;
+    }
+
+    public int[] getGrade_limit() {
+        return grade_limit;
+    }
+
+    public void setGrade_limit(int[] grade_limit) {
+        this.grade_limit = grade_limit;
     }
 }

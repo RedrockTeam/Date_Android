@@ -26,16 +26,25 @@ import com.umeng.update.UmengUpdateAgent;
 public class MainActivityPresenter extends BaseActivityPresenter<MainActivityVu> {
     private AppointmentArrayAdapter mAdapter;
     private AppointmentModel mAppointmentModel = new AppointmentModel();
+    private int type,sort;
+    private LoadAppointment mLoadAppointmentCallback = new LoadAppointment() {
+        @Override
+        public void loadAppointment(int type, int sort) {
+            addAppointment(0, type, sort);
+            MainActivityPresenter.this.type=type;
+            MainActivityPresenter.this.sort=sort;
+        }
+    };
     private SwipeRefreshLayout.OnRefreshListener mRefreshListener = new SwipeRefreshLayout.OnRefreshListener() {
         @Override
         public void onRefresh() {
-            addAppointment(0);
+            addAppointment(0,type,sort);
         }
     };
     private OnMoreListener onMoreListener = new OnMoreListener() {
         @Override
         public void onMoreAsked(int i, int i1, int i2) {
-            addAppointment(mAdapter.getPage());
+            addAppointment(mAdapter.getPage(),type,sort);
         }
     };
     @Override
@@ -44,15 +53,17 @@ public class MainActivityPresenter extends BaseActivityPresenter<MainActivityVu>
 
     }
 
+
+
     @Override
     public void onBindVu() {
         vu.addDrawer(this, new DrawerFragmentPresenter());
         mAdapter = new AppointmentArrayAdapter(this);
-        mAdapter.addHeader(new MainHeader());
+        mAdapter.addHeader(new MainHeader(mLoadAppointmentCallback));
         vu.setRecyclerViewAdapter(mAdapter);
         vu.setOnRefreshListener(mRefreshListener);
         vu.setOnLoadMoreListener(onMoreListener);
-        addAppointment(0);
+        addAppointment(0,type,sort);
         initUmengFamily();
     }
 
@@ -64,15 +75,23 @@ public class MainActivityPresenter extends BaseActivityPresenter<MainActivityVu>
     }
 
 
-    private void addAppointment(final int page){
-        mAppointmentModel.getAppointmentFromServer(page, new OnDataCallback<Appointment>() {
+    private void addAppointment(final int page,int type,int sort){
+        mAppointmentModel.getAppointmentFromServer(page,type,sort, new OnDataCallback<Appointment>() {
             @Override
             public void callback(Appointment... list) {
                 vu.finishLoading();
                 if (page == 0)mAdapter.clear();
                 mAdapter.addAll(list);
             }
+
+            @Override
+            public void error(String info) {
+
+            }
         });
+    }
+    public interface LoadAppointment{
+        public void loadAppointment(int type,int sort);
     }
 
     @Override

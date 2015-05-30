@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.jude.view.jpagerview.JPagerView;
 import com.mredrock.date.R;
+import com.mredrock.date.home.presenter.MainActivityPresenter;
 import com.mredrock.date.util.Utils;
 import com.mredrock.date.widget.RecyclerArrayAdapter;
 
@@ -26,6 +27,11 @@ public class MainHeader implements RecyclerArrayAdapter.HeaderView ,View.OnClick
     private View view;
     private JPagerView jpvBanner;
     private View mSelectGroup;
+    private int type,sort;
+    private MainActivityPresenter.LoadAppointment callback;
+    public MainHeader(MainActivityPresenter.LoadAppointment callback){
+        this.callback = callback;
+    }
 
     @Override
     public View onCreateView(ViewGroup parent) {
@@ -52,19 +58,19 @@ public class MainHeader implements RecyclerArrayAdapter.HeaderView ,View.OnClick
     private void showTypeSelectView(final Context ctx){
         GridView gridView = new GridView(ctx);
         gridView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        gridView.setNumColumns(3);
+        gridView.setNumColumns(5);
         gridView.setBackgroundColor(Color.WHITE);
         gridView.setHorizontalSpacing(Utils.dip2px(0.5f));
         gridView.setVerticalSpacing(Utils.dip2px(0.5f));
         gridView.setPadding(Utils.dip2px(0.5f),Utils.dip2px(0.5f),Utils.dip2px(0.5f),Utils.dip2px(0.5f));
 
-        final PopupWindow finalMPopupWindow = createPopupWindow(gridView, Utils.dip2px(56) * 3 + Utils.dip2px(0.5f) * 3);
+        final PopupWindow finalMPopupWindow = createPopupWindow(gridView, Utils.dip2px(56) * 2 + Utils.dip2px(0.5f) * 2);
         finalMPopupWindow.showAsDropDown(mSelectGroup);
 
         gridView.setAdapter(new BaseAdapter() {
             @Override
             public int getCount() {
-                return ctx.getResources().getStringArray(R.array.style).length;
+                return ctx.getResources().getStringArray(R.array.styleSelect).length;
             }
 
             @Override
@@ -88,7 +94,8 @@ public class MainHeader implements RecyclerArrayAdapter.HeaderView ,View.OnClick
                 view.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Utils.Toast(ctx.getResources().getStringArray(R.array.style)[position]);
+                        type = position;
+                        callback.loadAppointment(type,sort);
                         finalMPopupWindow.dismiss();
                     }
                 });
@@ -131,7 +138,8 @@ public class MainHeader implements RecyclerArrayAdapter.HeaderView ,View.OnClick
                 view.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Utils.Toast(ctx.getResources().getStringArray(R.array.sort)[position]);
+                        sort = position;
+                        callback.loadAppointment(type,sort);
                         finalMPopupWindow.dismiss();
                     }
                 });

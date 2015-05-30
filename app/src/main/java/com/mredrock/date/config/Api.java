@@ -11,6 +11,9 @@ public class Api {
 
     public class Url {
         public static final String Banner = BASE_URL + "/public/banner";
+        public static final String DateList = BASE_URL + "/date/datelist";
+        public static final String CollectionList = BASE_URL + "/person/collection";
+        public static final String JoinList = BASE_URL + "/person/join";
     }
 
     public class Key {
@@ -21,6 +24,8 @@ public class Api {
         public static final String UID = "uid";
         public static final String PAGE = "page";
         public static final String SIZE = "size";
+        public static final String ORDER = "order";
+        public static final String DATE_TYPE = "date_type";
 
         public class Letter {
             public static final String LETTER_ID = "letter_id";
@@ -37,6 +42,8 @@ public class Api {
             public static final String ACTION = "action";
             public static final String USER_SCORE = "user_score";
         }
+
+
     }
 
 
