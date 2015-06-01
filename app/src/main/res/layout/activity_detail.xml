@@ -57,24 +57,11 @@
                     android:id="@+id/user_star_container"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/author_gender_detail"
-                    android:layout_marginRight="16dp"
-                    android:layout_toRightOf="@+id/author_gender_detail"
-                    app:number="5"
-                    app:radius="16dp" />
-
-
-                <TextView
-                    android:id="@+id/author_sign_detail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_alignBottom="@+id/author_face_detail"
                     android:layout_marginLeft="16dp"
                     android:layout_toRightOf="@+id/author_face_detail"
-                    android:ellipsize="end"
-                    android:singleLine="true"
-                    android:text="他没有个性签名"
-                    android:textSize="12sp" />
+                    app:number="5"
+                    app:radius="16dp" />
 
 
                 <View
@@ -112,6 +99,8 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.5dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
                     android:layout_below="@+id/content_detail"
                     android:background="@color/grayLight" />
 
@@ -226,6 +215,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="0.5dp"
                     android:layout_below="@+id/cost_detail"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
                     android:layout_marginTop="8dp"
                     android:background="@color/grayLight" />
 

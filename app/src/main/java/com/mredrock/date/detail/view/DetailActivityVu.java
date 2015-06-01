@@ -1,32 +1,27 @@
 package com.mredrock.date.detail.view;
 
-import android.content.Intent;
 import android.net.Uri;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.gson.Gson;
 import com.mredrock.date.R;
 import com.mredrock.date.app.BaseActivityVu;
-import com.mredrock.date.app.SimpleRequestCallback;
-import com.mredrock.date.config.Api;
 import com.mredrock.date.model.DetailMode;
 import com.mredrock.date.model.bean.Appointment;
 import com.mredrock.date.model.bean.Detail;
 import com.mredrock.date.util.RecentDateFormater;
 import com.mredrock.date.util.TimeTransform;
 import com.mredrock.date.widget.LoveView;
-import com.mredrock.date.widget.OnDataCallback;
 import com.mredrock.date.widget.OnDataCallbackT;
 
 public class DetailActivityVu extends BaseActivityVu {
     private SimpleDraweeView authorFace;
     private LoveView socreLove;
     private TextView authorName;
-    private TextView authroSign;
     private ImageView authorGender;
+    private TextView releaseTime;
     private TextView title;
     private TextView content;
     private TextView place;
@@ -43,8 +38,8 @@ public class DetailActivityVu extends BaseActivityVu {
         authorFace = (SimpleDraweeView) rootView.findViewById(R.id.author_face_detail);
         socreLove = (LoveView) rootView.findViewById(R.id.user_star_container);
         authorName = (TextView) rootView.findViewById(R.id.author_name_detail);
-        authroSign = (TextView) rootView.findViewById(R.id.author_sign_detail);
         authorGender = (ImageView) rootView.findViewById(R.id.author_gender_detail);
+        releaseTime = (TextView) rootView.findViewById(R.id.releaseTime_detail);
         title = (TextView) rootView.findViewById(R.id.title_detail);
         content = (TextView) rootView.findViewById(R.id.content_detail);
         place = (TextView) rootView.findViewById(R.id.address_detail);
@@ -61,8 +56,8 @@ public class DetailActivityVu extends BaseActivityVu {
             setDetailView(data.getDate_id());
             authorFace.setImageURI(Uri.parse(data.getHead()));
             authorName.setText(data.getNickname());
-            authroSign.setText(data.getSignature());
             authorGender.setImageResource(data.getGender() == 0 ? R.drawable.ic_man : R.drawable.ic_woman);
+            releaseTime.setText(new TimeTransform(data.getCreated_at()).toString(new RecentDateFormater()));
             title.setText(data.getTitle());
             content.setText(data.getContent());
             place.setText(data.getPlace());
