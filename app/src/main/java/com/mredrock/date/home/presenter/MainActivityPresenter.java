@@ -27,6 +27,7 @@ public class MainActivityPresenter extends BaseActivityPresenter<MainActivityVu>
     private AppointmentArrayAdapter mAdapter;
     private AppointmentModel mAppointmentModel = new AppointmentModel();
     private int type,sort;
+    private Intent intent = new Intent();
     private LoadAppointment mLoadAppointmentCallback = new LoadAppointment() {
         @Override
         public void loadAppointment(int type, int sort) {

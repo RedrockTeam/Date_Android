@@ -5,7 +5,9 @@ import android.view.Menu;
 
 import com.mredrock.date.R;
 import com.mredrock.date.app.BaseActivityPresenter;
+import com.mredrock.date.config.C;
 import com.mredrock.date.detail.view.DetailActivityVu;
+import com.mredrock.date.model.DetailMode;
 
 public class DetailActivityPresenter extends BaseActivityPresenter<DetailActivityVu> {
     @Override
@@ -19,8 +21,8 @@ public class DetailActivityPresenter extends BaseActivityPresenter<DetailActivit
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_detail,menu);
-        return true;
+    public void onBindVu() {
+        super.onBindVu();
+        vu.setView(getIntent().getStringExtra(C.DETAIL_TAG));
     }
 }

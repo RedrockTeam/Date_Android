@@ -8,7 +8,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.google.gson.Gson;
 import com.mredrock.date.R;
+import com.mredrock.date.config.C;
 import com.mredrock.date.detail.presenter.DetailActivityPresenter;
 import com.mredrock.date.model.bean.Appointment;
 import com.mredrock.date.util.RecentDateFormater;
@@ -48,7 +50,7 @@ public class AppointmentViewHolder extends BaseViewHolder<Appointment> {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(itemView.getContext(), DetailActivityPresenter.class);
-                i.putExtra("id",data.getDate_id());
+                i.putExtra(C.DETAIL_TAG, new Gson().toJson(data));
                 itemView.getContext().startActivity(i);
             }
         });
@@ -59,7 +61,7 @@ public class AppointmentViewHolder extends BaseViewHolder<Appointment> {
         title.setText(data.getTitle());
         address.setText(data.getPlace());
         date.setText(new TimeTransform(data.getDate_at()).toString(new RecentDateFormater()));
-        cost.setText(Appointment.COSTMODEL[data.getCost_model()]);
+        cost.setText(Appointment.COSTMODEL[data.getCost_model() - 1]);
         releaseTime.setText(new TimeTransform(data.getCreated_at()).toString(new RecentDateFormater()));
     }
 }

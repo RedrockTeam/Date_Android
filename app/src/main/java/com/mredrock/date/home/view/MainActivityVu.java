@@ -66,5 +66,4 @@ public class MainActivityVu extends BaseActivityVu {
         });
         act.getSupportFragmentManager().beginTransaction().add(R.id.drawer,presenter,"drawer").commit();
     }
-
 }

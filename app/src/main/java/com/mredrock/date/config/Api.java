@@ -14,6 +14,7 @@ public class Api {
         public static final String DateList = BASE_URL + "/date/datelist";
         public static final String CollectionList = BASE_URL + "/person/collection";
         public static final String JoinList = BASE_URL + "/person/join";
+        public static final String Detail = BASE_URL + "/date/detaildate";
     }
 
     public class Key {
@@ -41,6 +42,12 @@ public class Api {
             public static final String TO_ID = "to_id";
             public static final String ACTION = "action";
             public static final String USER_SCORE = "user_score";
+        }
+
+        public class Detail {
+            public static final String DATE_ID = "date_id";
+            public static final String TOKEN = "token";
+            public static final String UID = "uid";
         }
 
 

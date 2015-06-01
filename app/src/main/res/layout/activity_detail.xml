@@ -19,84 +19,68 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="2dp"
-                android:layout_marginTop="2dp"
-                android:background="@android:color/white">
+                android:layout_marginTop="8dp"
+                android:background="@android:color/white"
+                android:paddingTop="16dp">
 
                 <com.facebook.drawee.view.SimpleDraweeView
-                    android:id="@+id/sdv_avatar"
+                    android:id="@+id/author_face_detail"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:paddingLeft="16dp"
+                    android:layout_marginLeft="16dp"
                     app:progressBarImage="@drawable/ic_loading"
                     app:progressBarImageScaleType="centerInside"
                     app:roundAsCircle="true" />
 
                 <TextView
-                    android:id="@+id/tv_user_name"
+                    android:id="@+id/author_name_detail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
-                    android:layout_toRightOf="@+id/sdv_avatar"
+                    android:layout_toRightOf="@+id/author_face_detail"
                     android:text="Jude95"
                     android:textSize="16sp" />
 
                 <ImageView
-                    android:id="@+id/iv_gender"
+                    android:id="@+id/author_gender_detail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/tv_user_name"
-                    android:layout_alignTop="@+id/tv_user_name"
-                    android:layout_toRightOf="@+id/tv_user_name"
+                    android:layout_alignBottom="@+id/author_name_detail"
+                    android:layout_alignTop="@+id/author_name_detail"
+                    android:layout_toRightOf="@+id/author_name_detail"
                     android:adjustViewBounds="true"
                     android:padding="2.5dp"
                     android:scaleType="centerInside"
                     android:src="@drawable/ic_man" />
 
-                <LinearLayout
-                    android:id="@+id/ll_user_star_container"
+                <com.mredrock.date.widget.LoveView
+                    android:id="@+id/user_star_container"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/sdv_avatar"
+                    android:layout_alignBottom="@+id/author_gender_detail"
+                    android:layout_marginRight="16dp"
+                    android:layout_toRightOf="@+id/author_gender_detail"
+                    app:number="5"
+                    app:radius="16dp" />
+
+
+                <TextView
+                    android:id="@+id/author_sign_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/author_face_detail"
                     android:layout_marginLeft="16dp"
-                    android:layout_toRightOf="@+id/sdv_avatar"
-                    android:orientation="horizontal">
+                    android:layout_toRightOf="@+id/author_face_detail"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="他没有个性签名"
+                    android:textSize="12sp" />
 
-                    <ImageView
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
-                        android:padding="2dp"
-                        android:src="@drawable/star_all" />
-
-                    <ImageView
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
-                        android:padding="2dp"
-                        android:src="@drawable/star_all" />
-
-                    <ImageView
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
-                        android:padding="2dp"
-                        android:src="@drawable/star_all" />
-
-                    <ImageView
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
-                        android:padding="2dp"
-                        android:src="@drawable/star_all" />
-
-                    <ImageView
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
-                        android:padding="2dp"
-                        android:src="@drawable/star_half" />
-
-                </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.5dp"
-                    android:layout_below="@+id/sdv_avatar"
+                    android:layout_below="@+id/author_face_detail"
                     android:layout_marginTop="8dp"
                     android:background="@color/grayLight" />
 
@@ -104,7 +88,7 @@
                     android:id="@+id/title_detail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/sdv_avatar"
+                    android:layout_below="@+id/author_face_detail"
                     android:layout_marginBottom="8dp"
                     android:layout_marginTop="16dp"
                     android:paddingLeft="16dp"
@@ -122,8 +106,8 @@
                     android:lineSpacingMultiplier="1.4"
                     android:paddingLeft="16dp"
                     android:paddingRight="16dp"
-                    android:textColor="#666666"
-                    android:text="今天下午，在老校门我们一起去吃饭，不要迟到。今天下午在老校门一起吃饭，不要迟到。" />
+                    android:text="今天下午，在老校门我们一起去吃饭，不要迟到。今天下午在老校门一起吃饭，不要迟到。"
+                    android:textColor="#666666" />
 
                 <View
                     android:layout_width="match_parent"
@@ -150,8 +134,8 @@
                     android:layout_marginLeft="8dp"
                     android:layout_toRightOf="@+id/img_address_detail"
                     android:gravity="center_vertical"
-                    android:textColor="#666666"
-                    android:text="地点：" />
+                    android:text="地点："
+                    android:textColor="#666666" />
 
                 <TextView
                     android:id="@+id/address_detail"
@@ -161,8 +145,8 @@
                     android:layout_toRightOf="@+id/lable_address_detail"
                     android:gravity="center_vertical"
                     android:paddingRight="16dp"
-                    android:textColor="#666666"
-                    android:text="老校门口" />
+                    android:text="老校门口"
+                    android:textColor="#666666" />
                 <!--Time-->
                 <ImageView
                     android:id="@+id/img_date_detail"
@@ -182,8 +166,8 @@
                     android:layout_marginLeft="8dp"
                     android:layout_toRightOf="@+id/img_date_detail"
                     android:gravity="center_vertical"
-                    android:textColor="#666666"
-                    android:text="时间：" />
+                    android:text="时间："
+                    android:textColor="#666666" />
 
                 <TextView
                     android:id="@+id/date_detail"
@@ -192,8 +176,8 @@
                     android:layout_alignBottom="@+id/img_date_detail"
                     android:layout_toRightOf="@+id/lable_date_detail"
                     android:gravity="center_vertical"
-                    android:textColor="#666666"
-                    android:text="今天下午6：00" />
+                    android:text="今天下午6：00"
+                    android:textColor="#666666" />
 
                 <!--Cost-->
                 <ImageView
@@ -214,8 +198,8 @@
                     android:layout_marginLeft="8dp"
                     android:layout_toRightOf="@+id/img_cost_detail"
                     android:gravity="center_vertical"
-                    android:textColor="#666666"
-                    android:text="花费：" />
+                    android:text="花费："
+                    android:textColor="#666666" />
 
                 <TextView
                     android:id="@+id/cost_detail"
@@ -225,8 +209,8 @@
                     android:layout_toRightOf="@+id/lable_cost_detail"
                     android:gravity="center_vertical"
                     android:paddingRight="16dp"
-                    android:textColor="#666666"
-                    android:text="我请客" />
+                    android:text="我请客"
+                    android:textColor="#666666" />
 
                 <TextView
                     android:id="@+id/releaseTime_detail"
@@ -235,8 +219,8 @@
                     android:layout_alignBottom="@+id/img_cost_detail"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="16dp"
-                    android:textColor="#666666"
-                    android:text="3分钟前" />
+                    android:text="3分钟前"
+                    android:textColor="#666666" />
 
                 <View
                     android:layout_width="match_parent"
@@ -264,8 +248,8 @@
                     android:layout_below="@+id/post_detail"
                     android:layout_marginLeft="16dp"
                     android:gravity="bottom"
-                    android:textColor="#666666"
-                    android:text="年级：" />
+                    android:text="年级："
+                    android:textColor="#666666" />
 
                 <TextView
                     android:id="@+id/grade_detail"
@@ -274,8 +258,8 @@
                     android:layout_alignBottom="@+id/lable_grade_detail"
                     android:layout_toRightOf="@+id/lable_grade_detail"
                     android:gravity="bottom"
-                    android:textColor="#666666"
-                    android:text="大二、大三" />
+                    android:text="大二、大三"
+                    android:textColor="#666666" />
 
                 <TextView
                     android:id="@+id/lable_sex_detail"
@@ -285,8 +269,8 @@
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="8dp"
                     android:gravity="bottom"
-                    android:textColor="#666666"
-                    android:text="性别：" />
+                    android:text="性别："
+                    android:textColor="#666666" />
 
                 <TextView
                     android:id="@+id/sex_detail"
@@ -295,40 +279,20 @@
                     android:layout_alignBottom="@+id/lable_sex_detail"
                     android:layout_toRightOf="@+id/lable_sex_detail"
                     android:gravity="bottom"
-                    android:textColor="#666666"
-                    android:text="不限" />
+                    android:text="不限"
+                    android:textColor="#666666" />
+
 
                 <TextView
-                    android:id="@+id/lable_college_detail"
+                    android:id="@+id/lable_number_detail"
                     android:layout_width="wrap_content"
                     android:layout_height="18dp"
                     android:layout_below="@+id/sex_detail"
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="8dp"
                     android:gravity="bottom"
-                    android:textColor="#666666"
-                    android:text="学院：" />
-
-                <TextView
-                    android:id="@+id/college_detail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="18dp"
-                    android:layout_alignBottom="@+id/lable_college_detail"
-                    android:layout_toRightOf="@+id/lable_college_detail"
-                    android:gravity="bottom"
-                    android:textColor="#666666"
-                    android:text="传媒艺术学院" />
-
-                <TextView
-                    android:id="@+id/lable_number_detail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="18dp"
-                    android:layout_below="@+id/college_detail"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginTop="8dp"
-                    android:gravity="bottom"
-                    android:textColor="#666666"
-                    android:text="人数：" />
+                    android:text="人数："
+                    android:textColor="#666666" />
 
                 <TextView
                     android:id="@+id/number_detail"
@@ -336,9 +300,9 @@
                     android:layout_height="18dp"
                     android:layout_alignBottom="@+id/lable_number_detail"
                     android:layout_toRightOf="@+id/lable_number_detail"
-                    android:textColor="#666666"
                     android:gravity="bottom"
-                    android:text="2人" />
+                    android:text="2人"
+                    android:textColor="#666666" />
 
                 <View
                     android:layout_width="match_parent"
@@ -349,12 +313,11 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="64dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_height="48dp"
                     android:layout_below="@+id/number_detail"
+                    android:layout_marginTop="16dp"
                     android:background="@android:color/white"
-                    android:orientation="horizontal">
-                </LinearLayout>
+                    android:orientation="horizontal"></LinearLayout>
 
             </RelativeLayout>
 

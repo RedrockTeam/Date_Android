@@ -26,7 +26,7 @@ public class TokenParams extends RequestMap{
     }
 
     private void addToken(){
-        put(Api.Key.TOKEN,"nasdfnldssdaf");
-        put(Api.Key.UID,"1");
+        put(Api.Key.TOKEN,"f3863ca2ec2846496a5a5e55210e1104");
+        put(Api.Key.UID,"7");
     }
 }

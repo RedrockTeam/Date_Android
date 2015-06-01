@@ -17,6 +17,8 @@ public abstract class SimpleRequestCallback<T> implements RequestManager.Request
         this.clazz = clazz;
     }
 
+
+
     @Override
     public void onRequest() {
     }

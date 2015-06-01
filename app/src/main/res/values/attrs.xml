@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="love">
+        <attr name="number" format="integer" />
+        <attr name="radius" format="dimension"/>
+    </declare-styleable>
+
+</resources>
