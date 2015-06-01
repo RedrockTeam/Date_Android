@@ -21,7 +21,6 @@ public class DetailActivityVu extends BaseActivityVu {
     private LoveView socreLove;
     private TextView authorName;
     private ImageView authorGender;
-    private TextView releaseTime;
     private TextView title;
     private TextView content;
     private TextView place;
@@ -39,7 +38,6 @@ public class DetailActivityVu extends BaseActivityVu {
         socreLove = (LoveView) rootView.findViewById(R.id.user_star_container);
         authorName = (TextView) rootView.findViewById(R.id.author_name_detail);
         authorGender = (ImageView) rootView.findViewById(R.id.author_gender_detail);
-        releaseTime = (TextView) rootView.findViewById(R.id.releaseTime_detail);
         title = (TextView) rootView.findViewById(R.id.title_detail);
         content = (TextView) rootView.findViewById(R.id.content_detail);
         place = (TextView) rootView.findViewById(R.id.address_detail);
@@ -57,7 +55,6 @@ public class DetailActivityVu extends BaseActivityVu {
             authorFace.setImageURI(Uri.parse(data.getHead()));
             authorName.setText(data.getNickname());
             authorGender.setImageResource(data.getGender() == 0 ? R.drawable.ic_man : R.drawable.ic_woman);
-            releaseTime.setText(new TimeTransform(data.getCreated_at()).toString(new RecentDateFormater()));
             title.setText(data.getTitle());
             content.setText(data.getContent());
             place.setText(data.getPlace());

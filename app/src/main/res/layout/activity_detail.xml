@@ -201,16 +201,6 @@
                     android:text="我请客"
                     android:textColor="#666666" />
 
-                <TextView
-                    android:id="@+id/releaseTime_detail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/img_cost_detail"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="16dp"
-                    android:text="3分钟前"
-                    android:textColor="#666666" />
-
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.5dp"

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="actionbarColor">#ff4040</color>
+
     <color name="orange">#ff5722</color>
     <color name="orangeDark">#bf360c</color>
     <color name="blue">#03a9f4</color>
