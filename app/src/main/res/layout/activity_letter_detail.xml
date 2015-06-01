@@ -42,80 +42,14 @@
             android:scaleType="centerInside"
             android:src="@drawable/ic_man" />
 
-        <LinearLayout
+        <com.mredrock.date.widget.LoveView
             android:id="@+id/ll_user_star_container"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@id/sdv_avatar"
             android:layout_toRightOf="@id/sdv_avatar"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:padding="2dp"
-                android:src="@drawable/star_all" />
-
-            <ImageView
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:padding="2dp"
-                android:src="@drawable/star_all" />
-
-            <ImageView
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:padding="2dp"
-                android:src="@drawable/star_all" />
-
-            <ImageView
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:padding="2dp"
-                android:src="@drawable/star_all" />
-
-            <ImageView
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:padding="2dp"
-                android:src="@drawable/star_all" />
-
-            <ImageView
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:padding="2dp"
-                android:src="@drawable/star_half" />
-
-            <ImageView
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:padding="2dp"
-                android:src="@drawable/star_null" />
-
-            <ImageView
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:padding="2dp"
-                android:src="@drawable/star_null" />
-
-            <ImageView
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:padding="2dp"
-                android:src="@drawable/star_null" />
-
-            <ImageView
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:padding="2dp"
-                android:src="@drawable/star_null" />
-
-            <ImageView
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:padding="2dp"
-                android:src="@drawable/star_null" />
-        </LinearLayout>
+            app:number="5"
+            app:raduis="16dp" />
 
 
         <View
