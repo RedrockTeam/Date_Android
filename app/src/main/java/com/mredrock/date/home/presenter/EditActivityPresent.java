@@ -144,9 +144,9 @@ public class EditActivityPresent extends BaseActivityPresenter<EditActivityVu> {
                             @Override
                             public boolean onSelection(MaterialDialog materialDialog, Integer[] integers, CharSequence[] charSequences) {
                                 ((TextView) v).setText(charSequences.toString());
-                                int[] r = new int[integers.length];
+                                String[] r = new String[integers.length];
                                 for (int i = 0 ; i < integers.length ; i++){
-                                    r[i] = integers[i];
+                                    r[i] = integers[i] + "";
                                 }
                                 appointment.setGrade_limit(r);
                                 return false;

@@ -39,7 +39,7 @@ public class InfoActivityVu extends BaseActivityVu{
     @Override
     protected void onToolbarInit(ActionBarActivity act, Toolbar toolbar) {
         super.onToolbarInit(act, toolbar);
-        toolbar.setTitle("个人中心");
+        toolbar.setTitle("涓汉涓績");
     }
     public void setPersonInformation(PersonInformatin personInfo){
         face.setImageURI(Uri.parse(personInfo.getFace()));
