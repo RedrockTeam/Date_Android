@@ -4,8 +4,9 @@ import android.net.Uri;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.alibaba.fastjson.JSON;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.google.gson.Gson;
 import com.mredrock.date.R;
 import com.mredrock.date.app.BaseActivityVu;
 import com.mredrock.date.model.DetailMode;
@@ -14,7 +15,7 @@ import com.mredrock.date.model.bean.Detail;
 import com.mredrock.date.util.RecentDateFormater;
 import com.mredrock.date.util.TimeTransform;
 import com.mredrock.date.widget.LoveView;
-import com.mredrock.date.widget.OnDataCallbackT;
+import com.mredrock.date.widget.OnDataCallback;
 
 public class DetailActivityVu extends BaseActivityVu {
     private SimpleDraweeView authorFace;
@@ -31,6 +32,7 @@ public class DetailActivityVu extends BaseActivityVu {
     private TextView number;
 
     private DetailMode detailMode = new DetailMode();
+
     @Override
     protected void onCreate() {
         setView(R.layout.activity_detail);
@@ -50,7 +52,7 @@ public class DetailActivityVu extends BaseActivityVu {
 
     public void setView(String json) {
         if (json != null) {
-            Appointment data = new Gson().fromJson(json, Appointment.class);
+            Appointment data = JSON.parseObject(json, Appointment.class);
             setDetailView(data.getDate_id());
             authorFace.setImageURI(Uri.parse(data.getHead()));
             authorName.setText(data.getNickname());
@@ -64,25 +66,25 @@ public class DetailActivityVu extends BaseActivityVu {
     }
 
     public void setDetailView(String date_Id) {
-        detailMode.getDetailFromServer(date_Id, new OnDataCallbackT<Detail>() {
+        detailMode.getDetailFromServer(date_Id, new OnDataCallback<Detail>() {
             @Override
-            public void callback(Detail list) {
+            public void callback(Detail... list) {
                 String grade_limit = "";
-                if (list.getGrade_limit() != null) {
-                    for (int i = 0; i < list.getGrade_limit().length; i++) {
-                        grade_limit += Detail.GRADE[list.getGrade_limit()[i]];
+                if (list[0].getGrade_limit() != null) {
+                    for (int i = 0; i < list[0].getGrade_limit().length; i++) {
+                        grade_limit += list[0].getGrade_limit()[i];
                     }
                 } else {
-                    grade_limit = Detail.GRADE[0];
+                    grade_limit = "无限制";
+                }
+                if (grade_limit.equals("")) {
+                    grade_limit = "无限制";
                 }
                 grade.setText(grade_limit);
-                sex.setText(Detail.SEX[list.getGender_limit()]);
-                number.setText(list.getPeople_limit() + "");
+                sex.setText(Detail.SEX[list[0].getGender_limit()]);
+                number.setText(list[0].getPeople_limit() + "");
                 Log.i("cao", grade_limit + "12");
-                socreLove.setStart(3.4);
-                if (list.getUser_score() != null) {
-                    socreLove.setStart(Double.valueOf(list.getUser_score()).doubleValue());
-                }
+                socreLove.setStart(list[0].getUser_score());
             }
 
             @Override

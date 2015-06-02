@@ -1,8 +1,7 @@
 package com.mredrock.date.model.bean;
 
 public class Detail {
-    public static final String[] GRADE = {"不限", "大一","大二","大三", "大四"};
-    public static final String[] SEX = {"不限", "男","女"};
+    public static final String[] SEX = {"无限制", "男","女"};
 
     private String nickname;
     private String head;
@@ -21,8 +20,8 @@ public class Detail {
     private int gender_limit;
     private int cost_model = -1;
     private String signature;
-    private int grade_limit[];
-    private String user_score;
+    private String grade_limit[];
+    private double user_score;
 
     public String getCategory_id() {
         return category_id;
@@ -96,11 +95,11 @@ public class Detail {
         this.gender_limit = gender_limit;
     }
 
-    public int[] getGrade_limit() {
+    public String[] getGrade_limit() {
         return grade_limit;
     }
 
-    public void setGrade_limit(int[] grade_limit) {
+    public void setGrade_limit(String[] grade_limit) {
         this.grade_limit = grade_limit;
     }
 
@@ -168,11 +167,11 @@ public class Detail {
         this.user_id = user_id;
     }
 
-    public String getUser_score() {
+    public double getUser_score() {
         return user_score;
     }
 
-    public void setUser_score(String user_score) {
+    public void setUser_score(double user_score) {
         this.user_score = user_score;
     }
 }

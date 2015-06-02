@@ -15,6 +15,7 @@ import com.mredrock.date.R;
 import com.mredrock.date.app.IVu;
 import com.mredrock.date.home.presenter.CollectionActivityPresenter;
 import com.mredrock.date.home.presenter.RecordActivityPresenter;
+import com.mredrock.date.information.view.presenter.InfoActivityPresenter;
 import com.mredrock.date.letter.presenter.LetterActivityPresenter;
 import com.mredrock.date.model.bean.PersonBrief;
 import com.mredrock.date.util.Utils;
@@ -48,6 +49,7 @@ public class DrawerFragmentVu implements IVu ,View.OnClickListener{
         view.findViewById(R.id.record).setOnClickListener(this);
         view.findViewById(R.id.collection).setOnClickListener(this);
         view.findViewById(R.id.message).setOnClickListener(this);
+        view.findViewById(R.id.information).setOnClickListener(this);
         view.findViewById(R.id.setting).setOnClickListener(this);
         initDropDown();
     }
@@ -109,6 +111,9 @@ public class DrawerFragmentVu implements IVu ,View.OnClickListener{
                 ctx.startActivity(new Intent(ctx, LetterActivityPresenter.class));
                 break;
             case R.id.setting:
+                break;
+            case R.id.information:
+                ctx.startActivity(new Intent(ctx, InfoActivityPresenter.class));
                 break;
         }
     }
