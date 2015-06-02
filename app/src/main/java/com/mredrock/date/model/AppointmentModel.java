@@ -6,6 +6,7 @@ import com.mredrock.date.app.SimpleRequestCallback;
 import com.mredrock.date.app.TokenParams;
 import com.mredrock.date.config.Api;
 import com.mredrock.date.model.bean.Appointment;
+import com.mredrock.date.model.bean.Detail;
 import com.mredrock.date.widget.OnDataCallback;
 
 
@@ -61,7 +62,7 @@ public class AppointmentModel {
         });
     }
 
-    public void postAppointmentToServer(Appointment appointment,final OnDataCallback<String> callback){
+    public void postAppointmentToServer(Detail appointment,final OnDataCallback<String> callback){
         TokenParams params = new TokenParams();
         params.put("date_type",appointment.getDate_type()+"");
         params.put("title",appointment.getTitle());

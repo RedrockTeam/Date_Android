@@ -19,7 +19,7 @@ public class Detail {
     private int people_limit;
     private String category_id;
     private int gender_limit;
-    private int cost_model;
+    private int cost_model = -1;
     private String signature;
     private int grade_limit[];
     private String user_score;

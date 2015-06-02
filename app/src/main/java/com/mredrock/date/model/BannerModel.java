@@ -5,6 +5,7 @@ import com.mredrock.date.app.SimpleRequestCallback;
 import com.mredrock.date.app.TokenParams;
 import com.mredrock.date.config.Api;
 import com.mredrock.date.model.bean.Banner;
+import com.mredrock.date.util.Utils;
 import com.mredrock.date.widget.OnDataCallback;
 
 /**
@@ -37,7 +38,6 @@ public class BannerModel {
             @Override
 
             public void error(String errorInfo) {
-
             }
         });
 

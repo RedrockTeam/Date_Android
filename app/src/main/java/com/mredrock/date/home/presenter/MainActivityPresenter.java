@@ -48,11 +48,6 @@ public class MainActivityPresenter extends BaseActivityPresenter<MainActivityVu>
             addAppointment(mAdapter.getPage(),type,sort);
         }
     };
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
 
 
 

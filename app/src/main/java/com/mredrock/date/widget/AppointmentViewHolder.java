@@ -61,7 +61,7 @@ public class AppointmentViewHolder extends BaseViewHolder<Appointment> {
         title.setText(data.getTitle());
         address.setText(data.getPlace());
         date.setText(new TimeTransform(data.getDate_at()).toString(new RecentDateFormater()));
-        cost.setText(Appointment.COSTMODEL[data.getCost_model() - 1]);
+        cost.setText(Appointment.COSTMODEL[data.getCost_model()-1]);
         releaseTime.setText(new TimeTransform(data.getCreated_at()).toString(new RecentDateFormater()));
     }
 }

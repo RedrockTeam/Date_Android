@@ -12,9 +12,10 @@ import com.mredrock.date.app.BaseActivityVu;
  */
 public class LoginActivityVu extends BaseActivityVu {
 
-    private EditText tvNumber;
-    private EditText tvPassword;
+    public EditText tvNumber;
+    public EditText tvPassword;
     private Button btnLogin;
+
     @Override
     protected void onCreate() {
         setView(R.layout.activity_login);
