@@ -5,7 +5,7 @@ package com.mredrock.date.model.bean;
  */
 public class Result {
     private int status;
-
+    private String info;
     public Result() {
     }
 
@@ -25,5 +25,5 @@ public class Result {
         this.info = info;
     }
 
-    private String info;
+
 }

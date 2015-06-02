@@ -55,6 +55,9 @@
         <activity
             android:name=".home.presenter.CollectionActivityPresenter"
             android:label="@string/activity_collection"></activity>
+        <activity
+            android:name=".information.view.presenter.InfoActivityPresenter"
+            android:label="个人中心"></activity>
 
         <activity
             android:name=".setting.presenter.FeedbackActivity"

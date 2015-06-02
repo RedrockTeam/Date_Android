@@ -24,7 +24,9 @@ public class DrawerFragmentPresenter extends BaseFragmentPresenter<DrawerFragmen
 
     @Override
     public void onDestroyVu() {
+
     }
+
 
     @Override
     public void onClick(View v) {
