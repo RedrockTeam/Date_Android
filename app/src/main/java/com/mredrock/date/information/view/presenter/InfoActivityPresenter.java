@@ -32,7 +32,9 @@ public class InfoActivityPresenter extends BaseActivityPresenter<InfoActivityVu>
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.infor_edit){
-            startActivity(new Intent(this,EditActivityPresent.class));
+            //startActivity(new Intent(this,EditActivityPresent.class));
+            item.setTitle("Íê³É");
+            vu.showEditBtn();
             return true;
         }
         return super.onOptionsItemSelected(item);

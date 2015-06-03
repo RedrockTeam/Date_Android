@@ -151,7 +151,8 @@
                     android:gravity="center_vertical|right"
                     android:layout_height="wrap_content"
                     android:text="添加"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
+                    android:visibility="gone"
                     android:textColor="@color/blackHint"
                     />
             </LinearLayout>
@@ -181,7 +182,8 @@
                     android:gravity="center_vertical|right"
                     android:layout_height="wrap_content"
                     android:text="添加"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
+                    android:visibility="gone"
                     android:textColor="@color/blackHint"
                     />
             </LinearLayout>
@@ -206,12 +208,13 @@
                     android:textSize="20sp"
                     />
                 <TextView
-                    android:id="@+id/info_qq_eidt"
+                    android:id="@+id/info_wexin_eidt"
                     android:layout_width="match_parent"
                     android:gravity="center_vertical|right"
                     android:layout_height="wrap_content"
                     android:text="添加"
-                    android:textSize="20sp"
+                    android:visibility="gone"
+                    android:textSize="18sp"
                     android:textColor="@color/blackHint"
                     />
             </LinearLayout>
