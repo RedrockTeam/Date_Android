@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import com.mredrock.date.R;
 import com.mredrock.date.app.BaseActivityPresenter;
 import com.mredrock.date.home.presenter.EditActivityPresent;
+import com.mredrock.date.model.InformationModel;
 import com.mredrock.date.model.PersonModel;
 
 /**
@@ -14,6 +15,7 @@ import com.mredrock.date.model.PersonModel;
  */
 public class InfoActivityPresenter extends BaseActivityPresenter<InfoActivityVu>{
     private PersonModel mPersonModel = new PersonModel();
+    private InformationModel mInformationModel = new InformationModel();
     @Override
     public Class<InfoActivityVu> getVuClass() {
         return InfoActivityVu.class;
@@ -22,6 +24,7 @@ public class InfoActivityPresenter extends BaseActivityPresenter<InfoActivityVu>
     @Override
     public void onBindVu() {
         vu.setPersonInformation(mPersonModel.getUserPersonInformation() );
+        mInformationModel.getInformation();
         super.onBindVu();
     }
     @Override
@@ -33,7 +36,7 @@ public class InfoActivityPresenter extends BaseActivityPresenter<InfoActivityVu>
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.infor_edit){
             //startActivity(new Intent(this,EditActivityPresent.class));
-            item.setTitle("Íê³É");
+            item.setTitle("ç¡®å®š");
             vu.showEditBtn();
             return true;
         }

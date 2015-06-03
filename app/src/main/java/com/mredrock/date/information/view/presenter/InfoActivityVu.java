@@ -62,13 +62,13 @@ public class InfoActivityVu extends BaseActivityVu{
 
     public void showEditBtn(){
         if(!tel.getText().toString().equals("")){
-            tel_edit.setText("ÐÞ¸Ä");
+            tel_edit.setText("ä¿®æ”¹");
         }
         if(!qq.getText().toString().equals("")){
-            qq_edit.setText("ÐÞ¸Ä");
+            qq_edit.setText("ä¿®æ”¹");
         }
         if(!weixin.getText().toString().equals("")){
-            weixin_edit.setText("ÐÞ¸Ä");
+            weixin_edit.setText("ä¿®æ”¹");
         }
         setVisible();
     }
