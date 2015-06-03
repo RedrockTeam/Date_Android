@@ -5,11 +5,11 @@ import com.mredrock.date.app.SimpleRequestCallback;
 import com.mredrock.date.app.TokenParams;
 import com.mredrock.date.config.Api;
 import com.mredrock.date.model.bean.Detail;
-import com.mredrock.date.widget.OnDataCallbackT;
+import com.mredrock.date.widget.OnDataCallback;
 
 public class DetailMode {
 
-    public void getDetailFromServer(String date_id, final OnDataCallbackT<Detail> callback){
+    public void getDetailFromServer(String date_id, final OnDataCallback<Detail> callback){
         TokenParams params = new TokenParams();
         params.put(Api.Key.Detail.DATE_ID, date_id);
         RequestManager.getInstance().post(Api.Url.Detail, params, new SimpleRequestCallback<Detail>(Detail.class) {

@@ -11,7 +11,7 @@ import com.mredrock.date.util.Utils;
  */
 public class APP extends Application {
     private static APP instance;
-    public APP getInstence(){
+    public static APP getInstence(){
         return instance;
     }
     @Override
@@ -22,5 +22,21 @@ public class APP extends Application {
         Fresco.initialize(this);
         RequestManager.getInstance().init(getApplicationContext());
         RequestManager.getInstance().setDebugMode(true, "NETDEBUG");
+    }
+
+    public String getToken(){
+        return Utils.getPreference().getString("token","");
+    }
+
+    public void setToken(String token){
+        Utils.getPreference().edit().putString("token", token).commit();
+    }
+
+    public String getUID(){
+        return Utils.getPreference().getString("uid","");
+    }
+
+    public void setUID(String token){
+        Utils.getPreference().edit().putString("uid",token).commit();
     }
 }

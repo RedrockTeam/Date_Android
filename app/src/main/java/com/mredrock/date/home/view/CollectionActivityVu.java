@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 
-import com.google.gson.Gson;
+import com.alibaba.fastjson.JSON;
 import com.malinskiy.superrecyclerview.SuperRecyclerView;
 import com.mredrock.date.R;
 import com.mredrock.date.app.BaseActivityVu;
@@ -41,7 +41,7 @@ public class CollectionActivityVu extends BaseActivityVu implements RecyclerArra
     public void onItemClick(View v, int position) {
         Intent intent = new Intent();
         intent.setClass(context, DetailActivityPresenter.class);
-        intent.putExtra(C.DETAIL_TAG, new Gson().toJson(mAdapter.getItem(position)));
+        intent.putExtra(C.DETAIL_TAG, JSON.toJSONString(mAdapter.getItem(position)));
         context.startActivity(intent);
     }
 }

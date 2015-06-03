@@ -12,6 +12,7 @@ import com.mredrock.date.app.BaseActivityPresenter;
 import com.mredrock.date.home.view.EditActivityVu;
 import com.mredrock.date.model.AppointmentModel;
 import com.mredrock.date.model.bean.Appointment;
+import com.mredrock.date.model.bean.Detail;
 import com.mredrock.date.util.RecentDateFormater;
 import com.mredrock.date.util.TimeTransform;
 import com.mredrock.date.util.Utils;
@@ -27,7 +28,7 @@ import java.util.Calendar;
  */
 public class EditActivityPresent extends BaseActivityPresenter<EditActivityVu> {
     AppointmentModel model = new AppointmentModel();
-    Appointment appointment = new Appointment();
+    Detail appointment = new Detail();
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_edit,menu);
@@ -61,9 +62,16 @@ public class EditActivityPresent extends BaseActivityPresenter<EditActivityVu> {
                 Utils.Toast("请选择花费模式");
                 return true;
             }
+            final MaterialDialog dialog = new MaterialDialog.Builder(this)
+                    .title("发布中")
+                    .content("请稍后")
+                    .progress(true, 100)
+                    .cancelable(false)
+                    .show();
             model.postAppointmentToServer(appointment, new OnDataCallback<String>() {
                 @Override
                 public void callback(String... list) {
+                    dialog.dismiss();
                     finish();
                     Utils.Toast("发布成功");
                 }
@@ -143,7 +151,11 @@ public class EditActivityPresent extends BaseActivityPresenter<EditActivityVu> {
                         .itemsCallbackMultiChoice(new Integer[0],new MaterialDialog.ListCallbackMultiChoice() {
                             @Override
                             public boolean onSelection(MaterialDialog materialDialog, Integer[] integers, CharSequence[] charSequences) {
-                                ((TextView) v).setText(charSequences.toString());
+                                StringBuilder sb = new StringBuilder();
+                                for (CharSequence t:charSequences){
+                                    sb.append(t.toString());
+                                }
+                                ((TextView) v).setText(sb.toString());
                                 int[] r = new int[integers.length];
                                 for (int i = 0 ; i < integers.length ; i++){
                                     r[i] = integers[i];

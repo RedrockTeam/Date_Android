@@ -10,6 +10,7 @@ public class Api {
 
 
     public class Url {
+        public static final String Login = BASE_URL + "/public/login";
         public static final String Banner = BASE_URL + "/public/banner";
         public static final String DateList = BASE_URL + "/date/datelist";
         public static final String CollectionList = BASE_URL + "/person/collection";

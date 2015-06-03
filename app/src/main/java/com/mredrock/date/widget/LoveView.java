@@ -48,13 +48,21 @@ public class LoveView extends LinearLayout {
 
     public void setStart(double score) {
         if (score <= number) {
-            double scoreX = Math.abs(score - Math.round(score));
-            if (scoreX > 0.2) {
-                loveImags[((int) (Math.round(score)) - 1)].setImageResource(R.drawable.star_half);
+            double scoreX = Math.abs(score - Math.floor(score));
+            int number = 0;
+            if (scoreX > 0.2 && scoreX < 0.8) {
+                number = (int) (Math.ceil(score) - 1);
+                loveImags[number].setImageResource(R.drawable.star_half);
+            } else if (scoreX <= 0.2 && scoreX >= 0){
+                number = (int) (Math.floor(score) - 1);
+                if (number >= 0) {
+                    loveImags[number].setImageResource(R.drawable.star_all);
+                }
             } else {
-                loveImags[((int) (Math.round(score)) - 1)].setImageResource(R.drawable.star_all);
+                number = (int) (Math.ceil(score) - 1);
+                loveImags[number].setImageResource(R.drawable.star_all);
             }
-            for (int i = 0; i < Math.round(score) - 1; i++) {
+            for (int i = 0; i < number; i++) {
                 loveImags[i].setImageResource(R.drawable.star_all);
             }
         } else {

@@ -21,4 +21,5 @@
     <string name="edit_title_cost">选择消费方式</string>
     <string name="activity_letter_detail">私信详情</string>
     <string name="edit_title_time">选择约会时间</string>
+    <string name="login">登陆</string>
 </resources>

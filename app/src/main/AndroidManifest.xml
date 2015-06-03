@@ -44,6 +44,11 @@
             android:name=".home.presenter.MainActivityPresenter"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name">
+
+        </activity>
+        <activity
+            android:name=".home.presenter.LoginActivityPresenter"
+            android:label="@string/login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

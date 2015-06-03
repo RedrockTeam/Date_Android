@@ -34,7 +34,6 @@
         <item>女</item>
     </array>
     <array name="grade">
-        <item>不限</item>
         <item>大一</item>
         <item>大二</item>
         <item>大三</item>
