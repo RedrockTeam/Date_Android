@@ -3,34 +3,34 @@ package com.mredrock.date.model;
 
 import com.android.http.RequestManager;
 import com.android.http.RequestMap;
+import com.mredrock.date.app.SimpleRequestCallback;
 import com.mredrock.date.config.Api;
+import com.mredrock.date.model.bean.Information;
 import com.mredrock.date.util.Utils;
 
 /**
  * Created by Administrator on 2015/6/4.
  */
 public class InformationModel {
-    public void getInformation(){
+    public static  void getInformation(String uid,String token,String get_uid, final InforCallback callback){
         RequestMap params = new RequestMap();
-        params.put("uid","1");
-        params.put("token","nasdfnldssdaf");
-        params.put("get_uid","1");
-        RequestManager.getInstance().post(Api.Url.Information, params, new RequestManager.RequestListener() {
+        params.put("uid",uid);
+        params.put("token",token);
+        params.put("get_uid",get_uid);
+        RequestManager.getInstance().post(Api.Url.Information, params, new SimpleRequestCallback<Information>(Information.class) {
             @Override
-            public void onRequest() {
-
+            public void success(String info, Information data) {
+                callback.onSuccess(info,data);
             }
 
             @Override
-            public void onSuccess(String s) {
-                Utils.Toast(s);
-            }
-
-            @Override
-            public void onError(String s) {
-
+            public void error(String errorInfo) {
+                callback.onError(errorInfo);
             }
         });
     }
-
+    public interface  InforCallback{
+        public void onSuccess(String info,Information data);
+        public void onError(String errorInfo);
+    }
 }

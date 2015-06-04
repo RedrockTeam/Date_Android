@@ -34,7 +34,6 @@
                 android:gravity="center_vertical"
                android:layout_centerHorizontal="true"
                 android:layout_below="@+id/infor_face"
-                android:text="村里没有巧克力"
                 android:textColor="@color/blackSubhead"
                 android:textSize="22sp"
                 />
@@ -54,9 +53,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:layout_below="@+id/info_name"
-                android:layout_centerHorizontal="true"
-                android:text="生命不息，折腾不止"
-                />
+                android:layout_centerHorizontal="true" />
         </RelativeLayout>
 
         <LinearLayout
@@ -100,7 +97,6 @@
                     android:id="@+id/info_school"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="传媒艺术学院"
                     android:textSize="20sp"
                     />
             </LinearLayout>
@@ -121,7 +117,6 @@
                     android:id="@+id/info_grade"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="大一"
                     android:textSize="20sp"
                     />
             </LinearLayout>
@@ -142,7 +137,6 @@
                     android:id="@+id/info_tel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="18883814056(已保密)"
                     android:textSize="20sp"
                     />
                 <TextView
@@ -173,7 +167,6 @@
                     android:id="@+id/info_qq"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1031656917"
                     android:textSize="20sp"
                     />
                 <TextView
@@ -204,7 +197,6 @@
                     android:id="@+id/info_weixin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="tianshiyibanlan"
                     android:textSize="20sp"
                     />
                 <TextView
