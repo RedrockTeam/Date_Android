@@ -4,6 +4,7 @@ package com.mredrock.date.model;
 import com.android.http.RequestManager;
 import com.android.http.RequestMap;
 import com.mredrock.date.app.SimpleRequestCallback;
+import com.mredrock.date.app.TokenParams;
 import com.mredrock.date.config.Api;
 import com.mredrock.date.model.bean.Information;
 import com.mredrock.date.util.Utils;
@@ -12,10 +13,9 @@ import com.mredrock.date.util.Utils;
  * Created by Administrator on 2015/6/4.
  */
 public class InformationModel {
-    public static  void getInformation(String uid,String token,String get_uid, final InforCallback callback){
-        RequestMap params = new RequestMap();
-        params.put("uid",uid);
-        params.put("token",token);
+    public static  void getInformation(String get_uid, final InforCallback callback){
+        TokenParams params = new TokenParams();
+
         params.put("get_uid",get_uid);
         RequestManager.getInstance().post(Api.Url.Information, params, new SimpleRequestCallback<Information>(Information.class) {
             @Override

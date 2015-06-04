@@ -29,6 +29,7 @@ public class InfoActivityVu extends BaseActivityVu{
     private TextView tel_edit;
     private TextView qq_edit;
     private TextView weixin_edit;
+    private TextView gender_edit;
     @Override
     protected void onCreate() {
         setView(R.layout.activity_information);
@@ -49,11 +50,13 @@ public class InfoActivityVu extends BaseActivityVu{
        qq_edit =$(R.id.info_qq_eidt);
        weixin =$(R.id.info_weixin);
        weixin_edit =$(R.id.info_wexin_eidt);
+       gender_edit=$(R.id.info_gender_eidt);
    }
     public void setListener(View.OnClickListener listener ){
         tel_edit.setOnClickListener(listener);
         qq_edit.setOnClickListener(listener);
         weixin_edit.setOnClickListener(listener);
+        gender_edit.setOnClickListener(listener);
 
     }
     @Override
@@ -62,17 +65,34 @@ public class InfoActivityVu extends BaseActivityVu{
         toolbar.setTitle("个人资料");
     }
         public void setPersonInformation(Information personInfo) {
-        face.setImageURI(Uri.parse(personInfo.getHead()));
-        name.setText(personInfo.getNickname());
-        sign.setText(personInfo.getSignature());
-        grade.setText(personInfo.getGrade());
-        xueYuan.setText(personInfo.getAcademy());
-        tel.setText(personInfo.getTelephone());
-        qq.setText(personInfo.getQq());
-        weixin.setText(personInfo.getWeixin());
-            if(personInfo.getGender().equals("1")){
+            if(personInfo.getHead()!=null){
+                face.setImageURI(Uri.parse(personInfo.getHead()));
+            }
+            if(personInfo.getNickname()!=null){
+                name.setText(personInfo.getNickname());
+            }
+            if(personInfo.getSignature()!=null){
+                sign.setText(personInfo.getSignature());
+            }
+            if(personInfo.getGrade()!=null){
+                grade.setText(personInfo.getGrade());
+            }
+            if(personInfo.getAcademy()!=null){
+                xueYuan.setText(personInfo.getAcademy());
+            }
+            if(personInfo.getTelephone()!=null){
+                tel.setText(personInfo.getTelephone());
+            }
+            if(personInfo.getQq()!=null){
+                qq.setText(personInfo.getQq());
+            }
+            if(personInfo.getWeixin()!=null){
+                weixin.setText(personInfo.getWeixin());
+            }
+
+            if(personInfo.getGender()==null||personInfo.getGender().equals("1")){
                 gender.setImageResource(R.drawable.ic_man);
-            }else{
+            }else {
                 gender.setImageResource(R.drawable.ic_woman);
             }
     }
@@ -94,12 +114,14 @@ public class InfoActivityVu extends BaseActivityVu{
         tel_edit.setVisibility(View.GONE);
         qq_edit.setVisibility(View.GONE);
         weixin_edit.setVisibility(View.GONE);
+        gender_edit.setVisibility(View.GONE);
     }
 
     private void setVisible() {
         tel_edit.setVisibility(View.VISIBLE);
         qq_edit.setVisibility(View.VISIBLE);
         weixin_edit.setVisibility(View.VISIBLE);
+        gender_edit.setVisibility(View.VISIBLE);
     }
 
 
