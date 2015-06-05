@@ -72,7 +72,7 @@ public class AppointmentModel {
         params.put("date_people",appointment.getPeople_limit()+"");
         params.put("gender_limit",appointment.getGender_limit()+"");
         if (appointment.getGrade_limit()!=null)
-            for (String i:appointment.getGrade_limit()){
+            for (int i:appointment.getGrade_limit()){
                 params.put("grade_limit[]",i+"");
             }
         params.put("academy_select_model","1");

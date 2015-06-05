@@ -23,6 +23,6 @@ public class DetailActivityPresenter extends BaseActivityPresenter<DetailActivit
     @Override
     public void onBindVu() {
         super.onBindVu();
-        vu.setView(getIntent().getStringExtra(C.DETAIL_TAG));
+        vu.loadView(getIntent().getStringExtra(C.DETAIL_TAG));
     }
 }

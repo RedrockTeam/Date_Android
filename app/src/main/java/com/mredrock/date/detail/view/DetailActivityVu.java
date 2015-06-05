@@ -1,7 +1,7 @@
 package com.mredrock.date.detail.view;
 
 import android.net.Uri;
-import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,10 +14,11 @@ import com.mredrock.date.model.bean.Appointment;
 import com.mredrock.date.model.bean.Detail;
 import com.mredrock.date.util.RecentDateFormater;
 import com.mredrock.date.util.TimeTransform;
+import com.mredrock.date.util.Utils;
 import com.mredrock.date.widget.LoveView;
 import com.mredrock.date.widget.OnDataCallback;
 
-public class DetailActivityVu extends BaseActivityVu {
+public class DetailActivityVu extends BaseActivityVu implements View.OnClickListener{
     private SimpleDraweeView authorFace;
     private LoveView socreLove;
     private TextView authorName;
@@ -30,7 +31,10 @@ public class DetailActivityVu extends BaseActivityVu {
     private TextView grade;
     private TextView sex;
     private TextView number;
+    private TextView collectionBtn;
+    private TextView reportBtn;
 
+    private Appointment data;
     private DetailMode detailMode = new DetailMode();
 
     @Override
@@ -48,11 +52,16 @@ public class DetailActivityVu extends BaseActivityVu {
         grade = (TextView) rootView.findViewById(R.id.grade_detail);
         sex = (TextView) rootView.findViewById(R.id.sex_detail);
         number = (TextView) rootView.findViewById(R.id.number_detail);
+        collectionBtn = (TextView) rootView.findViewById(R.id.collection_detail);
+        reportBtn = (TextView) rootView.findViewById(R.id.report_detail);
+
+        collectionBtn.setOnClickListener(this);
+        reportBtn.setOnClickListener(this);
     }
 
-    public void setView(String json) {
+    public void loadView(String json) {
         if (json != null) {
-            Appointment data = JSON.parseObject(json, Appointment.class);
+            data = JSON.parseObject(json, Appointment.class);
             setDetailView(data.getDate_id());
             authorFace.setImageURI(Uri.parse(data.getHead()));
             authorName.setText(data.getNickname());
@@ -72,7 +81,7 @@ public class DetailActivityVu extends BaseActivityVu {
                 String grade_limit = "";
                 if (list[0].getGrade_limit() != null) {
                     for (int i = 0; i < list[0].getGrade_limit().length; i++) {
-                        grade_limit += list[0].getGrade_limit()[i];
+                        grade_limit += Detail.GRAD[list[0].getGrade_limit()[i]] + " ";
                     }
                 } else {
                     grade_limit = "无限制";
@@ -83,8 +92,15 @@ public class DetailActivityVu extends BaseActivityVu {
                 grade.setText(grade_limit);
                 sex.setText(Detail.SEX[list[0].getGender_limit()]);
                 number.setText(list[0].getPeople_limit() + "");
-                Log.i("cao", grade_limit + "12");
                 socreLove.setStart(list[0].getUser_score());
+                collectionBtn.setText(Detail.COLLECTION[list[0].getCollection_status()]);
+                if (list[0].getCollection_status() != 0) {
+                    collectionBtn.setClickable(false);
+                }
+                reportBtn.setText(Detail.REPORT[list[0].getApply_status()]);
+                if (list[0].getApply_status() != 0) {
+                    reportBtn.setClickable(false);
+                }
             }
 
             @Override
@@ -92,5 +108,41 @@ public class DetailActivityVu extends BaseActivityVu {
 
             }
         });
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.collection_detail:
+                detailMode.getCollectionFromServer(data.getDate_id(), new OnDataCallback<String>() {
+                    @Override
+                    public void callback(String... list) {
+                        Utils.Toast(list[0]);
+                        collectionBtn.setText(Detail.COLLECTION[1]);
+                        collectionBtn.setClickable(false);
+                    }
+
+                    @Override
+                    public void error(String info) {
+                        Utils.Toast(info);
+                    }
+                });
+                break;
+            case R.id.report_detail:
+                detailMode.getReportFromService(data.getDate_id(), new OnDataCallback<String>() {
+                    @Override
+                    public void callback(String... list) {
+                        Utils.Toast(list[0]);
+                        reportBtn.setText(Detail.REPORT[1]);
+                        reportBtn.setClickable(false);
+                    }
+
+                    @Override
+                    public void error(String info) {
+                        Utils.Toast(info);
+                    }
+                });
+                break;
+        }
     }
 }

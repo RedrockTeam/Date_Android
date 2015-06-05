@@ -134,7 +134,7 @@
                     android:layout_toRightOf="@+id/lable_address_detail"
                     android:gravity="center_vertical"
                     android:paddingRight="16dp"
-                    android:text="老校门口"
+                    android:text="无限制"
                     android:textColor="#666666" />
                 <!--Time-->
                 <ImageView
@@ -239,7 +239,7 @@
                     android:layout_alignBottom="@+id/lable_grade_detail"
                     android:layout_toRightOf="@+id/lable_grade_detail"
                     android:gravity="bottom"
-                    android:text="大二、大三"
+                    android:text="无限制"
                     android:textColor="#666666" />
 
                 <TextView
@@ -260,7 +260,7 @@
                     android:layout_alignBottom="@+id/lable_sex_detail"
                     android:layout_toRightOf="@+id/lable_sex_detail"
                     android:gravity="bottom"
-                    android:text="不限"
+                    android:text="无限制"
                     android:textColor="#666666" />
 
 
@@ -282,7 +282,7 @@
                     android:layout_alignBottom="@+id/lable_number_detail"
                     android:layout_toRightOf="@+id/lable_number_detail"
                     android:gravity="bottom"
-                    android:text="2人"
+                    android:text="无限制"
                     android:textColor="#666666" />
 
                 <View
@@ -311,6 +311,7 @@
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/collection_detail"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -326,6 +327,7 @@
                 android:background="#dddddd" />
 
             <TextView
+                android:id="@+id/report_detail"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"

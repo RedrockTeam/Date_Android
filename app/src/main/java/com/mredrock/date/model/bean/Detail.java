@@ -2,6 +2,9 @@ package com.mredrock.date.model.bean;
 
 public class Detail {
     public static final String[] SEX = {"无限制", "男","女"};
+    public static final String[] GRAD = {"无限制", "大一","大二", "大三", "大四", "其它"};
+    public static final String[] COLLECTION = {"收藏", "已收藏"};
+    public static final String[] REPORT = {"报名", "已报名"};
 
     private String nickname;
     private String head;
@@ -20,7 +23,9 @@ public class Detail {
     private int gender_limit;
     private int cost_model = -1;
     private String signature;
-    private String grade_limit[];
+    private int grade_limit[];
+    private int collection_status;
+    private int apply_status;
     private double user_score;
 
     public String getCategory_id() {
@@ -95,11 +100,11 @@ public class Detail {
         this.gender_limit = gender_limit;
     }
 
-    public String[] getGrade_limit() {
+    public int[] getGrade_limit() {
         return grade_limit;
     }
 
-    public void setGrade_limit(String[] grade_limit) {
+    public void setGrade_limit(int[] grade_limit) {
         this.grade_limit = grade_limit;
     }
 
@@ -169,6 +174,22 @@ public class Detail {
 
     public double getUser_score() {
         return user_score;
+    }
+
+    public int getApply_status() {
+        return apply_status;
+    }
+
+    public void setApply_status(int apply_status) {
+        this.apply_status = apply_status;
+    }
+
+    public int getCollection_status() {
+        return collection_status;
+    }
+
+    public void setCollection_status(int collection_status) {
+        this.collection_status = collection_status;
     }
 
     public void setUser_score(double user_score) {
