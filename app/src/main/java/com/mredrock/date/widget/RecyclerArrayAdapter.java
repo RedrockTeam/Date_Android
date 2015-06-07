@@ -392,7 +392,11 @@ abstract public class RecyclerArrayAdapter<T> extends RecyclerView.Adapter<BaseV
      * {@inheritDoc}
      */
     public T getItem(int position) {
-        return mObjects.get(position);
+        if (position < mObjects.size()) {
+            return mObjects.get(position);
+        } else {
+            return null;
+        }
     }
 
     /**

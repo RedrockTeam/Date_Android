@@ -8,8 +8,10 @@ import com.mredrock.date.app.BaseActivityPresenter;
 import com.mredrock.date.config.C;
 import com.mredrock.date.detail.view.DetailActivityVu;
 import com.mredrock.date.model.DetailMode;
+import com.mredrock.date.widget.DetailArrayAdapter;
 
 public class DetailActivityPresenter extends BaseActivityPresenter<DetailActivityVu> {
+    private DetailArrayAdapter mAdapter;
     @Override
     public Class<DetailActivityVu> getVuClass() {
         return DetailActivityVu.class;
@@ -23,6 +25,8 @@ public class DetailActivityPresenter extends BaseActivityPresenter<DetailActivit
     @Override
     public void onBindVu() {
         super.onBindVu();
-        vu.loadView(getIntent().getStringExtra(C.DETAIL_TAG));
+        mAdapter = new DetailArrayAdapter(this);
+        vu.setDetailAdapter(mAdapter);
+        vu.setLoadDetail(getIntent().getStringExtra(C.DETAIL_TAG));
     }
 }
