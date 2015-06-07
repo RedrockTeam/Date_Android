@@ -20,7 +20,7 @@ public class Detail {
     private int gender_limit;
     private int cost_model = -1;
     private String signature;
-    private  int grade_limit[];
+    private String grade_limit[];
     private double user_score;
 
     public String getCategory_id() {
@@ -95,11 +95,11 @@ public class Detail {
         this.gender_limit = gender_limit;
     }
 
-    public int[] getGrade_limit() {
+    public String[] getGrade_limit() {
         return grade_limit;
     }
 
-    public void setGrade_limit(int[] grade_limit) {
+    public void setGrade_limit(String[] grade_limit) {
         this.grade_limit = grade_limit;
     }
 

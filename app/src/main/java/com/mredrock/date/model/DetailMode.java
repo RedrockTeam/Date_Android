@@ -1,6 +1,7 @@
 package com.mredrock.date.model;
 
 import com.android.http.RequestManager;
+import com.mredrock.date.app.ResultRequestCallback;
 import com.mredrock.date.app.SimpleRequestCallback;
 import com.mredrock.date.app.TokenParams;
 import com.mredrock.date.config.Api;
@@ -16,6 +17,40 @@ public class DetailMode {
             @Override
             public void success(String info, Detail data) {
                 callback.callback(data);
+            }
+
+            @Override
+            public void error(String errorInfo) {
+                callback.error(errorInfo);
+            }
+        });
+    }
+
+    public void getCollectionFromServer(String date_id, final OnDataCallback<String> callback) {
+        TokenParams params = new TokenParams();
+        params.put(Api.Key.Detail.DATE_ID, date_id);
+        RequestManager.getInstance().post(Api.Url.CollectionDetail, params, new ResultRequestCallback() {
+
+            @Override
+            public void success(String info) {
+                callback.callback(info);
+            }
+
+            @Override
+            public void error(String errorInfo) {
+                callback.error(errorInfo);
+            }
+        });
+    }
+
+    public void getReportFromService(String date_id, final OnDataCallback<String> callback) {
+        TokenParams params = new TokenParams();
+        params.put(Api.Key.Detail.DATE_ID, date_id);
+        RequestManager.getInstance().post(Api.Url.Report, params, new ResultRequestCallback() {
+
+            @Override
+            public void success(String info) {
+                callback.callback(info);
             }
 
             @Override

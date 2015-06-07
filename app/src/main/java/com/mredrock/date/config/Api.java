@@ -16,8 +16,6 @@ public class Api {
         public static final String CollectionList = BASE_URL + "/person/collection";
         public static final String JoinList = BASE_URL + "/person/join";
         public static final String Detail = BASE_URL + "/date/detaildate";
-        public static final String Information=BASE_URL+"/person/userinfo";
-        public static final String EditInformation=BASE_URL+"/person/editdata";
     }
 
     public class Key {
