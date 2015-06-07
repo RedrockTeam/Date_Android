@@ -33,6 +33,10 @@
         <item>男</item>
         <item>女</item>
     </array>
+    <array name="gender_edit">
+        <item>男</item>
+        <item>女</item>
+    </array>
     <array name="grade">
         <item>大一</item>
         <item>大二</item>

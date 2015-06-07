@@ -21,7 +21,7 @@ public class AppointmentModel {
         params.put(Api.Key.PAGE,page+"");
         params.put(Api.Key.SIZE,30+"");
         params.put(Api.Key.ORDER,order+"");
-        RequestManager.getInstance().post(Api.Url.DateList, params, new SimpleRequestCallback<Appointment[]>(Appointment[].class) {
+            RequestManager.getInstance().post(Api.Url.DateList, params, new SimpleRequestCallback<Appointment[]>(Appointment[].class) {
             @Override
             public void success(String info, Appointment[] data) {
                 callback.callback(data);

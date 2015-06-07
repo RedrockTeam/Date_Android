@@ -34,29 +34,41 @@
                 android:gravity="center_vertical"
                android:layout_centerHorizontal="true"
                 android:layout_below="@+id/infor_face"
-                android:text="村里没有巧克力"
                 android:textColor="@color/blackSubhead"
                 android:textSize="22sp"
                 />
             <ImageView
                 android:id="@+id/info_gender"
-                android:layout_width="36dp"
+                android:layout_width="28dp"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
-                android:padding="2.5dp"
+                android:padding="2dp"
+                android:layout_margin="2dp"
                 android:layout_below="@+id/infor_face"
                 android:layout_toRightOf="@+id/info_name"
-                android:scaleType="centerInside"
+                android:scaleType="centerCrop"
                 android:src="@drawable/ic_man" />
+            <TextView
+                android:id="@+id/info_gender_eidt"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:gravity="center_vertical"
+                android:layout_below="@id/infor_face"
+                android:text="修改性别"
+                android:textSize="18sp"
+                android:visibility="gone"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/blackHint"
+                />
             <TextView
                 android:id="@+id/info_sign"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="2dp"
                 android:layout_below="@+id/info_name"
-                android:layout_centerHorizontal="true"
-                android:text="生命不息，折腾不止"
-                />
+                android:layout_centerHorizontal="true" />
         </RelativeLayout>
 
         <LinearLayout
@@ -100,7 +112,6 @@
                     android:id="@+id/info_school"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="传媒艺术学院"
                     android:textSize="20sp"
                     />
             </LinearLayout>
@@ -121,7 +132,6 @@
                     android:id="@+id/info_grade"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="大一"
                     android:textSize="20sp"
                     />
             </LinearLayout>
@@ -142,7 +152,6 @@
                     android:id="@+id/info_tel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="18883814056(已保密)"
                     android:textSize="20sp"
                     />
                 <TextView
@@ -151,7 +160,8 @@
                     android:gravity="center_vertical|right"
                     android:layout_height="wrap_content"
                     android:text="添加"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
+                    android:visibility="gone"
                     android:textColor="@color/blackHint"
                     />
             </LinearLayout>
@@ -172,7 +182,6 @@
                     android:id="@+id/info_qq"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1031656917"
                     android:textSize="20sp"
                     />
                 <TextView
@@ -181,7 +190,8 @@
                     android:gravity="center_vertical|right"
                     android:layout_height="wrap_content"
                     android:text="添加"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
+                    android:visibility="gone"
                     android:textColor="@color/blackHint"
                     />
             </LinearLayout>
@@ -202,16 +212,16 @@
                     android:id="@+id/info_weixin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="tianshiyibanlan"
                     android:textSize="20sp"
                     />
                 <TextView
-                    android:id="@+id/info_qq_eidt"
+                    android:id="@+id/info_wexin_eidt"
                     android:layout_width="match_parent"
                     android:gravity="center_vertical|right"
                     android:layout_height="wrap_content"
                     android:text="添加"
-                    android:textSize="20sp"
+                    android:visibility="gone"
+                    android:textSize="18sp"
                     android:textColor="@color/blackHint"
                     />
             </LinearLayout>
