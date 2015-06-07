@@ -55,14 +55,14 @@ public class AppointmentViewHolder extends BaseViewHolder<Appointment> {
                 itemView.getContext().startActivity(i);
             }
         });
-        authorName.setText("");
-        authorSign.setText("");
-        authorFace.setImageURI(Uri.parse(""));
+        authorName.setText(data.getNickname());
+        authorSign.setText(data.getSignature());
+        authorFace.setImageURI(Uri.parse(data.getHead()));
         authorGender.setImageResource(data.getGender()==0?R.drawable.ic_man:R.drawable.ic_woman);
         title.setText(data.getTitle());
         address.setText(data.getPlace());
         date.setText(new TimeTransform(data.getDate_at()).toString(new RecentDateFormater()));
-        cost.setText(Appointment.COSTMODEL[data.getCost_model()-1]);
+        cost.setText(Appointment.COSTMODEL[data.getCost_model()]);
         releaseTime.setText(new TimeTransform(data.getCreated_at()).toString(new RecentDateFormater()));
     }
 }

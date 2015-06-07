@@ -82,7 +82,7 @@ public class EditActivityPresent extends BaseActivityPresenter<EditActivityVu> {
                 }
             });
         }
-        return true;
+        return super.onOptionsItemSelected(item);
     }
 
     public void onClick(final View v) {
@@ -160,7 +160,7 @@ public class EditActivityPresent extends BaseActivityPresenter<EditActivityVu> {
                                 for (int i = 0 ; i < integers.length ; i++){
                                     r[i] = integers[i];
                                 }
-                                appointment.setGrade_limit(r);
+                                //appointment.setGrade_limit(r);
                                 return false;
                             }
                         })

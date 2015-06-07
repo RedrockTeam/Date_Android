@@ -29,6 +29,7 @@ public class Api {
         public static final String PAGE = "page";
         public static final String SIZE = "size";
         public static final String ORDER = "order";
+        public static final String LETTER = "letter";
         public static final String DATE_TYPE = "date_type";
 
         public class Letter {
@@ -64,6 +65,7 @@ public class Api {
     public class Method {
         public static final String GET_LETTER = "getletter";
         public static final String DATE_ACTION = "dateaction";
+        public static final String LATTER_STATUS = "letterstatus";
     }
 
     public class Code {

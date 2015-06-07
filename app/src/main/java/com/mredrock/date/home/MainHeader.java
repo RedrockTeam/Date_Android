@@ -89,7 +89,7 @@ public class MainHeader implements RecyclerArrayAdapter.HeaderView ,View.OnClick
                 view.setLayoutParams(new AbsListView.LayoutParams(AbsListView.LayoutParams.MATCH_PARENT,Utils.dip2px(56)));
                 view.setBackgroundColor(Color.WHITE);
                 view.setGravity(Gravity.CENTER);
-                view.setText(ctx.getResources().getStringArray(R.array.style)[position]);
+                view.setText(ctx.getResources().getStringArray(R.array.styleSelect)[position]);
                 view.setBackgroundResource(R.drawable.line_round);
                 view.setOnClickListener(new View.OnClickListener() {
                     @Override

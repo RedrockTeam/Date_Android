@@ -2,8 +2,13 @@ package com.mredrock.date.model;
 
 import android.util.Log;
 
+import com.android.http.RequestManager;
 import com.mredrock.date.app.TokenParams;
 import com.mredrock.date.config.Api;
+import com.mredrock.date.widget.OnDataCallback;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * Created by Lecion on 5/5/15.
@@ -30,6 +35,38 @@ public class LetterModel extends AbsModel{
         params.put(Api.Key.Letter.DATA_ID, String.valueOf(dateId));
         params.put(Api.Key.Letter.ACTION, String.valueOf(action));
         post(Api.Method.DATE_ACTION, params, callback);
+    }
+
+    public void letterstatus(final OnDataCallback<Integer> callback){
+        post(Api.Method.LATTER_STATUS, new TokenParams(), new RequestManager.RequestListener() {
+            @Override
+            public void onRequest() {
+
+            }
+
+            @Override
+            public void onSuccess(String s) {
+                JSONObject jsonObject = null;
+                try {
+                    jsonObject = new JSONObject(s);
+                    int status = jsonObject.getInt(Api.Key.STATUS);
+                    String info = jsonObject.getString(Api.Key.INFO);
+                    if (status == Api.Code.OK){
+                        callback.callback(jsonObject.getInt(Api.Key.LETTER));
+                    }else{
+                        callback.error(info);
+                    }
+                } catch (JSONException e) {
+                    callback.error("解析错误");
+                }
+
+            }
+
+            @Override
+            public void onError(String s) {
+                callback.error("网络错误");
+            }
+        });
     }
 
     @Override

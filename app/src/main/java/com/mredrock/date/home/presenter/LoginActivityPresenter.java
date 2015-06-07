@@ -32,7 +32,7 @@ public class LoginActivityPresenter extends BaseActivityPresenter<LoginActivityV
             @Override
             public void onClick(View v) {
                 final MaterialDialog dialog = new MaterialDialog.Builder(LoginActivityPresenter.this)
-                        .title("发布中")
+                        .title("登陆中")
                         .content("请稍后")
                         .progress(true, 100)
                         .cancelable(false)

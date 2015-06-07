@@ -1,5 +1,6 @@
 package com.mredrock.date.home.view;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -12,8 +13,10 @@ import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.mredrock.date.R;
+import com.mredrock.date.app.APP;
 import com.mredrock.date.app.IVu;
 import com.mredrock.date.home.presenter.CollectionActivityPresenter;
+import com.mredrock.date.home.presenter.LoginActivityPresenter;
 import com.mredrock.date.home.presenter.RecordActivityPresenter;
 import com.mredrock.date.information.view.presenter.InfoActivityPresenter;
 import com.mredrock.date.letter.presenter.LetterActivityPresenter;
@@ -29,7 +32,9 @@ public class DrawerFragmentVu implements IVu ,View.OnClickListener{
     private SimpleDraweeView tvFace;
     private TextView tvName;
     private ListPopupWindow pop;
-
+    private TextView tvRecordCount;
+    private TextView tvCollectCount;
+    private TextView tvMessageCount;
     private View vDropdown;
     @Override
     public void init(LayoutInflater inflater, ViewGroup container) {
@@ -46,10 +51,14 @@ public class DrawerFragmentVu implements IVu ,View.OnClickListener{
         tvFace = (SimpleDraweeView) view.findViewById(R.id.face);
         tvName = (TextView) view.findViewById(R.id.name);
         vDropdown = view.findViewById(R.id.dropdownbtn);
+        tvRecordCount = (TextView) view.findViewById(R.id.record_count);
+        tvCollectCount = (TextView) view.findViewById(R.id.collection_count);
+        tvMessageCount = (TextView) view.findViewById(R.id.message_count);
         view.findViewById(R.id.record).setOnClickListener(this);
         view.findViewById(R.id.collection).setOnClickListener(this);
         view.findViewById(R.id.message).setOnClickListener(this);
         view.findViewById(R.id.information).setOnClickListener(this);
+        view.findViewById(R.id.logout).setOnClickListener(this);
         view.findViewById(R.id.setting).setOnClickListener(this);
         initDropDown();
     }
@@ -84,6 +93,22 @@ public class DrawerFragmentVu implements IVu ,View.OnClickListener{
         vDropdown.setOnClickListener(this);
     }
 
+    public void setRecordCount(int count){
+        tvRecordCount.setText(count+"");
+    }
+    public void setCollectionCount(int count){
+        tvCollectCount.setText(count+"");
+    }
+    public void setMessageCountCount(int count){
+        if (count == 0){
+            tvMessageCount.setVisibility(View.GONE);
+        }else{
+            tvMessageCount.setVisibility(View.VISIBLE);
+            tvMessageCount.setText(count+"");
+        }
+
+    }
+
 
     public void setPerson(PersonBrief user){
         tvFace.setImageURI(Uri.parse(user.getFace()));
@@ -109,6 +134,11 @@ public class DrawerFragmentVu implements IVu ,View.OnClickListener{
                 break;
             case R.id.message:
                 ctx.startActivity(new Intent(ctx, LetterActivityPresenter.class));
+                break;
+            case R.id.logout:
+                APP.getInstence().setToken("");
+                ctx.startActivity(new Intent(ctx, LoginActivityPresenter.class));
+                ((Activity)ctx).finish();
                 break;
             case R.id.setting:
                 break;

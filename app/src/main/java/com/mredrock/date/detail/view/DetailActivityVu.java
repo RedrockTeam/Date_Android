@@ -70,7 +70,7 @@ public class DetailActivityVu extends BaseActivityVu implements View.OnClickList
             content.setText(data.getContent());
             place.setText(data.getPlace());
             time.setText(new TimeTransform(data.getDate_at()).toString(new RecentDateFormater()));
-            cost.setText(Appointment.COSTMODEL[data.getCost_model() - 1]);
+            cost.setText(Appointment.COSTMODEL[data.getCost_model()]);
         }
     }
 
