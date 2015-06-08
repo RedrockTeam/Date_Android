@@ -59,4 +59,21 @@ public class DetailMode {
             }
         });
     }
+
+    public void getCancelCollectionFromService(String date_id, final OnDataCallback<String> callback) {
+        TokenParams params = new TokenParams();
+        params.put(Api.Key.Detail.DATE_ID, date_id);
+        RequestManager.getInstance().post(Api.Url.CancleCollection, params, new ResultRequestCallback() {
+
+            @Override
+            public void success(String info) {
+                callback.callback(info);
+            }
+
+            @Override
+            public void error(String errorInfo) {
+                callback.error(errorInfo);
+            }
+        });
+    }
 }

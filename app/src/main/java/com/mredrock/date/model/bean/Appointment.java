@@ -4,7 +4,7 @@ package com.mredrock.date.model.bean;
  * Created by Mr.Jude on 2015/4/22.
  */
 public class Appointment {
-    public static final String[] COSTMODEL = {"你掏钱","AA制","我请客",};
+    public static final String[] COSTMODEL = {"你掏钱","AA制","我请客"};
 
     private String nickname;
     private String head;
@@ -108,7 +108,7 @@ public class Appointment {
     }
 
     public int getCost_model() {
-        return cost_model;
+        return (--cost_model)<0?0:cost_model;
     }
 
     public void setCost_model(int cost_model) {

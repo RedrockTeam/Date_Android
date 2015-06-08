@@ -16,8 +16,11 @@ public class Api {
         public static final String CollectionList = BASE_URL + "/person/collection";
         public static final String JoinList = BASE_URL + "/person/join";
         public static final String Detail = BASE_URL + "/date/detaildate";
-        public static final String EditInformation=BASE_URL+"/person/editdata";
-        public static final String Information=BASE_URL+"/person/userinfo";
+        public static final String CollectionDetail = BASE_URL + "/person/collect";
+        public static final String CancleCollection = BASE_URL + "/person/rmcollection";
+        public static final String Report = BASE_URL + "/date/report";
+        public static final String EditInformation = BASE_URL + "/person/editdata";
+        public static final String Information = BASE_URL + "/person/userinfo";
     }
 
     public class Key {
@@ -29,6 +32,7 @@ public class Api {
         public static final String PAGE = "page";
         public static final String SIZE = "size";
         public static final String ORDER = "order";
+        public static final String LETTER = "letter";
         public static final String DATE_TYPE = "date_type";
 
         public class Letter {
@@ -64,6 +68,7 @@ public class Api {
     public class Method {
         public static final String GET_LETTER = "getletter";
         public static final String DATE_ACTION = "dateaction";
+        public static final String LATTER_STATUS = "letterstatus";
     }
 
     public class Code {

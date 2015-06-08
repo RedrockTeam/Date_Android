@@ -1,18 +1,24 @@
 package com.mredrock.date.model.bean;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Detail {
-    public static final String[] SEX = {"无限制", "男","女"};
+    public static final String[] SEX = {"无限制", "男", "女"};
+    public static final String[] GRAD = {"无限制", "大一", "大二", "大三", "大四", "其它"};
+    public static final String[] COLLECTION = {"收藏", "已收藏"};
+    public static final String[] REPORT = {"报名", "已报名"};
 
     private String nickname;
     private String head;
     private String gender;
     private int date_id;
     private int user_id;
-    private String content;
     private String created_at;
     private long date_at;
     private String place;
     private String title;
+    private String content;
     private int date_type;
     private String type;
     private int people_limit;
@@ -20,7 +26,10 @@ public class Detail {
     private int gender_limit;
     private int cost_model = -1;
     private String signature;
-    private String grade_limit[];
+    private int grade_limit[];
+    private int collection_status;
+    private int apply_status;
+    private List<Join> joined = new ArrayList<Join>();
     private double user_score;
 
     public String getCategory_id() {
@@ -95,11 +104,11 @@ public class Detail {
         this.gender_limit = gender_limit;
     }
 
-    public String[] getGrade_limit() {
+    public int[] getGrade_limit() {
         return grade_limit;
     }
 
-    public void setGrade_limit(String[] grade_limit) {
+    public void setGrade_limit(int[] grade_limit) {
         this.grade_limit = grade_limit;
     }
 
@@ -171,7 +180,88 @@ public class Detail {
         return user_score;
     }
 
+    public int getApply_status() {
+        return apply_status;
+    }
+
+    public void setApply_status(int apply_status) {
+        this.apply_status = apply_status;
+    }
+
+    public int getCollection_status() {
+        return collection_status;
+    }
+
+    public void setCollection_status(int collection_status) {
+        this.collection_status = collection_status;
+    }
+
     public void setUser_score(double user_score) {
         this.user_score = user_score;
+    }
+
+    public List<Join> getJoined() {
+        return joined;
+    }
+
+    public void setJoined(List<Join> joined) {
+        this.joined = joined;
+    }
+
+    public class Join {
+        private int user_id;
+        private int date_id;
+        private String nickname;
+        private int gender;
+        private String signature;
+        private String head;
+
+        public int getDate_id() {
+            return date_id;
+        }
+
+        public void setDate_id(int date_id) {
+            this.date_id = date_id;
+        }
+
+        public int getGender() {
+            return gender;
+        }
+
+        public void setGender(int gender) {
+            this.gender = gender;
+        }
+
+        public String getHead() {
+            return head;
+        }
+
+        public void setHead(String head) {
+            this.head = head;
+        }
+
+        public String getNickname() {
+            return nickname;
+        }
+
+        public void setNickname(String nickname) {
+            this.nickname = nickname;
+        }
+
+        public String getSignature() {
+            return signature;
+        }
+
+        public void setSignature(String signature) {
+            this.signature = signature;
+        }
+
+        public int getUser_id() {
+            return user_id;
+        }
+
+        public void setUser_id(int user_id) {
+            this.user_id = user_id;
+        }
     }
 }

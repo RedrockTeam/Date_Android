@@ -38,7 +38,7 @@ public abstract class SimpleRequestCallback<T> implements RequestManager.Request
             }else if (status == Api.Code.SERVER_ERROR){
                 error("服务器错误");
             }else{
-                error("未知错误");
+                error(info);
                 Utils.Log("未知状态:"+status);
             }
         } catch (JSONException e) {

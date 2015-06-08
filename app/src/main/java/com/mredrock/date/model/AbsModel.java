@@ -40,7 +40,7 @@ public abstract class AbsModel {
     }
 
 
-    protected <T> void post (final String method, RequestMap map, final NetworkCallback<T> callback) {
+    protected void post (final String method, RequestMap map, final RequestManager.RequestListener callback) {
         RequestManager.getInstance().post(url(method), map, callback);
     }
 

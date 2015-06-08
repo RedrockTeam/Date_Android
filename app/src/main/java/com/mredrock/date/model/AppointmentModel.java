@@ -49,7 +49,7 @@ public class AppointmentModel {
     }
 
     public void getJoinFromServer(final OnDataCallback<Appointment> callback){
-        RequestManager.getInstance().post(Api.Url.CollectionList, new TokenParams(), new SimpleRequestCallback<Appointment[]>(Appointment[].class) {
+        RequestManager.getInstance().post(Api.Url.JoinList, new TokenParams(), new SimpleRequestCallback<Appointment[]>(Appointment[].class) {
             @Override
             public void success(String info, Appointment[] data) {
                 callback.callback(data);
