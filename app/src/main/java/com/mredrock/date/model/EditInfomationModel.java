@@ -10,10 +10,13 @@ import com.mredrock.date.util.Utils;
  * Created by Administrator on 2015/6/4.
  */
 public class EditInfomationModel {
-    public static void edit(String nickName,String gender,String tel,String qq,String weixin, final EditCallback callback){
+    public static void edit(String nickName,String signature,String gender,String grade,String academy,String tel,String qq,String weixin, final EditCallback callback){
         TokenParams params = new TokenParams();
         params.put("nickname",nickName);
+        params.put("signature",signature);
         params.put("gender",gender);
+        params.put("grade",grade);
+        params.put("academy",academy    );
         params.put("telephone",tel);
         params.put("qq",qq);
         params.put("weixin",weixin);

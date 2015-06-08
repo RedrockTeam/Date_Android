@@ -80,7 +80,7 @@ public class InfoActivityPresenter extends BaseActivityPresenter<InfoActivityVu>
                             .cancelable(false)
                             .show();
                     isEmpty();
-                    EditInfomationModel.edit(information.getNickname(),gender_edit, tel_edit, qq_edit, weixin_edit, new EditInfomationModel.EditCallback() {
+                    EditInfomationModel.edit(information.getNickname(),information.getSignature(),gender_edit,information.getGrade(),information.getAcademy_id(),tel_edit, qq_edit, weixin_edit, new EditInfomationModel.EditCallback() {
                         @Override
                         public void onSuccess(String info) {
                             Utils.Toast(info);
