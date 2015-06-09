@@ -49,24 +49,24 @@
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_man" />
             <TextView
-                android:id="@+id/info_gender_eidt"
+                android:id="@+id/info_name_eidt"
                 android:layout_width="wrap_content"
                 android:layout_height="36dp"
                 android:gravity="center_vertical"
                 android:layout_below="@id/infor_face"
-                android:text="修改性别"
+                android:text="修改称昵"
                 android:textSize="18sp"
                 android:visibility="gone"
                 android:layout_alignParentRight="true"
                 android:textColor="@color/blackHint"
                 />
             <TextView
-                android:id="@+id/info_name_eidt"
+                android:id="@+id/info_gender_eidt"
                 android:layout_width="wrap_content"
                 android:layout_height="36dp"
                 android:gravity="center_vertical"
-                android:layout_above="@+id/info_gender_eidt"
-                android:text="修改称昵"
+                android:layout_above="@+id/info_name_eidt"
+                android:text="修改性别"
                 android:textSize="18sp"
                 android:visibility="gone"
                 android:layout_alignParentRight="true"
@@ -78,7 +78,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:layout_marginTop="4dp"
-                android:layout_marginBottom="6dp"
+                android:layout_marginBottom="10dp"
                 android:layout_below="@+id/info_name"
                 android:layout_centerHorizontal="true" />
             <TextView
@@ -86,7 +86,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="36dp"
                 android:gravity="center_vertical"
-                android:layout_below="@+id/info_gender_eidt"
+                android:layout_below="@+id/info_name_eidt"
                 android:text="修改签名"
                 android:textSize="18sp"
                 android:visibility="gone"
