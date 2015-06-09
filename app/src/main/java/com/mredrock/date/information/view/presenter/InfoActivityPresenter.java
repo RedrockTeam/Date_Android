@@ -23,6 +23,10 @@ import com.mredrock.date.util.Utils;
  */
 public class InfoActivityPresenter extends BaseActivityPresenter<InfoActivityVu> implements View.OnClickListener{
     private PersonModel mPersonModel = new PersonModel();
+    private String name_edit="";
+    private String sign_edit="";
+    private String xueyuan_edit="";
+    private String grade_edit="";
     private String gender_edit="";
     private String tel_edit="";
     private String qq_edit="";
@@ -70,7 +74,7 @@ public class InfoActivityPresenter extends BaseActivityPresenter<InfoActivityVu>
                 item.setTitle("保存");
                 vu.showEditBtn();
             }else {
-                if (gender_edit.isEmpty() && tel_edit.isEmpty() && qq_edit.isEmpty() && weixin_edit.isEmpty()) {
+                if (name_edit.isEmpty()&&sign_edit.isEmpty()&&xueyuan_edit.isEmpty()&&grade_edit.isEmpty()&&gender_edit.isEmpty() && tel_edit.isEmpty() && qq_edit.isEmpty() && weixin_edit.isEmpty()) {
                     Utils.Toast("未修改任何信息!");
                     }else{
                     final MaterialDialog dialog = new MaterialDialog.Builder(this)
@@ -80,7 +84,7 @@ public class InfoActivityPresenter extends BaseActivityPresenter<InfoActivityVu>
                             .cancelable(false)
                             .show();
                     isEmpty();
-                    EditInfomationModel.edit(information.getNickname(),gender_edit, tel_edit, qq_edit, weixin_edit, new EditInfomationModel.EditCallback() {
+                    EditInfomationModel.edit(name_edit,sign_edit,gender_edit,grade_edit,xueyuan_edit,tel_edit, qq_edit, weixin_edit, new EditInfomationModel.EditCallback() {
                         @Override
                         public void onSuccess(String info) {
                             Utils.Toast(info);
@@ -110,7 +114,19 @@ public class InfoActivityPresenter extends BaseActivityPresenter<InfoActivityVu>
   //  }
 
     private void isEmpty() {
-        if(gender_edit.isEmpty()){
+        if(name_edit.isEmpty()&&information.getNickname()!=null){
+            name_edit=information.getNickname();
+        }
+        if(sign_edit.isEmpty()&&information.getSignature()!=null){
+            sign_edit = information.getSignature();
+        }
+        if(xueyuan_edit.isEmpty()&&information.getAcademy_id()!=null){
+            xueyuan_edit= information.getAcademy_id();
+        }
+        if(grade_edit.isEmpty()&&information.getGrade_id()!=null){
+            grade_edit =information.getGrade_id();
+        }
+        if(gender_edit.isEmpty()&&information.getGender()!=null){
             gender_edit=information.getGender();
         }
         if(tel_edit.isEmpty()&&information.getTelephone()!=null){
@@ -125,6 +141,66 @@ public class InfoActivityPresenter extends BaseActivityPresenter<InfoActivityVu>
     @Override
     public void onClick(final View v) {
         switch (v.getId()){
+            case R.id.info_name_eidt:
+                new MaterialDialog.Builder(this)
+                        .title("输入称昵")
+                        .inputType(InputType.TYPE_CLASS_TEXT)
+                        .input("", "", new MaterialDialog.InputCallback() {
+                            @Override
+                            public void onInput(MaterialDialog materialDialog, CharSequence input) {
+                                ((TextView)v).setText(input);
+                                name_edit=input.toString();
+
+                            }
+                        }).show();
+                break;
+            case R.id.info_sign_eidt:
+                new MaterialDialog.Builder(this)
+                        .title("输入个性签名")
+                        .inputType(InputType.TYPE_CLASS_TEXT)
+                        .input("", "", new MaterialDialog.InputCallback() {
+                            @Override
+                            public void onInput(MaterialDialog materialDialog, CharSequence input) {
+                                ((TextView)v).setText(input);
+                                sign_edit=input.toString();
+
+                            }
+                        }).show();
+                break;
+            case R.id.info_academy_eidt:
+                new MaterialDialog.Builder(this)
+                        .title("输入所在学院")
+                        .items(R.array.college)
+                        .itemsCallbackSingleChoice(0, new MaterialDialog.ListCallbackSingleChoice() {
+                            @Override
+                            public boolean onSelection(MaterialDialog dialog, View view, int which, CharSequence text) {
+                                //  ((TextView)v).setText(text);
+                                ((TextView) (v)).setText(text);
+                                // appointment.setGender_limit(which);
+                                xueyuan_edit=which+1+"";
+                                return true;
+                            }
+                        })
+                        .positiveText(R.string.ok)
+                        .show();
+                break;
+            case R.id.info_grade_eidt:
+                new MaterialDialog.Builder(this)
+                        .title("输入所在年级")
+                        .items(R.array.grade)
+                        .itemsCallbackSingleChoice(0, new MaterialDialog.ListCallbackSingleChoice() {
+                            @Override
+                            public boolean onSelection(MaterialDialog dialog, View view, int which, CharSequence text) {
+                                //  ((TextView)v).setText(text);
+                                ((TextView) (v)).setText(text);
+                                // appointment.setGender_limit(which);
+                                grade_edit=which+1+"";
+                                return true;
+                            }
+                        })
+                        .positiveText(R.string.ok)
+                        .show();
+                break;
             case R.id.info_tel_eidt:
                 new MaterialDialog.Builder(this)
                         .title("输入手机号")
@@ -141,7 +217,7 @@ public class InfoActivityPresenter extends BaseActivityPresenter<InfoActivityVu>
             case R.id.info_qq_eidt:
                 new MaterialDialog.Builder(this)
                         .title("输入QQ号")
-                        .inputType(InputType.TYPE_CLASS_TEXT)
+                        .inputType(InputType.TYPE_CLASS_NUMBER)
                         .input("", "", new MaterialDialog.InputCallback() {
                             @Override
                             public void onInput(MaterialDialog materialDialog, CharSequence input) {

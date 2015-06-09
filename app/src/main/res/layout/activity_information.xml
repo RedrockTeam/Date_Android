@@ -12,7 +12,7 @@
 
         >
         <RelativeLayout
-            android:paddingBottom="8dp"
+            android:padding="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/white"
@@ -49,11 +49,23 @@
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_man" />
             <TextView
-                android:id="@+id/info_gender_eidt"
+                android:id="@+id/info_name_eidt"
                 android:layout_width="wrap_content"
                 android:layout_height="36dp"
                 android:gravity="center_vertical"
                 android:layout_below="@id/infor_face"
+                android:text="修改称昵"
+                android:textSize="18sp"
+                android:visibility="gone"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/blackHint"
+                />
+            <TextView
+                android:id="@+id/info_gender_eidt"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:gravity="center_vertical"
+                android:layout_above="@+id/info_name_eidt"
                 android:text="修改性别"
                 android:textSize="18sp"
                 android:visibility="gone"
@@ -66,9 +78,21 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:layout_marginTop="4dp"
-                android:layout_marginBottom="2dp"
+                android:layout_marginBottom="10dp"
                 android:layout_below="@+id/info_name"
                 android:layout_centerHorizontal="true" />
+            <TextView
+                android:id="@+id/info_sign_eidt"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:gravity="center_vertical"
+                android:layout_below="@+id/info_name_eidt"
+                android:text="修改签名"
+                android:textSize="18sp"
+                android:visibility="gone"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/blackHint"
+                />
         </RelativeLayout>
 
         <LinearLayout
@@ -98,7 +122,7 @@
             <LinearLayout
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 >
@@ -110,15 +134,25 @@
                     />
                 <TextView
                     android:id="@+id/info_school"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
+                    />
+                <TextView
+                    android:id="@+id/info_academy_eidt"
+                    android:layout_width="match_parent"
+                    android:gravity="center_vertical|right"
+                    android:layout_height="wrap_content"
+                    android:text="添加"
+                    android:textSize="18sp"
+                    android:visibility="gone"
+                    android:textColor="@color/blackHint"
                     />
             </LinearLayout>
             <LinearLayout
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 >
@@ -130,9 +164,19 @@
                     />
                 <TextView
                     android:id="@+id/info_grade"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
+                    />
+                <TextView
+                    android:id="@+id/info_grade_eidt"
+                    android:layout_width="match_parent"
+                    android:gravity="center_vertical|right"
+                    android:layout_height="wrap_content"
+                    android:text="添加"
+                    android:textSize="18sp"
+                    android:visibility="gone"
+                    android:textColor="@color/blackHint"
                     />
             </LinearLayout>
             <LinearLayout

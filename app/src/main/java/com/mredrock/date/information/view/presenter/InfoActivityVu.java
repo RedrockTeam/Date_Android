@@ -20,9 +20,13 @@ public class InfoActivityVu extends BaseActivityVu{
     private SimpleDraweeView face;
     private ImageView gender;
     private TextView name;
+    private TextView name_edit;
     private TextView sign;
+    private TextView sign_edit;
     private TextView xueYuan;
+    private TextView xueYuan_edit;
     private TextView grade;
+    private TextView grade_edit;
     private TextView tel;
     private TextView qq;
     private TextView weixin;
@@ -41,9 +45,13 @@ public class InfoActivityVu extends BaseActivityVu{
        gender=$(R.id.info_gender);
        face =$(R.id.infor_face);
        name =$(R.id.info_name);
+       name_edit =$(R.id.info_name_eidt);
        sign =$(R.id.info_sign);
+       sign_edit =$(R.id.info_sign_eidt);
        xueYuan =$(R.id.info_school);
+       xueYuan_edit=$(R.id.info_academy_eidt);
        grade =$(R.id.info_grade);
+       grade_edit=$(R.id.info_grade_eidt);
        tel =$(R.id.info_tel);
        tel_edit=$(R.id.info_tel_eidt);
        qq =$(R.id.info_qq);
@@ -53,6 +61,10 @@ public class InfoActivityVu extends BaseActivityVu{
        gender_edit=$(R.id.info_gender_eidt);
    }
     public void setListener(View.OnClickListener listener ){
+        name_edit.setOnClickListener(listener);
+        sign_edit.setOnClickListener(listener);
+        xueYuan_edit.setOnClickListener(listener);
+        grade_edit.setOnClickListener(listener);
         tel_edit.setOnClickListener(listener);
         qq_edit.setOnClickListener(listener);
         weixin_edit.setOnClickListener(listener);
@@ -99,6 +111,12 @@ public class InfoActivityVu extends BaseActivityVu{
 
 
     public void showEditBtn(){
+        if(!xueYuan.getText().toString().equals("")){
+            xueYuan_edit.setText("修改");
+        }
+        if(!grade.getText().toString().equals("")){
+            grade_edit.setText("修改");
+        }
         if(!tel.getText().toString().equals("")){
             tel_edit.setText("修改");
         }
@@ -111,6 +129,10 @@ public class InfoActivityVu extends BaseActivityVu{
         setVisible();
     }
     public void hideEidtBtn(){
+        name_edit.setVisibility(View.GONE);
+        sign_edit.setVisibility(View.GONE);
+        xueYuan_edit.setVisibility(View.GONE);
+        grade_edit.setVisibility(View.GONE);
         tel_edit.setVisibility(View.GONE);
         qq_edit.setVisibility(View.GONE);
         weixin_edit.setVisibility(View.GONE);
@@ -118,6 +140,10 @@ public class InfoActivityVu extends BaseActivityVu{
     }
 
     private void setVisible() {
+        name_edit.setVisibility(View.VISIBLE);
+        sign_edit.setVisibility(View.VISIBLE);
+        grade_edit.setVisibility(View.VISIBLE);
+        xueYuan_edit.setVisibility(View.VISIBLE);
         tel_edit.setVisibility(View.VISIBLE);
         qq_edit.setVisibility(View.VISIBLE);
         weixin_edit.setVisibility(View.VISIBLE);
