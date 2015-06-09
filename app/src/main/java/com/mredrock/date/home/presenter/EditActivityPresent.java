@@ -73,6 +73,7 @@ public class EditActivityPresent extends BaseActivityPresenter<EditActivityVu> {
                 @Override
                 public void callback(String... list) {
                     dialog.dismiss();
+                    setResult(RESULT_OK);
                     finish();
                     Utils.Toast("发布成功");
                 }

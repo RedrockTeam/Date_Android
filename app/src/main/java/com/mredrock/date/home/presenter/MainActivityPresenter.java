@@ -119,11 +119,16 @@ public class MainActivityPresenter extends BaseActivityPresenter<MainActivityVu>
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.add){
-            startActivity(new Intent(this,EditActivityPresent.class));
+            startActivityForResult(new Intent(this, EditActivityPresent.class), 1000);
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
-
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1000&& resultCode == RESULT_OK)
+        addAppointment(0,type,sort);
+    }
 }
