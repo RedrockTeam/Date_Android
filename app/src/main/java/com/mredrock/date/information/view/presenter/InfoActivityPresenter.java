@@ -111,7 +111,7 @@ public class InfoActivityPresenter extends BaseActivityPresenter<InfoActivityVu>
 
     }
 
-            return true;
+        return super.onOptionsItemSelected(item);
         }
 
     private void setEmpty() {
