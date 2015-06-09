@@ -91,9 +91,12 @@ public class InfoActivityPresenter extends BaseActivityPresenter<InfoActivityVu>
                             dialog.dismiss();
                             item.setTitle("编辑");
                             vu.hideEidtBtn();
+                            setEmpty();
                             getInformation();
 
                         }
+
+
 
                         @Override
                         public void onError(String errorInfo) {
@@ -110,7 +113,18 @@ public class InfoActivityPresenter extends BaseActivityPresenter<InfoActivityVu>
 
             return true;
         }
-     //   return super.onOptionsItemSelected(item);
+
+    private void setEmpty() {
+        name_edit="";
+        sign_edit="";
+        xueyuan_edit="";
+        grade_edit="";
+        gender_edit="";
+        tel_edit="";
+        qq_edit="";
+        weixin_edit="";
+    }
+    //   return super.onOptionsItemSelected(item);
   //  }
 
     private void isEmpty() {
@@ -170,7 +184,7 @@ public class InfoActivityPresenter extends BaseActivityPresenter<InfoActivityVu>
             case R.id.info_academy_eidt:
                 new MaterialDialog.Builder(this)
                         .title("输入所在学院")
-                        .items(R.array.college)
+                        .items(R.array.college_edit)
                         .itemsCallbackSingleChoice(0, new MaterialDialog.ListCallbackSingleChoice() {
                             @Override
                             public boolean onSelection(MaterialDialog dialog, View view, int which, CharSequence text) {
@@ -187,7 +201,7 @@ public class InfoActivityPresenter extends BaseActivityPresenter<InfoActivityVu>
             case R.id.info_grade_eidt:
                 new MaterialDialog.Builder(this)
                         .title("输入所在年级")
-                        .items(R.array.grade)
+                        .items(R.array.grade_edit)
                         .itemsCallbackSingleChoice(0, new MaterialDialog.ListCallbackSingleChoice() {
                             @Override
                             public boolean onSelection(MaterialDialog dialog, View view, int which, CharSequence text) {
