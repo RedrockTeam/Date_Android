@@ -95,6 +95,7 @@ public class DetailActivityVu extends BaseActivityVu implements View.OnClickList
 
     /**
      * 得到json转为Appointment data
+     *
      * @param json
      */
     public void setLoadDetail(String json) {
@@ -113,6 +114,7 @@ public class DetailActivityVu extends BaseActivityVu implements View.OnClickList
 
     /**
      * 对详情的请求
+     *
      * @param date_Id
      */
     private void setDetailView(String date_Id) {
@@ -170,19 +172,37 @@ public class DetailActivityVu extends BaseActivityVu implements View.OnClickList
         if (joined.size() > 0) {
             llJoined.setVisibility(View.VISIBLE);
             this.joined = joined;
-            for (int i = 0; i < joined.get(0).length; i++) {
+            for (int i = 0; i < 4; i++) {
                 switch (i) {
                     case 0:
-                        joinedFace1.setImageURI(Uri.parse(joined.get(0)[i].getHead()));
+                        if (joined.get(0)[i] != null) {
+                            joinedFace1.setVisibility(View.VISIBLE);
+                            joinedFace1.setImageURI(Uri.parse(joined.get(0)[i].getHead()));
+                        } else {
+                            joinedFace1.setVisibility(View.INVISIBLE);
+                        }
                         break;
                     case 1:
-                        joinedFace2.setImageURI(Uri.parse(joined.get(0)[i].getHead()));
+                        if (joined.get(0)[i] != null) {
+                            joinedFace2.setVisibility(View.VISIBLE);
+                            joinedFace2.setImageURI(Uri.parse(joined.get(0)[i].getHead()));
+                        } else {
+                            joinedFace2.setVisibility(View.INVISIBLE);
+                        }
                         break;
                     case 2:
-                        joinedFace3.setImageURI(Uri.parse(joined.get(0)[i].getHead()));
+                        if (joined.get(0)[i] != null) {
+                            joinedFace3.setImageURI(Uri.parse(joined.get(0)[i].getHead()));
+                        } else {
+                            joinedFace3.setVisibility(View.INVISIBLE);
+                        }
                         break;
                     case 3:
-                        joinedFace4.setImageURI(Uri.parse(joined.get(0)[i].getHead()));
+                        if (joined.get(0)[i] != null) {
+                            joinedFace4.setImageURI(Uri.parse(joined.get(0)[i].getHead()));
+                        } else {
+                            joinedFace4.setVisibility(View.INVISIBLE);
+                        }
                         break;
                 }
             }
@@ -195,18 +215,23 @@ public class DetailActivityVu extends BaseActivityVu implements View.OnClickList
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.author_report_face_detail1:
+                intent.putExtra("uid", (joined.get(0)[0].getUser_id()));
                 context.startActivity(intent);
                 break;
             case R.id.author_report_face_detail2:
+                intent.putExtra("uid", (joined.get(0)[1].getUser_id()));
                 context.startActivity(intent);
                 break;
             case R.id.author_report_face_detail3:
+                intent.putExtra("uid", (joined.get(0)[2].getUser_id()));
                 context.startActivity(intent);
                 break;
             case R.id.author_report_face_detail4:
+                intent.putExtra("uid", (joined.get(0)[3].getUser_id()));
                 context.startActivity(intent);
                 break;
             case R.id.author_face:
+                intent.putExtra("uid", (data.getUser_id()));
                 context.startActivity(intent);
                 break;
             case R.id.collection_detail:
