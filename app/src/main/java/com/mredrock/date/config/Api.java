@@ -10,6 +10,7 @@ public class Api {
 
 
     public class Url {
+        public static final String PublicDate = BASE_URL + "/date/createdate";
         public static final String Login = BASE_URL + "/public/login";
         public static final String Banner = BASE_URL + "/public/banner";
         public static final String DateList = BASE_URL + "/date/datelist";
@@ -73,7 +74,7 @@ public class Api {
 
     public class Code {
         public static final  int OK = 200;
-        public static final int PERMISSION_DENIED = 403;
+        public static final int PERMISSION_DENIED = 401;
         public static final int SERVER_ERROR = 500;
 
     }

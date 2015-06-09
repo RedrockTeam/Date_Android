@@ -12,7 +12,9 @@ import com.mredrock.date.app.BaseActivityPresenter;
 import com.mredrock.date.home.MainHeader;
 import com.mredrock.date.home.view.MainActivityVu;
 import com.mredrock.date.model.AppointmentModel;
+import com.mredrock.date.model.BannerModel;
 import com.mredrock.date.model.bean.Appointment;
+import com.mredrock.date.model.bean.Banner;
 import com.mredrock.date.util.Utils;
 import com.mredrock.date.widget.AppointmentArrayAdapter;
 import com.mredrock.date.widget.OnDataCallback;
@@ -27,7 +29,6 @@ public class MainActivityPresenter extends BaseActivityPresenter<MainActivityVu>
     private AppointmentArrayAdapter mAdapter;
     private AppointmentModel mAppointmentModel = new AppointmentModel();
     private int type,sort;
-    private Intent intent = new Intent();
     private LoadAppointment mLoadAppointmentCallback = new LoadAppointment() {
         @Override
         public void loadAppointment(int type, int sort) {
@@ -55,12 +56,26 @@ public class MainActivityPresenter extends BaseActivityPresenter<MainActivityVu>
     public void onBindVu() {
         vu.addDrawer(this, new DrawerFragmentPresenter());
         mAdapter = new AppointmentArrayAdapter(this);
-        mAdapter.addHeader(new MainHeader(mLoadAppointmentCallback));
+        getBanners();
         vu.setRecyclerViewAdapter(mAdapter);
         vu.setOnRefreshListener(mRefreshListener);
         vu.setOnLoadMoreListener(onMoreListener);
         addAppointment(0,type,sort);
         initUmengFamily();
+    }
+
+    private void getBanners(){
+        new BannerModel().getBannerListFromServer(new OnDataCallback<Banner>() {
+            @Override
+            public void callback(Banner... list) {
+                mAdapter.addHeader(new MainHeader(list,mLoadAppointmentCallback));
+            }
+
+            @Override
+            public void error(String info) {
+                mAdapter.addHeader(new MainHeader(null,mLoadAppointmentCallback));
+            }
+        });
     }
 
     private void initUmengFamily(){

@@ -62,6 +62,7 @@ public class EditActivityPresent extends BaseActivityPresenter<EditActivityVu> {
                 Utils.Toast("请选择花费模式");
                 return true;
             }
+            appointment.setContent(vu.getContent());
             final MaterialDialog dialog = new MaterialDialog.Builder(this)
                     .title("发布中")
                     .content("请稍后")
@@ -78,6 +79,7 @@ public class EditActivityPresent extends BaseActivityPresenter<EditActivityVu> {
 
                 @Override
                 public void error(String info) {
+                    dialog.dismiss();
                     Utils.Toast(info);
                 }
             });
@@ -160,7 +162,7 @@ public class EditActivityPresent extends BaseActivityPresenter<EditActivityVu> {
                                 for (int i = 0 ; i < integers.length ; i++){
                                     r[i] = integers[i];
                                 }
-                                //appointment.setGrade_limit(r);
+                                appointment.setGrade_limit(r);
                                 return false;
                             }
                         })

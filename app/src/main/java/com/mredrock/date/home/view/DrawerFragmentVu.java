@@ -18,6 +18,7 @@ import com.mredrock.date.app.IVu;
 import com.mredrock.date.home.presenter.CollectionActivityPresenter;
 import com.mredrock.date.home.presenter.LoginActivityPresenter;
 import com.mredrock.date.home.presenter.RecordActivityPresenter;
+import com.mredrock.date.setting.presenter.SettingActivityPresenter;
 import com.mredrock.date.information.view.presenter.InfoActivityPresenter;
 import com.mredrock.date.letter.presenter.LetterActivityPresenter;
 import com.mredrock.date.model.bean.PersonBrief;
@@ -141,6 +142,7 @@ public class DrawerFragmentVu implements IVu ,View.OnClickListener{
                 ((Activity)ctx).finish();
                 break;
             case R.id.setting:
+                ctx.startActivity(new Intent(ctx, SettingActivityPresenter.class));
                 break;
             case R.id.information:
                 ctx.startActivity(new Intent(ctx, InfoActivityPresenter.class));

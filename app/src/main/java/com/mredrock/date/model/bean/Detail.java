@@ -26,7 +26,7 @@ public class Detail {
     private int gender_limit;
     private int cost_model = -1;
     private String signature;
-    private int grade_limit[];
+    private int grade_limit[] = {1,2,3,4};
     private int collection_status;
     private int apply_status;
     private List<Join> joined = new ArrayList<Join>();
@@ -41,7 +41,7 @@ public class Detail {
     }
 
     public String getContent() {
-        return content;
+        return content == null?"":content;
     }
 
     public void setContent(String content) {

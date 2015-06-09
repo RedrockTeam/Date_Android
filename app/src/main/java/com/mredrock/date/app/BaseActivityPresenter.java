@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.MenuItem;
 
+import com.mredrock.date.util.JActivityManager;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.message.PushAgent;
 
@@ -17,6 +18,7 @@ public abstract class BaseActivityPresenter<V extends IVu> extends ActionBarActi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        JActivityManager.getInstance().pushActivity(this);
         PushAgent.getInstance(this).onAppStart();
         try {
             vu = getVuClass().newInstance();
@@ -44,6 +46,7 @@ public abstract class BaseActivityPresenter<V extends IVu> extends ActionBarActi
     protected final void onDestroy() {
         onDestroyVu();
         vu = null;
+        JActivityManager.getInstance().popActivity(this);
         super.onDestroy();
     }
 

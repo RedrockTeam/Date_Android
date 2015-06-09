@@ -18,7 +18,7 @@ public class AppointmentModel {
     public void getAppointmentFromServer(int page, int dateType,int order,final OnDataCallback<Appointment> callback){
         TokenParams params = new TokenParams();
         params.put(Api.Key.DATE_TYPE,dateType+"");
-        params.put(Api.Key.PAGE,page+"");
+        params.put(Api.Key.PAGE,page+1+"");
         params.put(Api.Key.SIZE,30+"");
         params.put(Api.Key.ORDER,order+"");
             RequestManager.getInstance().post(Api.Url.DateList, params, new SimpleRequestCallback<Appointment[]>(Appointment[].class) {
@@ -75,10 +75,9 @@ public class AppointmentModel {
             for (int i:appointment.getGrade_limit()){
                 params.put("grade_limit[]",i+"");
             }
-        params.put("academy_select_model","1");
         params.put("grade_select_model","1");
         params.put("cost_model",appointment.getCost_model()+"");
-        RequestManager.getInstance().post(Api.Url.CollectionList, params, new ResultRequestCallback() {
+        RequestManager.getInstance().post(Api.Url.PublicDate, params, new ResultRequestCallback() {
             @Override
             public void success(String info) {
                 callback.callback(info);

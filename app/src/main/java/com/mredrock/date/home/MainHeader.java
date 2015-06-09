@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.jude.view.jpagerview.JPagerView;
 import com.mredrock.date.R;
 import com.mredrock.date.home.presenter.MainActivityPresenter;
+import com.mredrock.date.model.bean.Banner;
 import com.mredrock.date.util.Utils;
 import com.mredrock.date.widget.RecyclerArrayAdapter;
 
@@ -26,18 +27,24 @@ import com.mredrock.date.widget.RecyclerArrayAdapter;
 public class MainHeader implements RecyclerArrayAdapter.HeaderView ,View.OnClickListener{
     private View view;
     private JPagerView jpvBanner;
+    private Banner[] banners;
     private View mSelectGroup;
     private int type,sort;
     private MainActivityPresenter.LoadAppointment callback;
-    public MainHeader(MainActivityPresenter.LoadAppointment callback){
+    public MainHeader(Banner[] banners,MainActivityPresenter.LoadAppointment callback){
         this.callback = callback;
+        this.banners = banners;
     }
 
     @Override
     public View onCreateView(ViewGroup parent) {
         view = LayoutInflater.from(parent.getContext()).inflate(R.layout.head_main, parent, false);
         jpvBanner = (JPagerView) view.findViewById(R.id.jpv_banner);
-        jpvBanner.setAdapter(new BannerPagerAdapter());
+        if (banners == null){
+            jpvBanner.setVisibility(View.GONE);
+        }else{
+            jpvBanner.setAdapter(new BannerPagerAdapter(banners));
+        }
         view.findViewById(R.id.btn_type).setOnClickListener(this);
         view.findViewById(R.id.btn_sort).setOnClickListener(this);
         return view;

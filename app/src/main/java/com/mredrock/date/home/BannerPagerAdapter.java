@@ -17,27 +17,17 @@ import com.mredrock.date.widget.OnDataCallback;
  * Created by Mr.Jude on 2015/4/22.
  */
 public class BannerPagerAdapter extends JStatePagerAdapter {
-    BannerModel model = new BannerModel();
+    private Banner[] banners;
 
-    public BannerPagerAdapter(){
-        model.getBannerListFromServer(new OnDataCallback<Banner>() {
-            @Override
-            public void callback(Banner... banners) {
-                notifyDataSetChanged();
-            }
-
-            @Override
-            public void error(String info) {
-
-            }
-        });
+    public BannerPagerAdapter(Banner[] banners){
+        this.banners = banners;
     }
 
     @Override
     public View getView(final ViewGroup container, final int position) {
         SimpleDraweeView view = new SimpleDraweeView(container.getContext());
         view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        view.setImageURI(Uri.parse(model.getBanner(position).getSrc()));
+        view.setImageURI(Uri.parse(banners[position].getSrc()));
 //        view.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -54,7 +44,7 @@ public class BannerPagerAdapter extends JStatePagerAdapter {
 
     @Override
     public int getCount() {
-        return model.getBannerLenght();
+        return banners.length;
     }
 
 

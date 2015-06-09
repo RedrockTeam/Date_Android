@@ -1,9 +1,13 @@
 package com.mredrock.date.app;
 
 import android.app.Application;
+import android.content.Context;
+import android.content.Intent;
 
 import com.android.http.RequestManager;
 import com.facebook.drawee.backends.pipeline.Fresco;
+import com.mredrock.date.home.presenter.LoginActivityPresenter;
+import com.mredrock.date.util.JActivityManager;
 import com.mredrock.date.util.Utils;
 
 /**
@@ -30,6 +34,13 @@ public class APP extends Application {
 
     public void setToken(String token){
         Utils.getPreference().edit().putString("token", token).commit();
+    }
+
+    public void closeToLogin(){
+        Utils.getPreference().edit().clear().commit();
+        Context ctx = JActivityManager.getInstance().currentActivity();
+        ctx.startActivity(new Intent(ctx, LoginActivityPresenter.class));
+        JActivityManager.getInstance().popAllActivity();
     }
 
     public String getUID(){

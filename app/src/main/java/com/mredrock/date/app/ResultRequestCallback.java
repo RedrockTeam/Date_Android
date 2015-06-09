@@ -44,6 +44,9 @@ public abstract class ResultRequestCallback implements RequestManager.RequestLis
     }
 
     public abstract void success(String info);
-    public void authorizationFailure(){}
+    public void authorizationFailure(){
+        APP.getInstence().closeToLogin();
+        Utils.Toast("请重新登陆");
+    }
     public abstract void error(String errorInfo);
 }

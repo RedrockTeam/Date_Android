@@ -52,7 +52,10 @@ public abstract class SimpleRequestCallback<T> implements RequestManager.Request
     }
 
     public abstract void success(String info , T data);
-    public void authorizationFailure(){}
+    public void authorizationFailure(){
+        APP.getInstence().closeToLogin();
+        Utils.Toast("请重新登陆");
+    }
     public abstract void error(String errorInfo);
 
 }
