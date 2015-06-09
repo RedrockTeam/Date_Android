@@ -26,7 +26,6 @@ public class DetailActivityPresenter extends BaseActivityPresenter<DetailActivit
     public void onBindVu() {
         super.onBindVu();
         mAdapter = new DetailArrayAdapter(this);
-        vu.setDetailAdapter(mAdapter);
         vu.setLoadDetail(getIntent().getStringExtra(C.DETAIL_TAG));
     }
 }
