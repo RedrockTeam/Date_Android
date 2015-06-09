@@ -40,7 +40,7 @@ public abstract class ResultRequestCallback implements RequestManager.RequestLis
 
     @Override
     public void onError(String s) {
-
+        error(s);
     }
 
     public abstract void success(String info);
