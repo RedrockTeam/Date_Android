@@ -49,7 +49,7 @@ public class InfoActivityVu extends BaseActivityVu{
        sign =$(R.id.info_sign);
        sign_edit =$(R.id.info_sign_eidt);
        xueYuan =$(R.id.info_school);
-       xueYuan_edit=$(R.id.info_sign_eidt);
+       xueYuan_edit=$(R.id.info_academy_eidt);
        grade =$(R.id.info_grade);
        grade_edit=$(R.id.info_grade_eidt);
        tel =$(R.id.info_tel);
