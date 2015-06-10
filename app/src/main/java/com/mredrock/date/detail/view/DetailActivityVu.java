@@ -32,6 +32,11 @@ public class DetailActivityVu extends BaseActivityVu implements View.OnClickList
     private SimpleDraweeView joinedFace3;
     private SimpleDraweeView joinedFace4;
 
+    private TextView joinedName1;
+    private TextView joinedName2;
+    private TextView joinedName3;
+    private TextView joinedName4;
+
     private SimpleDraweeView authorFace;
     private LoveView socreLove;
     private TextView authorName;
@@ -64,6 +69,11 @@ public class DetailActivityVu extends BaseActivityVu implements View.OnClickList
         joinedFace2 = (SimpleDraweeView) rootView.findViewById(R.id.author_report_face_detail2);
         joinedFace3 = (SimpleDraweeView) rootView.findViewById(R.id.author_report_face_detail3);
         joinedFace4 = (SimpleDraweeView) rootView.findViewById(R.id.author_report_face_detail4);
+
+        joinedName1 = (TextView) rootView.findViewById(R.id.author_report_name_detail1);
+        joinedName2 = (TextView) rootView.findViewById(R.id.author_report_name_detail2);
+        joinedName3 = (TextView) rootView.findViewById(R.id.author_report_name_detail3);
+        joinedName4 = (TextView) rootView.findViewById(R.id.author_report_name_detail4);
 
         authorFace = (SimpleDraweeView) rootView.findViewById(R.id.author_face_detail);
         socreLove = (LoveView) rootView.findViewById(R.id.user_star_container);
@@ -143,11 +153,6 @@ public class DetailActivityVu extends BaseActivityVu implements View.OnClickList
                 if (list[0].getApply_status() != 0) {
                     reportBtn.setClickable(false);
                 }
-                for (int i = 0; i < 10; i++) {
-                    if (list[0].getJoined().size() != 0) {
-                        list[0].getJoined().add(list[0].getJoined().get(0));
-                    }
-                }
                 List<Detail.Join[]> listJoins = new ArrayList<Detail.Join[]>();
                 for (int j = 0; j < (list[0].getJoined().size() % 4 == 0 ? list[0].getJoined().size() / 4 : list[0].getJoined().size() / 4 + 1); j++) {
                     Detail.Join[] join = new Detail.Join[4];
@@ -177,31 +182,45 @@ public class DetailActivityVu extends BaseActivityVu implements View.OnClickList
                     case 0:
                         if (joined.get(0)[i] != null) {
                             joinedFace1.setVisibility(View.VISIBLE);
+                            joinedName1.setVisibility(View.VISIBLE);
+                            joinedName1.setText(joined.get(0)[i].getNickname());
                             joinedFace1.setImageURI(Uri.parse(joined.get(0)[i].getHead()));
                         } else {
                             joinedFace1.setVisibility(View.INVISIBLE);
+                            joinedName1.setVisibility(View.INVISIBLE);
                         }
                         break;
                     case 1:
                         if (joined.get(0)[i] != null) {
                             joinedFace2.setVisibility(View.VISIBLE);
+                            joinedName2.setVisibility(View.VISIBLE);
+                            joinedName2.setText(joined.get(0)[i].getNickname());
                             joinedFace2.setImageURI(Uri.parse(joined.get(0)[i].getHead()));
                         } else {
                             joinedFace2.setVisibility(View.INVISIBLE);
+                            joinedName2.setVisibility(View.INVISIBLE);
                         }
                         break;
                     case 2:
                         if (joined.get(0)[i] != null) {
+                            joinedFace3.setVisibility(View.VISIBLE);
+                            joinedName3.setVisibility(View.VISIBLE);
+                            joinedName3.setText(joined.get(0)[i].getNickname());
                             joinedFace3.setImageURI(Uri.parse(joined.get(0)[i].getHead()));
                         } else {
                             joinedFace3.setVisibility(View.INVISIBLE);
+                            joinedName3.setVisibility(View.INVISIBLE);
                         }
                         break;
                     case 3:
                         if (joined.get(0)[i] != null) {
+                            joinedFace4.setVisibility(View.VISIBLE);
+                            joinedName4.setVisibility(View.VISIBLE);
+                            joinedName4.setText(joined.get(0)[i].getNickname());
                             joinedFace4.setImageURI(Uri.parse(joined.get(0)[i].getHead()));
                         } else {
                             joinedFace4.setVisibility(View.INVISIBLE);
+                            joinedName4.setVisibility(View.INVISIBLE);
                         }
                         break;
                 }
@@ -230,7 +249,7 @@ public class DetailActivityVu extends BaseActivityVu implements View.OnClickList
                 intent.putExtra("uid", (joined.get(0)[3].getUser_id()));
                 context.startActivity(intent);
                 break;
-            case R.id.author_face:
+            case R.id.author_face_detail:
                 intent.putExtra("uid", (data.getUser_id()));
                 context.startActivity(intent);
                 break;
