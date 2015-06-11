@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include layout="@layout/include_toolbar"></include>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingMultiplier="1.3"
+            android:layout_margin="16dp"
+            android:textColor="@color/blackSubhead"
+            android:text=" 1）账号问题\n
+         初始登陆采用账号为学号和密码为身份证后六位进行登录，修改账号信息以及密码找回请访问会员中心进行操作。
+   \n2）信息安全问题\n
+         个人资料信息统一与校园一卡通资料绑定，即使用该产品用户为本校学生，确保交友信息真实可靠。
+ \n3）平台开放问题\n
+       本平台所有发起约会活动为用户自主发起，本平台只作为中介平台信息交流使用，与一切用户发起的活动商业性质无关，不向用户收取一切费用，完全免费开放。"/>
+    </ScrollView>
+
+</LinearLayout>

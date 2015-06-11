@@ -88,6 +88,8 @@
             android:label="关于产品"></activity>
         <activity android:name=".setting.presenter.FeedbackActivityPresenter"
             android:label="意见反馈"></activity>
+        <activity android:name=".setting.presenter.QuestionActivityPresenter"
+            android:label="常见问题"></activity>
         <!--友盟意见反馈-->
         <activity android:name="com.umeng.fb.ConversationActivity" />
         <!--友盟自动更新-->

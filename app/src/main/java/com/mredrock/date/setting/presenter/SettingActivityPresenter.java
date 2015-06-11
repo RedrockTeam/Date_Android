@@ -23,6 +23,9 @@ public class SettingActivityPresenter extends BaseActivityPresenter<SettingActiv
             case R.id.feedback:
                 startActivity(new Intent(this,FeedbackActivityPresenter.class));
                 break;
+            case R.id.question:
+                startActivity(new Intent(this,QuestionActivityPresenter.class));
+                break;
             case R.id.logout:
                 APP.getInstence().closeToLogin();
                 break;
