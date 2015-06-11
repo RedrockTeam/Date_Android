@@ -119,7 +119,7 @@ public class DetailActivityVu extends BaseActivityVu implements View.OnClickList
         title.setText(data.getTitle());
         place.setText(data.getPlace());
         time.setText(new TimeTransform(data.getDate_at()).toString(new RecentDateFormater()));
-        cost.setText(Appointment.COSTMODEL[data.getCost_model()]);
+        cost.setText(getContext().getResources().getStringArray(R.array.cost)[data.getCost_model()]);
     }
 
     /**
