@@ -10,6 +10,7 @@ import android.widget.Toast;
 import com.mredrock.date.R;
 import com.mredrock.date.app.BaseActivityPresenter;
 import com.mredrock.date.app.VuCallback;
+import com.mredrock.date.information.view.presenter.InfoActivityPresenter;
 import com.mredrock.date.letter.view.LetterDetailActivityVu;
 import com.mredrock.date.model.LetterModel;
 import com.mredrock.date.model.NetworkCallback;
@@ -61,10 +62,18 @@ public class LetterDetailActivityPresenter extends BaseActivityPresenter<LetterD
                     doReceive();
                 } else if (view.getId() == R.id.btn_reject) {
                     doReject();
+                } else if (view.getId() == R.id.sdv_avatar) {
+                    goInfoActivity();
                 }
             }
         });
         setResult(letter);
+    }
+
+    private void goInfoActivity() {
+        Intent i = new Intent(this, InfoActivityPresenter.class);
+        i.putExtra("uid", letter.getUserId());
+        startActivity(i);
     }
 
     public void setResult(Letter letter) {

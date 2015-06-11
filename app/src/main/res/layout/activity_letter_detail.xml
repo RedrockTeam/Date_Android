@@ -43,7 +43,7 @@
             android:src="@drawable/ic_man" />
 
         <com.mredrock.date.widget.LoveView
-            android:id="@+id/ll_user_star_container"
+            android:id="@+id/lv_star"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@id/sdv_avatar"

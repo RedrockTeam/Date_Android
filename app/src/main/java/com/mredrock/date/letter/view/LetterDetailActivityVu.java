@@ -6,7 +6,6 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,16 +15,17 @@ import com.mredrock.date.R;
 import com.mredrock.date.app.BaseActivityVu;
 import com.mredrock.date.app.VuCallback;
 import com.mredrock.date.model.bean.Letter;
+import com.mredrock.date.widget.LoveView;
 
 /**
  * Created by Lecion on 5/5/15.
  */
 public class LetterDetailActivityVu extends BaseActivityVu implements View.OnClickListener {
-    //TODO 完成点击用户头像跳转
+    //TODO 用户头像跳转信息不正确
     private SimpleDraweeView sdvAvatar;
     private TextView tvUserName;
     private ImageView ivGender;
-    private ViewGroup llUserStarContainer;
+    private LoveView loveViewStar;
     private TextView tvContent;
     private Button btnReject;
     private Button btnReceive;
@@ -41,11 +41,10 @@ public class LetterDetailActivityVu extends BaseActivityVu implements View.OnCli
         sdvAvatar = $(R.id.sdv_avatar);
         tvUserName = $(R.id.tv_user_name);
         ivGender = $(R.id.iv_gender);
-        llUserStarContainer = $(R.id.ll_user_star_container);
+        loveViewStar = $(R.id.lv_star);
         tvContent = $(R.id.tv_content);
         btnReject = $(R.id.btn_reject);
         btnReceive = $(R.id.btn_receive);
-
     }
 
     public void setData(Letter letter) {
@@ -55,7 +54,9 @@ public class LetterDetailActivityVu extends BaseActivityVu implements View.OnCli
         tvContent.setText("TA" + letter.getContent());
         btnReceive.setOnClickListener(this);
         btnReject.setOnClickListener(this);
-        setUserScore(letter.getUserScore());
+        sdvAvatar.setOnClickListener(this);
+//        setUserScore(letter.getUserScore());
+        loveViewStar.setStart(letter.getUserScore());
     }
 
     private void setUserScore(double userScore) {
@@ -67,17 +68,17 @@ public class LetterDetailActivityVu extends BaseActivityVu implements View.OnCli
             isHalf = true;
         }
         if (isHalf) {
-            llUserStarContainer.getChildAt(5).setVisibility(View.VISIBLE);
+            loveViewStar.getChildAt(5).setVisibility(View.VISIBLE);
         } else {
-            llUserStarContainer.getChildAt(5).setVisibility(View.GONE);
+            loveViewStar.getChildAt(5).setVisibility(View.GONE);
         }
         for (int i = 0; i < 11; i++) {
             if (i < 5 && i >= integer) {
-                llUserStarContainer.getChildAt(i).setVisibility(View.GONE);
+                loveViewStar.getChildAt(i).setVisibility(View.GONE);
             }
             if (i > 5) {
                 if (isHalf && (i - 5) > (5 - (integer + 1)) || !isHalf && (i - 5) > (5 - integer)) {
-                    llUserStarContainer.getChildAt(i).setVisibility(View.GONE);
+                    loveViewStar.getChildAt(i).setVisibility(View.GONE);
                     Log.d("setUserScore", i + "");
                 }
             }
@@ -110,7 +111,9 @@ public class LetterDetailActivityVu extends BaseActivityVu implements View.OnCli
     }
 
     public void setVuCallback(VuCallback vuCallback) {
-        this.vuCallback = vuCallback;
+        if (vuCallback != null) {
+            this.vuCallback = vuCallback;
+        }
     }
 
     private int getGenderImg(int genderId) {
