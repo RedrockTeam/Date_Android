@@ -9,7 +9,7 @@ import com.mredrock.date.widget.OnDataCallback;
 /**
  * Created by Mr.Jude on 2015/4/29.
  */
-public class RecordActivityPresenter extends BaseActivityPresenter<RecordActivityVu> {
+public class JoinActivityPresenter extends BaseActivityPresenter<RecordActivityVu> {
     private AppointmentModel mAppointmentModel = new AppointmentModel();
     @Override
     public void onBindVu() {

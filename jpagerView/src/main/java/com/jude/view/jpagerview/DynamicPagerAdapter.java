@@ -5,7 +5,8 @@ import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
 
-public abstract class JStatePagerAdapter extends PagerAdapter {
+
+public abstract class DynamicPagerAdapter extends PagerAdapter {
 
 
 	@Override
@@ -15,6 +16,7 @@ public abstract class JStatePagerAdapter extends PagerAdapter {
 
 	@Override
 	public void destroyItem(ViewGroup container, int position, Object object) {
+		container.removeView((View) object);
 	}
 	
 	@Override
@@ -24,17 +26,10 @@ public abstract class JStatePagerAdapter extends PagerAdapter {
 
 	@Override
 	public Object instantiateItem(ViewGroup container, int position) {
-		View itemView = container.getChildAt(position);
-        if(itemView==null){
-            itemView = getView(container,position);
-            container.addView(itemView);
-        }
-        onBind(itemView,position);
+		View itemView = getView(container,position);
+		container.addView(itemView);
 		return itemView;
 	}
-
-    public void onBind(View view,int position){
-    }
 
 	public abstract View getView(ViewGroup container, int position);
 

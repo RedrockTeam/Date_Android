@@ -17,7 +17,7 @@ import com.mredrock.date.widget.RecyclerArrayAdapter;
 /**
  * Created by Mr.Jude on 2015/4/29.
  */
-public class RecordActivityVu extends BaseActivityVu implements RecyclerArrayAdapter.OnRecyclerItemClickListener{
+public class JoinActivityVu extends BaseActivityVu implements RecyclerArrayAdapter.OnRecyclerItemClickListener{
     private SuperRecyclerView mRecyclerView;
     private AppointmentArrayAdapter mAdapter;
     @Override

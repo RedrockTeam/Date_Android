@@ -43,13 +43,18 @@
         <item>大三</item>
         <item>大四</item>
     </array>
-    <array name="college">
+    <array name="grade_edit">
+        <item>2011级</item>
+        <item>2012级</item>
+        <item>2013级</item>
+        <item>2014级</item>
+    </array>
+
+    <array name="college_edit">
         <item>计算机</item>
-        <item>通信</item>
-        <item>软件</item>
         <item>传媒</item>
-        <item>自动化</item>
-        <item>光电</item>
+        <item>通信</item>
+
     </array>
     <array name="cost">
         <item>AA制</item>
