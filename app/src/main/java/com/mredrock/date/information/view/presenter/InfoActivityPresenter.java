@@ -29,6 +29,8 @@ public class InfoActivityPresenter extends BaseActivityPresenter<InfoActivityVu>
     private String qq_edit="";
     private String weixin_edit="";
     private Information information;
+
+    private int uid;
     //private InformationModel mInformationModel = new InformationModel();
     @Override
     public Class<InfoActivityVu> getVuClass() {
@@ -38,14 +40,12 @@ public class InfoActivityPresenter extends BaseActivityPresenter<InfoActivityVu>
     @Override
     public void onBindVu() {
         vu.setListener(this);
-        //1 nasdfnldssdaf 1
+        uid = getIntent().getIntExtra("uid", Integer.parseInt(APP.getInstence().getUID()));
         getInformation();
-    //    vu.setPersonInformation(mPersonModel.getUserPersonInformation() );
-        //mInformationModel.getInformation();
         super.onBindVu();
     }
     public void getInformation(){
-        InformationModel.getInformation(APP.getInstence().getUID(), new InformationModel.InforCallback() {
+        InformationModel.getInformation(uid+"", new InformationModel.InforCallback() {
             @Override
             public void onSuccess(String info, Information data) {
                 information = data;

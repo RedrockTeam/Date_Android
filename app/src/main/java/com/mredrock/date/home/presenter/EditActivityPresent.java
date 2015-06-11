@@ -178,7 +178,7 @@ public class EditActivityPresent extends BaseActivityPresenter<EditActivityVu> {
                             @Override
                             public boolean onSelection(MaterialDialog dialog, View view, int which, CharSequence text) {
                                 ((TextView)v).setText(text);
-                                appointment.setCost_model(which);
+                                appointment.setCost_model(which+1);
                                 return true;
                             }
                         })

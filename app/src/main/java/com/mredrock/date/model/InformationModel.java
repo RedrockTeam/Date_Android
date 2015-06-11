@@ -15,7 +15,6 @@ import com.mredrock.date.util.Utils;
 public class InformationModel {
     public static  void getInformation(String get_uid, final InforCallback callback){
         TokenParams params = new TokenParams();
-
         params.put("get_uid",get_uid);
         RequestManager.getInstance().post(Api.Url.Information, params, new SimpleRequestCallback<Information>(Information.class) {
             @Override
