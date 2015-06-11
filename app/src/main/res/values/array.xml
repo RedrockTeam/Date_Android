@@ -1,29 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <array name="style">
-        <item>出行</item>
-        <item>饮食</item>
-        <item>娱乐</item>
-        <item>棋牌</item>
-        <item>活动</item>
-        <item>竞赛</item>
-        <item>运动</item>
-        <item>自习</item>
-        <item>其他</item>
-    </array>
-    <array name="styleSelect">
-        <item>全部</item>
-        <item>出行</item>
-        <item>饮食</item>
-        <item>娱乐</item>
-        <item>棋牌</item>
-        <item>活动</item>
-        <item>竞赛</item>
-        <item>运动</item>
-        <item>自习</item>
-        <item>其他</item>
-    </array>
-
     <array name="sort">
         <item>默认</item>
         <item>最热</item>

@@ -1,6 +1,5 @@
 package com.mredrock.date.information.view.presenter;
 
-import android.content.Intent;
 import android.text.InputType;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -29,23 +28,25 @@ public class InfoActivityPresenter extends BaseActivityPresenter<InfoActivityVu>
     private String qq_edit="";
     private String weixin_edit="";
     private Information information;
-
-    private int uid;
     //private InformationModel mInformationModel = new InformationModel();
     @Override
     public Class<InfoActivityVu> getVuClass() {
         return InfoActivityVu.class;
     }
 
+    private int getUid(){
+        return  getIntent().getIntExtra("uid", Integer.parseInt(APP.getInstence().getUID()));
+    }
+
     @Override
     public void onBindVu() {
         vu.setListener(this);
-        uid = getIntent().getIntExtra("uid", Integer.parseInt(APP.getInstence().getUID()));
+
         getInformation();
         super.onBindVu();
     }
     public void getInformation(){
-        InformationModel.getInformation(uid+"", new InformationModel.InforCallback() {
+        InformationModel.getInformation(getUid()+"", new InformationModel.InforCallback() {
             @Override
             public void onSuccess(String info, Information data) {
                 information = data;
@@ -60,7 +61,8 @@ public class InfoActivityPresenter extends BaseActivityPresenter<InfoActivityVu>
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_information, menu);
+        if (getUid() == Integer.parseInt(APP.getInstence().getUID()))
+            getMenuInflater().inflate(R.menu.menu_information, menu);
         return true;
     }
     @Override

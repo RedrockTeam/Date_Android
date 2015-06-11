@@ -24,6 +24,7 @@ public class Api {
         public static final String Information = BASE_URL + "/person/userinfo";
         public static final String CreateList = BASE_URL + "/person/create";
         public static final String Advice = BASE_URL + "/advice/advice";
+        public static final String DateType = BASE_URL + "/date/datetype";
     }
 
     public class Key {

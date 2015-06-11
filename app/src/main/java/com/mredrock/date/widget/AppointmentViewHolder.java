@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.google.gson.Gson;
 import com.mredrock.date.R;
 import com.mredrock.date.config.C;
 import com.mredrock.date.detail.presenter.DetailActivityPresenter;
@@ -30,7 +29,7 @@ public class AppointmentViewHolder extends BaseViewHolder<Appointment> {
     private TextView cost;
     private TextView releaseTime;
     private SimpleDraweeView authorFace;
-
+    private Appointment data;
     public AppointmentViewHolder(ViewGroup parent) {
         super(parent, R.layout.item_appointment);
         authorName = (TextView) itemView.findViewById(R.id.author_name);
@@ -42,11 +41,6 @@ public class AppointmentViewHolder extends BaseViewHolder<Appointment> {
         releaseTime = (TextView) itemView.findViewById(R.id.releaseTime);
         authorFace = (SimpleDraweeView) itemView.findViewById(R.id.author_face);
         authorGender = (ImageView) itemView.findViewById(R.id.author_gender);
-    }
-
-    @Override
-    public void setData(final Appointment data) {
-        super.setData(data);
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,6 +49,12 @@ public class AppointmentViewHolder extends BaseViewHolder<Appointment> {
                 itemView.getContext().startActivity(i);
             }
         });
+    }
+
+    @Override
+    public void setData(Appointment data) {
+        super.setData(data);
+        this.data = data;
         authorName.setText(data.getNickname());
         authorSign.setText(data.getSignature());
         authorFace.setImageURI(Uri.parse(data.getHead()));

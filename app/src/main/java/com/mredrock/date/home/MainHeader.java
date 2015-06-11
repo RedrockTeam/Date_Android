@@ -17,9 +17,14 @@ import android.widget.TextView;
 import com.jude.view.jpagerview.JPagerView;
 import com.mredrock.date.R;
 import com.mredrock.date.home.presenter.MainActivityPresenter;
+import com.mredrock.date.model.AppointmentModel;
 import com.mredrock.date.model.bean.Banner;
+import com.mredrock.date.model.bean.DateType;
 import com.mredrock.date.util.Utils;
 import com.mredrock.date.widget.RecyclerArrayAdapter;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by Mr.Jude on 2015/4/22.
@@ -69,15 +74,18 @@ public class MainHeader implements RecyclerArrayAdapter.HeaderView ,View.OnClick
         gridView.setBackgroundColor(Color.WHITE);
         gridView.setHorizontalSpacing(Utils.dip2px(0.5f));
         gridView.setVerticalSpacing(Utils.dip2px(0.5f));
-        gridView.setPadding(Utils.dip2px(0.5f),Utils.dip2px(0.5f),Utils.dip2px(0.5f),Utils.dip2px(0.5f));
+        gridView.setPadding(Utils.dip2px(0.5f), Utils.dip2px(0.5f), Utils.dip2px(0.5f), Utils.dip2px(0.5f));
 
         final PopupWindow finalMPopupWindow = createPopupWindow(gridView, Utils.dip2px(56) * 2 + Utils.dip2px(0.5f) * 2);
         finalMPopupWindow.showAsDropDown(mSelectGroup);
-
+        DateType[] types = new AppointmentModel().getDateType();
+        final ArrayList<DateType> arr = new ArrayList<>();
+        arr.add(new DateType(0,"全部"));
+        arr.addAll(Arrays.asList(types));
         gridView.setAdapter(new BaseAdapter() {
             @Override
             public int getCount() {
-                return ctx.getResources().getStringArray(R.array.styleSelect).length;
+                return arr.size();
             }
 
             @Override
@@ -96,12 +104,12 @@ public class MainHeader implements RecyclerArrayAdapter.HeaderView ,View.OnClick
                 view.setLayoutParams(new AbsListView.LayoutParams(AbsListView.LayoutParams.MATCH_PARENT,Utils.dip2px(56)));
                 view.setBackgroundColor(Color.WHITE);
                 view.setGravity(Gravity.CENTER);
-                view.setText(ctx.getResources().getStringArray(R.array.styleSelect)[position]);
+                view.setText(arr.get(position).getType());
                 view.setBackgroundResource(R.drawable.line_round);
                 view.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        type = position;
+                        type = arr.get(position).getId();
                         callback.loadAppointment(type,sort);
                         finalMPopupWindow.dismiss();
                     }

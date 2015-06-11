@@ -7,6 +7,7 @@ import android.content.Intent;
 import com.android.http.RequestManager;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.mredrock.date.home.presenter.LoginActivityPresenter;
+import com.mredrock.date.model.AppointmentModel;
 import com.mredrock.date.util.JActivityManager;
 import com.mredrock.date.util.Utils;
 
@@ -26,6 +27,7 @@ public class APP extends Application {
         Fresco.initialize(this);
         RequestManager.getInstance().init(getApplicationContext());
         RequestManager.getInstance().setDebugMode(true, "NETDEBUG");
+        new AppointmentModel().getDateType();
     }
 
     public String getToken(){

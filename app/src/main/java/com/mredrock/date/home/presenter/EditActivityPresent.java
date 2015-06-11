@@ -11,7 +11,7 @@ import com.mredrock.date.R;
 import com.mredrock.date.app.BaseActivityPresenter;
 import com.mredrock.date.home.view.EditActivityVu;
 import com.mredrock.date.model.AppointmentModel;
-import com.mredrock.date.model.bean.Appointment;
+import com.mredrock.date.model.bean.DateType;
 import com.mredrock.date.model.bean.Detail;
 import com.mredrock.date.util.RecentDateFormater;
 import com.mredrock.date.util.TimeTransform;
@@ -110,7 +110,7 @@ public class EditActivityPresent extends BaseActivityPresenter<EditActivityVu> {
                                 now.get(Calendar.MINUTE),
                                 true);
                                 tpd.show(getFragmentManager(), "请选择时间");
-                                Utils.Log("A:"+i+"  B:"+i1+"  C:"+i2);
+                                Utils.Log("A:" + i + "  B:" + i1 + "  C:" + i2);
                             }
                         },
                         now.get(Calendar.YEAR),
@@ -120,14 +120,19 @@ public class EditActivityPresent extends BaseActivityPresenter<EditActivityVu> {
                 dpd.show(getFragmentManager(), "请选择日期");
                 break;
             case R.id.btn_style:
+                final DateType[] dateTypes = model.getDateType();
+                String[] dateStrs = new String[dateTypes.length];
+                for (int i = 0 ; i < dateTypes.length ; i++){
+                    dateStrs[i] = dateTypes[i].getType();
+                }
                 new MaterialDialog.Builder(this)
                         .title(R.string.edit_title_style)
-                        .items(R.array.style)
+                        .items(dateStrs)
                         .itemsCallback(new MaterialDialog.ListCallback() {
                             @Override
                             public void onSelection(MaterialDialog dialog, View view, int which, CharSequence text) {
-                                vu.setStyle(text.toString());
-                                appointment.setDate_type(which + 1);
+                                vu.setStyle(dateTypes[which].getType()+"");
+                                appointment.setDate_type(dateTypes[which].getId());
                             }
                         })
                         .show();

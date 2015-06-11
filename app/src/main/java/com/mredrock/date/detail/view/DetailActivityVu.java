@@ -92,7 +92,7 @@ public class DetailActivityVu extends BaseActivityVu implements View.OnClickList
         collectionBtn = (TextView) rootView.findViewById(R.id.collection_detail);
         reportBtn = (TextView) rootView.findViewById(R.id.report_detail);
         llJoined = (LinearLayout) rootView.findViewById(R.id.include_joined_detail);
-
+        $(R.id.header_detail).setOnClickListener(this);
         joinedFace1.setOnClickListener(this);
         joinedFace2.setOnClickListener(this);
         joinedFace3.setOnClickListener(this);
@@ -131,16 +131,18 @@ public class DetailActivityVu extends BaseActivityVu implements View.OnClickList
         detailMode.getDetailFromServer(date_Id, new OnDataCallback<Detail>() {
             @Override
             public void callback(Detail... list) {
+
                 String grade_limit = "";
                 if (list[0].getGrade_limit() != null) {
                     for (int i = 0; i < list[0].getGrade_limit().length; i++) {
                         grade_limit += Detail.GRAD[list[0].getGrade_limit()[i]] + " ";
                     }
                 } else {
-                    grade_limit = "æ— é™åˆ¶";
+                    grade_limit = "æ— é1" +
+                            "™åˆ?";
                 }
                 if (grade_limit.equals("")) {
-                    grade_limit = "æ— é™åˆ¶";
+                    grade_limit = "æ— é™åˆ?";
                 }
                 grade.setText(grade_limit);
                 sex.setText(Detail.SEX[list[0].getGender_limit()]);
@@ -249,8 +251,8 @@ public class DetailActivityVu extends BaseActivityVu implements View.OnClickList
                 intent.putExtra("uid", (joined.get(0)[3].getUser_id()));
                 context.startActivity(intent);
                 break;
-            case R.id.author_face_detail:
-                intent.putExtra("uid", (data.getUser_id()));
+            case R.id.header_detail:
+                intent.putExtra("uid", Integer.valueOf(data.getUser_id()));
                 context.startActivity(intent);
                 break;
             case R.id.collection_detail:

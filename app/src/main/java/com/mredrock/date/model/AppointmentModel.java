@@ -1,13 +1,19 @@
 package com.mredrock.date.model;
 
+import com.alibaba.fastjson.JSON;
 import com.android.http.RequestManager;
 import com.mredrock.date.app.ResultRequestCallback;
 import com.mredrock.date.app.SimpleRequestCallback;
 import com.mredrock.date.app.TokenParams;
 import com.mredrock.date.config.Api;
 import com.mredrock.date.model.bean.Appointment;
+import com.mredrock.date.model.bean.DateType;
 import com.mredrock.date.model.bean.Detail;
+import com.mredrock.date.util.Utils;
 import com.mredrock.date.widget.OnDataCallback;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 
 /**
@@ -102,6 +108,44 @@ public class AppointmentModel {
                 callback.error(errorInfo);
             }
         });
+    }
+
+    public DateType[] getDateType(){
+        String data = Utils.getPreference().getString("dateType","");
+        RequestManager.getInstance().post(Api.Url.DateType, null, new RequestManager.RequestListener() {
+            @Override
+            public void onRequest() {
+
+            }
+
+            @Override
+            public void onSuccess(String s) {
+                if (handleDateType(s).length>0)
+                Utils.getPreference().edit().putString("dateType",s).commit();
+            }
+
+            @Override
+            public void onError(String s) {
+
+            }
+        });
+        return handleDateType(data);
+    }
+
+    private DateType[] handleDateType(String response){
+        JSONObject jsonObject;
+        try {
+            jsonObject = new JSONObject(response);
+            int status = jsonObject.getInt(Api.Key.STATUS);
+            DateType[] data = JSON.parseObject(jsonObject.getString(Api.Key.DATA), DateType[].class);
+            if (status == Api.Code.OK){
+                return data;
+            }else{
+                return new DateType[0];
+            }
+        } catch (JSONException e) {
+            return new DateType[0];
+        }
     }
 
 }
