@@ -62,7 +62,7 @@ abstract public class RecyclerArrayAdapter<T> extends RecyclerView.Adapter<BaseV
         public View onCreateView(ViewGroup parent);
         public void onBindView(View headerView);
     }
-    private interface FooterView{
+    public interface FooterView{
         public View onCreatView(ViewGroup parent);
         public void onBindView(View headerView);
     }
