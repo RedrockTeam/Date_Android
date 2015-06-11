@@ -138,11 +138,10 @@ public class DetailActivityVu extends BaseActivityVu implements View.OnClickList
                         grade_limit += Detail.GRAD[list[0].getGrade_limit()[i]] + " ";
                     }
                 } else {
-                    grade_limit = "æ— é1" +
-                            "™åˆ?";
+                    grade_limit = "æ— é™åˆ¶";
                 }
                 if (grade_limit.equals("")) {
-                    grade_limit = "æ— é™åˆ?";
+                    grade_limit = "æ— é™åˆ¶";
                 }
                 grade.setText(grade_limit);
                 sex.setText(Detail.SEX[list[0].getGender_limit()]);
