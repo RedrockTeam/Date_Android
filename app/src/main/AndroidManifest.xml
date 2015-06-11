@@ -55,7 +55,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".home.presenter.RecordActivityPresenter"
+            android:name=".home.presenter.JoinActivityPresenter"
             android:label="@string/activity_record"></activity>
         <activity
             android:name=".home.presenter.CollectionActivityPresenter"
@@ -79,11 +79,15 @@
         <activity
             android:name=".detail.presenter.DetailActivityPresenter"
             android:label="@string/activity_detail"></activity>
+        <activity android:name=".home.presenter.CreateActivityPresenter"
+            android:label="@string/activity_create"/>
         <activity
             android:name=".setting.presenter.SettingActivityPresenter"
             android:label="设置"></activity>
         <activity android:name=".setting.presenter.AboutActivityPresenter"
             android:label="关于产品"></activity>
+        <activity android:name=".setting.presenter.FeedbackActivityPresenter"
+            android:label="意见反馈"></activity>
         <!--友盟意见反馈-->
         <activity android:name="com.umeng.fb.ConversationActivity" />
         <!--友盟自动更新-->

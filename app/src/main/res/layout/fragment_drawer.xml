@@ -79,7 +79,27 @@
             android:layout_marginRight="12dp"
             android:background="@drawable/bubble_red"/>
         </LinearLayout>
-
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="48dp">
+        <TextView
+            android:id="@+id/create"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:paddingLeft="16dp"
+            android:gravity="center_vertical"
+            android:textSize="16sp"
+            android:textColor="@color/blackSubhead"
+            android:text="@string/activity_create"/>
+        <TextView
+            android:id="@+id/create_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_marginRight="16dp"/>
+    </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -93,7 +113,7 @@
             android:gravity="center_vertical"
             android:textSize="16sp"
             android:textColor="@color/blackSubhead"
-            android:text="约会记录"/>
+            android:text="@string/activity_record"/>
         <TextView
             android:id="@+id/record_count"
             android:layout_width="wrap_content"
@@ -115,7 +135,7 @@
             android:gravity="center_vertical"
             android:textSize="16sp"
             android:textColor="@color/blackSubhead"
-            android:text="我的收藏"/>
+            android:text="@string/activity_collection"/>
         <TextView
             android:id="@+id/collection_count"
             android:layout_width="wrap_content"
@@ -138,15 +158,6 @@
             android:textColor="@color/blackSubhead"
             android:text="个人资料"/>
     </LinearLayout>
-    <TextView
-        android:id="@+id/logout"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:paddingLeft="16dp"
-        android:gravity="center_vertical"
-        android:textSize="16sp"
-        android:textColor="@color/blackSubhead"
-        android:text="退出登陆"/>
     <TextView
         android:id="@+id/setting"
         android:layout_width="match_parent"

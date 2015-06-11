@@ -2,21 +2,22 @@ package com.mredrock.date.home.presenter;
 
 import android.view.View;
 
+import com.mredrock.date.app.APP;
 import com.mredrock.date.app.BaseFragmentPresenter;
 import com.mredrock.date.home.view.DrawerFragmentVu;
 import com.mredrock.date.model.AppointmentModel;
+import com.mredrock.date.model.InformationModel;
 import com.mredrock.date.model.LetterModel;
-import com.mredrock.date.model.PersonModel;
 import com.mredrock.date.model.bean.Appointment;
+import com.mredrock.date.model.bean.Information;
 import com.mredrock.date.widget.OnDataCallback;
 
 /**
  * Created by Mr.Jude on 2015/4/22.
  */
-public class DrawerFragmentPresenter extends BaseFragmentPresenter<DrawerFragmentVu> implements View.OnClickListener{
-    private PersonModel mPersonModel = new PersonModel();
+public class DrawerFragmentPresenter extends BaseFragmentPresenter<DrawerFragmentVu>{
     private AppointmentModel mAppointmentModel = new AppointmentModel();
-    private LetterModel mLetterModerl = new LetterModel();
+    private LetterModel mLetterModel = new LetterModel();
     @Override
     public Class<DrawerFragmentVu> getVuClass() {
         return DrawerFragmentVu.class;
@@ -24,7 +25,28 @@ public class DrawerFragmentPresenter extends BaseFragmentPresenter<DrawerFragmen
 
     @Override
     public void onBindVu() {
-        vu.setPerson(mPersonModel.getUserPersonBrief());
+        InformationModel.getInformation(APP.getInstence().getUID(), new InformationModel.InforCallback() {
+            @Override
+            public void onSuccess(String info, Information data) {
+                vu.setPerson(data);
+            }
+
+            @Override
+            public void onError(String errorInfo) {
+
+            }
+        });
+        mAppointmentModel.getCreateFromServer(new OnDataCallback<Appointment>() {
+            @Override
+            public void callback(Appointment... list) {
+                vu.setCreateCount(list.length);
+            }
+
+            @Override
+            public void error(String info) {
+
+            }
+        });
         mAppointmentModel.getJoinFromServer(new OnDataCallback<Appointment>() {
             @Override
             public void callback(Appointment... list) {
@@ -47,7 +69,7 @@ public class DrawerFragmentPresenter extends BaseFragmentPresenter<DrawerFragmen
 
             }
         });
-        mLetterModerl.letterstatus(new OnDataCallback<Integer>() {
+        mLetterModel.letterstatus(new OnDataCallback<Integer>() {
             @Override
             public void callback(Integer... list) {
                 vu.setMessageCountCount(list[0]);
@@ -62,13 +84,15 @@ public class DrawerFragmentPresenter extends BaseFragmentPresenter<DrawerFragmen
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        onBindVu();
+    }
+
+    @Override
     public void onDestroyVu() {
 
     }
 
 
-    @Override
-    public void onClick(View v) {
-
-    }
 }

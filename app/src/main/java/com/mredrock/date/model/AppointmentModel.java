@@ -62,6 +62,20 @@ public class AppointmentModel {
         });
     }
 
+    public void getCreateFromServer(final OnDataCallback<Appointment> callback){
+        RequestManager.getInstance().post(Api.Url.CreateList, new TokenParams(), new SimpleRequestCallback<Appointment[]>(Appointment[].class) {
+            @Override
+            public void success(String info, Appointment[] data) {
+                callback.callback(data);
+            }
+
+            @Override
+            public void error(String errorInfo) {
+                callback.error(errorInfo);
+            }
+        });
+    }
+
     public void postAppointmentToServer(Detail appointment,final OnDataCallback<String> callback){
         TokenParams params = new TokenParams();
         params.put("date_type",appointment.getDate_type()+"");

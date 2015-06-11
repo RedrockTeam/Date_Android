@@ -1,22 +1,17 @@
 package com.mredrock.date.home;
 
-import android.content.Intent;
 import android.net.Uri;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.jude.view.jpagerview.JStatePagerAdapter;
-import com.mredrock.date.model.BannerModel;
+import com.jude.view.jpagerview.StaticPagerAdapter;
 import com.mredrock.date.model.bean.Banner;
-import com.mredrock.date.setting.presenter.FeedbackActivity;
-import com.mredrock.date.util.Utils;
-import com.mredrock.date.widget.OnDataCallback;
 
 /**
  * Created by Mr.Jude on 2015/4/22.
  */
-public class BannerPagerAdapter extends JStatePagerAdapter {
+public class BannerPagerAdapter extends StaticPagerAdapter {
     private Banner[] banners;
 
     public BannerPagerAdapter(Banner[] banners){

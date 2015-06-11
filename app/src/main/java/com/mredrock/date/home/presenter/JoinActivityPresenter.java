@@ -1,7 +1,7 @@
 package com.mredrock.date.home.presenter;
 
 import com.mredrock.date.app.BaseActivityPresenter;
-import com.mredrock.date.home.view.RecordActivityVu;
+import com.mredrock.date.home.view.JoinActivityVu;
 import com.mredrock.date.model.AppointmentModel;
 import com.mredrock.date.model.bean.Appointment;
 import com.mredrock.date.widget.OnDataCallback;
@@ -9,7 +9,7 @@ import com.mredrock.date.widget.OnDataCallback;
 /**
  * Created by Mr.Jude on 2015/4/29.
  */
-public class JoinActivityPresenter extends BaseActivityPresenter<RecordActivityVu> {
+public class JoinActivityPresenter extends BaseActivityPresenter<JoinActivityVu> {
     private AppointmentModel mAppointmentModel = new AppointmentModel();
     @Override
     public void onBindVu() {
@@ -29,7 +29,7 @@ public class JoinActivityPresenter extends BaseActivityPresenter<RecordActivityV
     }
 
     @Override
-    public Class<RecordActivityVu> getVuClass() {
-        return RecordActivityVu.class;
+    public Class<JoinActivityVu> getVuClass() {
+        return JoinActivityVu.class;
     }
 }

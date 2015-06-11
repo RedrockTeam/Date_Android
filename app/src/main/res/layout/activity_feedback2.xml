@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+    <include layout="@layout/include_toolbar"/>
+    <EditText
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:hint="来尽情释放你的吐槽能量吧"
+        android:gravity="top"/>
 </LinearLayout>

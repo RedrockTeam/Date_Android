@@ -17,7 +17,7 @@ import com.mredrock.date.widget.RecyclerArrayAdapter;
 /**
  * Created by zhuchenxi on 15/4/29.
  */
-public class CollectionActivityVu extends BaseActivityVu implements RecyclerArrayAdapter.OnRecyclerItemClickListener{
+public class CollectionActivityVu extends BaseActivityVu {
     private SuperRecyclerView mRecyclerView;
     private AppointmentArrayAdapter mAdapter;
     @Override
@@ -28,7 +28,6 @@ public class CollectionActivityVu extends BaseActivityVu implements RecyclerArra
         mAdapter = new AppointmentArrayAdapter(getContext());
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.showProgress();
-        mAdapter.setOnRecyclerOnClickListener(this);
     }
 
     public void setAppointment(Appointment[] appointments){
@@ -37,11 +36,5 @@ public class CollectionActivityVu extends BaseActivityVu implements RecyclerArra
         mAdapter.addAll(appointments);
     }
 
-    @Override
-    public void onItemClick(View v, int position) {
-        Intent intent = new Intent();
-        intent.setClass(context, DetailActivityPresenter.class);
-        intent.putExtra(C.DETAIL_TAG, JSON.toJSONString(mAdapter.getItem(position)));
-        context.startActivity(intent);
-    }
+
 }

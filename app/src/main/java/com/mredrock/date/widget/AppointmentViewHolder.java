@@ -58,7 +58,7 @@ public class AppointmentViewHolder extends BaseViewHolder<Appointment> {
         authorName.setText(data.getNickname());
         authorSign.setText(data.getSignature());
         authorFace.setImageURI(Uri.parse(data.getHead()));
-        authorGender.setImageResource(data.getGender()==0?R.drawable.ic_man:R.drawable.ic_woman);
+        authorGender.setImageResource(data.getGender()==1?R.drawable.ic_man:R.drawable.ic_woman);
         title.setText(data.getTitle());
         address.setText(data.getPlace());
         date.setText(new TimeTransform(data.getDate_at()).toString(new RecentDateFormater()));

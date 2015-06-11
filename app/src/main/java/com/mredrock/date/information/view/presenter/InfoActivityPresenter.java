@@ -11,10 +11,8 @@ import com.afollestad.materialdialogs.MaterialDialog;
 import com.mredrock.date.R;
 import com.mredrock.date.app.APP;
 import com.mredrock.date.app.BaseActivityPresenter;
-import com.mredrock.date.home.presenter.EditActivityPresent;
 import com.mredrock.date.model.EditInfomationModel;
 import com.mredrock.date.model.InformationModel;
-import com.mredrock.date.model.PersonModel;
 import com.mredrock.date.model.bean.Information;
 import com.mredrock.date.util.Utils;
 
@@ -22,7 +20,6 @@ import com.mredrock.date.util.Utils;
  * Created by Administrator on 2015/5/27.
  */
 public class InfoActivityPresenter extends BaseActivityPresenter<InfoActivityVu> implements View.OnClickListener{
-    private PersonModel mPersonModel = new PersonModel();
     private String name_edit="";
     private String sign_edit="";
     private String xueyuan_edit="";
@@ -108,10 +105,9 @@ public class InfoActivityPresenter extends BaseActivityPresenter<InfoActivityVu>
 
     }
 
-            return super.onOptionsItemSelected(item);
-        }
-     //   return super.onOptionsItemSelected(item);
-  //  }
+
+        return super.onOptionsItemSelected(item);
+    }
 
     private void isEmpty() {
         if(name_edit.isEmpty()&&information.getNickname()!=null){
@@ -166,23 +162,6 @@ public class InfoActivityPresenter extends BaseActivityPresenter<InfoActivityVu>
 
                             }
                         }).show();
-                break;
-            case R.id.info_academy_eidt:
-                new MaterialDialog.Builder(this)
-                        .title("输入所在学院")
-                        .items(R.array.college)
-                        .itemsCallbackSingleChoice(0, new MaterialDialog.ListCallbackSingleChoice() {
-                            @Override
-                            public boolean onSelection(MaterialDialog dialog, View view, int which, CharSequence text) {
-                                //  ((TextView)v).setText(text);
-                                ((TextView) (v)).setText(text);
-                                // appointment.setGender_limit(which);
-                                xueyuan_edit=which+1+"";
-                                return true;
-                            }
-                        })
-                        .positiveText(R.string.ok)
-                        .show();
                 break;
             case R.id.info_grade_eidt:
                 new MaterialDialog.Builder(this)

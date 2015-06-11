@@ -4,6 +4,20 @@
     android:layout_height="match_parent">
     <include layout="@layout/include_toolbar"></include>
     <TextView
+        android:id="@+id/logout"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:gravity="center_vertical"
+        android:textSize="18sp"
+        android:paddingLeft="16dp"
+        android:clickable="true"
+        android:onClick="onClick"
+        android:text="退出登陆"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.3dp"
+        android:background="@android:color/darker_gray"/>
+    <TextView
         android:id="@+id/question"
         android:layout_width="match_parent"
         android:layout_height="56dp"
@@ -32,7 +46,7 @@
         android:layout_height="0.3dp"
         android:background="@android:color/darker_gray"/>
     <TextView
-        android:id="@+id/contact"
+        android:id="@+id/feedback"
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:gravity="center_vertical"
@@ -40,7 +54,7 @@
         android:paddingLeft="16dp"
         android:clickable="true"
         android:onClick="onClick"
-        android:text="联系我们"/>
+        android:text="意见反馈"/>
     <View
         android:layout_width="match_parent"
         android:layout_height="0.3dp"

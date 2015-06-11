@@ -45,7 +45,7 @@ import java.util.List;
  * <p>To use something other than TextViews for the array display, for instance, ImageViews,
  * or to have some of data besides toString() results fill the views,
  */
-abstract public class RecyclerArrayAdapter<T> extends RecyclerView.Adapter<BaseViewHolder> implements Filterable, View.OnClickListener  {
+abstract public class RecyclerArrayAdapter<T> extends RecyclerView.Adapter<BaseViewHolder> implements Filterable {
     /**
      * Contains the list of objects that represent the data of this ArrayAdapter.
      * The content of this list is referred to as "the array" in the documentation.
@@ -55,7 +55,6 @@ abstract public class RecyclerArrayAdapter<T> extends RecyclerView.Adapter<BaseV
     private ArrayList<HeaderView> headers = new ArrayList<>();
     private ArrayList<FooterView> footers = new ArrayList<>();
 
-    private OnRecyclerItemClickListener onRecyclerOnClickListener;
     private static final int SPID = 325864;
 
 
@@ -345,7 +344,6 @@ abstract public class RecyclerArrayAdapter<T> extends RecyclerView.Adapter<BaseV
     @Override
     public final void onBindViewHolder(BaseViewHolder holder, int position) {
         holder.itemView.setId(position);
-        holder.itemView.setOnClickListener(this);
         if (headers.size()!=0 && position<headers.size()){
             headers.get(position).onBindView(holder.itemView);
             return ;
@@ -517,18 +515,5 @@ abstract public class RecyclerArrayAdapter<T> extends RecyclerView.Adapter<BaseV
         }
     }
 
-    @Override
-    public void onClick(View v) {
-        if (onRecyclerOnClickListener != null) {
-            onRecyclerOnClickListener.onItemClick(v, v.getId());
-        }
-    }
 
-    public static interface OnRecyclerItemClickListener {
-        void onItemClick(View v, int position);
-    }
-
-    public void setOnRecyclerOnClickListener(OnRecyclerItemClickListener onRecyclerOnClickListener) {
-        this.onRecyclerOnClickListener = onRecyclerOnClickListener;
-    }
 }
