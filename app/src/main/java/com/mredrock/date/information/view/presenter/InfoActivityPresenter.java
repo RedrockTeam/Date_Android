@@ -189,6 +189,10 @@ public class InfoActivityPresenter extends BaseActivityPresenter<InfoActivityVu>
                         .input("", "", new MaterialDialog.InputCallback() {
                             @Override
                             public void onInput(MaterialDialog materialDialog, CharSequence input) {
+                                if (!(input.toString().startsWith("1")&&input.toString().length()==11)){
+                                    Utils.Toast("手机号输入错误");
+                                    return;
+                                }
                                 ((TextView)v).setText(input);
                                 tel_edit=input.toString();
 

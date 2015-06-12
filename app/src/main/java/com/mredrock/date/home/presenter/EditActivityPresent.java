@@ -101,7 +101,11 @@ public class EditActivityPresent extends BaseActivityPresenter<EditActivityVu> {
                                     @Override
                                     public void onTimeSet(RadialPickerLayout radialPickerLayout, int i, int i1) {
                                         now.set(Calendar.HOUR_OF_DAY,i);
-                                        now.set(Calendar.MINUTE,i1);
+                                        now.set(Calendar.MINUTE, i1);
+                                        if (now.getTimeInMillis() < System.currentTimeMillis()){
+                                            Utils.Toast("逝去的时光不能重来，请重新选择");
+                                            return;
+                                        }
                                         ((TextView)v).setText(new TimeTransform(now.getTimeInMillis() / 1000).toString(new RecentDateFormater()));
                                         appointment.setDate_at(now.getTimeInMillis() / 1000);
                                     }
@@ -153,20 +157,29 @@ public class EditActivityPresent extends BaseActivityPresenter<EditActivityVu> {
                         .show();
                 break;
             case R.id.btn_grade:
+                Integer[] r = new Integer[appointment.getGrade_limit().length];
+                for (int i = 0 ; i < appointment.getGrade_limit().length ; i++){
+                    r[i] = appointment.getGrade_limit()[i]-1;
+                }
                 new MaterialDialog.Builder(this)
                         .title(R.string.edit_title_grade)
                         .items(R.array.grade)
-                        .itemsCallbackMultiChoice(new Integer[0],new MaterialDialog.ListCallbackMultiChoice() {
+                        .itemsCallbackMultiChoice(r,new MaterialDialog.ListCallbackMultiChoice() {
                             @Override
                             public boolean onSelection(MaterialDialog materialDialog, Integer[] integers, CharSequence[] charSequences) {
-                                StringBuilder sb = new StringBuilder();
-                                for (CharSequence t:charSequences){
-                                    sb.append(t.toString());
+                                if(charSequences.length == 4){
+                                    ((TextView) v).setText("不限");
+                                }else{
+                                    StringBuilder sb = new StringBuilder();
+                                    for (CharSequence t:charSequences){
+                                        sb.append(t.toString());
+                                    }
+                                    ((TextView) v).setText(sb.toString());
                                 }
-                                ((TextView) v).setText(sb.toString());
+
                                 int[] r = new int[integers.length];
                                 for (int i = 0 ; i < integers.length ; i++){
-                                    r[i] = integers[i];
+                                    r[i] = integers[i]+1;
                                 }
                                 appointment.setGrade_limit(r);
                                 return false;
@@ -218,6 +231,7 @@ public class EditActivityPresent extends BaseActivityPresenter<EditActivityVu> {
             case R.id.btn_count:
                 new MaterialDialog.Builder(this)
                         .title("输入约会人数")
+                        .inputMaxLength(2)
                         .inputType(InputType.TYPE_CLASS_NUMBER)
                         .input("", "", new MaterialDialog.InputCallback() {
                             @Override
