@@ -21,7 +21,6 @@ import com.mredrock.date.widget.LoveView;
  * Created by Lecion on 5/5/15.
  */
 public class LetterDetailActivityVu extends BaseActivityVu implements View.OnClickListener {
-    //TODO 用户头像跳转信息不正确
     private SimpleDraweeView sdvAvatar;
     private TextView tvUserName;
     private ImageView ivGender;
@@ -52,6 +51,7 @@ public class LetterDetailActivityVu extends BaseActivityVu implements View.OnCli
         tvUserName.setText(letter.getUserName());
         ivGender.setImageResource(getGenderImg(letter.getUserGender()));
         tvContent.setText("TA" + letter.getContent());
+        tvUserName.setOnClickListener(this);
         btnReceive.setOnClickListener(this);
         btnReject.setOnClickListener(this);
         sdvAvatar.setOnClickListener(this);

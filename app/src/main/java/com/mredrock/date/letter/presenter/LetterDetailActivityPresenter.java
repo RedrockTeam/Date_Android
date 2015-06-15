@@ -62,7 +62,7 @@ public class LetterDetailActivityPresenter extends BaseActivityPresenter<LetterD
                     doReceive();
                 } else if (view.getId() == R.id.btn_reject) {
                     doReject();
-                } else if (view.getId() == R.id.sdv_avatar) {
+                } else if (view.getId() == R.id.sdv_avatar || view.getId() == R.id.tv_user_name) {
                     goInfoActivity();
                 }
             }
