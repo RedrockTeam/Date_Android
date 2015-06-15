@@ -148,7 +148,7 @@ public class EditActivityPresent extends BaseActivityPresenter<EditActivityVu> {
                         .itemsCallbackSingleChoice(0, new MaterialDialog.ListCallbackSingleChoice() {
                             @Override
                             public boolean onSelection(MaterialDialog dialog, View view, int which, CharSequence text) {
-                                ((TextView)v).setText(text);
+                                ((TextView) v).setText(text);
                                 appointment.setGender_limit(which);
                                 return true;
                             }
@@ -169,6 +169,9 @@ public class EditActivityPresent extends BaseActivityPresenter<EditActivityVu> {
                             public boolean onSelection(MaterialDialog materialDialog, Integer[] integers, CharSequence[] charSequences) {
                                 if(charSequences.length == 4){
                                     ((TextView) v).setText("不限");
+                                }else if(charSequences.length == 0){
+                                    Utils.Toast("你要和鬼约吗？");
+                                    return false;
                                 }else{
                                     StringBuilder sb = new StringBuilder();
                                     for (CharSequence t:charSequences){
@@ -211,7 +214,11 @@ public class EditActivityPresent extends BaseActivityPresenter<EditActivityVu> {
                         .input("", "", new MaterialDialog.InputCallback() {
                             @Override
                             public void onInput(MaterialDialog dialog, CharSequence input) {
-                                ((TextView)v).setText(input);
+                                if (input.toString().trim().isEmpty()) {
+                                    Utils.Toast("标题不能为空");
+                                    return;
+                                }
+                                ((TextView) v).setText(input);
                                 appointment.setTitle(input.toString());
                             }
                         }).show();
@@ -236,8 +243,12 @@ public class EditActivityPresent extends BaseActivityPresenter<EditActivityVu> {
                         .input("", "", new MaterialDialog.InputCallback() {
                             @Override
                             public void onInput(MaterialDialog dialog, CharSequence input) {
-                                ((TextView)v).setText(input);
-                                appointment.setPeople_limit(Integer.parseInt(input.toString()));
+                                try {
+                                    appointment.setPeople_limit(Integer.parseInt(input.toString()));
+                                    ((TextView) v).setText(input);
+                                } catch (NumberFormatException e) {
+                                    Utils.Toast("请输入数字");
+                                }
                             }
                         }).show();
                 break;
