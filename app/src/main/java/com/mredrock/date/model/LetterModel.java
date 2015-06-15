@@ -37,6 +37,10 @@ public class LetterModel extends AbsModel{
         post(Api.Method.DATE_ACTION, params, callback);
     }
 
+    /**
+     * 获取未读私信数量
+     * @param callback
+     */
     public void letterstatus(final OnDataCallback<Integer> callback){
         post(Api.Method.LATTER_STATUS, new TokenParams(), new RequestManager.RequestListener() {
             @Override
