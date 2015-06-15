@@ -23,26 +23,32 @@
                 android:layout_height="56dp"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
+                android:layout_marginTop="1dp"
+                android:gravity="center_vertical"
                 android:background="@color/white">
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_style"/>
                 <TextView
-                    android:id="@+id/style"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
                     android:gravity="center_vertical"
                     android:textSize="18sp"
-                    android:textColor="@color/blue"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
                     android:text="类型"/>
                 <TextView
                     android:id="@+id/btn_style"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center_vertical"
+                    android:gravity="center_vertical|right"
                     android:textSize="18sp"
-                    android:textColor="@color/blackHint"
                     android:clickable="true"
                     android:onClick="onClick"
-                    android:text="点击更改"/>
+                    android:textColor="@color/blackHint"
+                    android:text="请输入"/>
             </LinearLayout>
             <View
                 android:layout_width="match_parent"
@@ -60,11 +66,17 @@
                 android:layout_height="56dp"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
+                android:layout_marginTop="1dp"
+                android:gravity="center_vertical"
                 android:background="@color/white">
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_title"/>
                 <TextView
-                    android:id="@+id/title"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
                     android:gravity="center_vertical"
                     android:textSize="18sp"
                     android:text="标题"/>
@@ -79,12 +91,32 @@
                     android:textColor="@color/blackHint"
                     android:text="请输入"/>
             </LinearLayout>
+            <EditText
+                android:id="@+id/content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="56dp"
+                android:padding="16dp"
+                android:background="@android:color/white"
+                android:maxLength="150"
+                android:hint="详情"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_gravity="bottom"
+                android:background="@drawable/bottom_shadow"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/top_shadow"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
-                android:layout_marginTop="2dp"
+                android:layout_marginTop="1dp"
                 android:gravity="center_vertical"
                 android:background="@color/white">
                 <ImageView
@@ -114,7 +146,7 @@
                 android:layout_height="56dp"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
-                android:layout_marginTop="2dp"
+                android:layout_marginTop="1dp"
                 android:gravity="center_vertical"
                 android:background="@color/white">
                 <ImageView
@@ -145,7 +177,7 @@
                 android:layout_height="56dp"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
-                android:layout_marginTop="2dp"
+                android:layout_marginTop="1dp"
                 android:gravity="center_vertical"
                 android:background="@color/white">
                 <ImageView
@@ -271,34 +303,7 @@
                 android:layout_gravity="bottom"
                 android:background="@drawable/bottom_shadow"/>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/top_shadow"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:text="约会内容"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp"
-                android:gravity="center_vertical"
-                android:textSize="18sp"
-                android:background="@android:color/white"/>
-            <EditText
-                android:id="@+id/content"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="56dp"
-                android:padding="16dp"
-                android:background="@android:color/white"
-                android:hint="请输入"/>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_gravity="bottom"
-                android:layout_marginBottom="16dp"
-                android:background="@drawable/bottom_shadow"/>
+
 
         </LinearLayout>
 

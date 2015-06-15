@@ -135,7 +135,7 @@ public class EditActivityPresent extends BaseActivityPresenter<EditActivityVu> {
                         .itemsCallback(new MaterialDialog.ListCallback() {
                             @Override
                             public void onSelection(MaterialDialog dialog, View view, int which, CharSequence text) {
-                                vu.setStyle(dateTypes[which].getType()+"");
+                                ((TextView) v).setText(dateTypes[which].getType() + "");
                                 appointment.setDate_type(dateTypes[which].getId());
                             }
                         })

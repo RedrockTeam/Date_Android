@@ -7,9 +7,12 @@
     android:background="#f9f8f8">
 
     <ImageView
+        android:id="@+id/img"
         android:layout_width="96dp"
-        android:layout_height="96dp"
-        android:layout_marginTop="96dp"
+        android:layout_height="192dp"
+        android:paddingTop="96dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         android:src="@drawable/ic_date"/>
 
     <EditText
@@ -35,14 +38,6 @@
         android:padding="8dp"
         android:background="@drawable/login_edittext"
         />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="登录遇到问题"
-        android:gravity="right"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="16dp"/>
 
     <Button
         android:id="@+id/login"
