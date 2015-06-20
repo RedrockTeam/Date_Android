@@ -1,9 +1,11 @@
 package com.mredrock.date.model.bean;
 
+import java.io.Serializable;
+
 /**
  * Created by Administrator on 2015/6/3.
  */
-public class Information {
+public class Information implements Serializable{
     private String id;
     private String head;
     private String signature;

@@ -4,22 +4,23 @@ import com.android.http.RequestManager;
 import com.mredrock.date.app.ResultRequestCallback;
 import com.mredrock.date.app.TokenParams;
 import com.mredrock.date.config.Api;
+import com.mredrock.date.model.bean.Information;
 import com.mredrock.date.util.Utils;
 
 /**
  * Created by Administrator on 2015/6/4.
  */
 public class EditInfomationModel {
-    public static void edit(String nickName,String signature,String gender,String grade,String academy,String tel,String qq,String weixin, final EditCallback callback){
+    public static void edit(Information information, final EditCallback callback){
         TokenParams params = new TokenParams();
-        params.put("nickname",nickName);
-        params.put("signature",signature);
-        params.put("gender",gender);
-        params.put("grade",grade);
-        params.put("academy",academy    );
-        params.put("telephone",tel);
-        params.put("qq",qq);
-        params.put("weixin",weixin);
+        params.put("nickname",information.getNickname());
+        params.put("signature",information.getSignature());
+        params.put("gender",information.getGender());
+        params.put("grade",information.getGrade_id());
+        params.put("academy",information.getAcademy_id());
+        params.put("telephone",information.getTelephone());
+        params.put("qq",information.getQq());
+        params.put("weixin",information.getWeixin());
         RequestManager.getInstance().post(Api.Url.EditInformation, params, new ResultRequestCallback() {
             @Override
             public void success(String info) {
