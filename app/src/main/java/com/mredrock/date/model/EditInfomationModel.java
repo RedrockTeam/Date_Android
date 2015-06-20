@@ -16,7 +16,7 @@ public class EditInfomationModel {
         params.put("signature",signature);
         params.put("gender",gender);
         params.put("grade",grade);
-        params.put("academy",academy);
+        params.put("academy",academy    );
         params.put("telephone",tel);
         params.put("qq",qq);
         params.put("weixin",weixin);
