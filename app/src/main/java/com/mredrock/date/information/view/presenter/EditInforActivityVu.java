@@ -170,7 +170,7 @@ public class EditInforActivityVu extends BaseActivityVu implements View.OnClickL
             case R.id.edit_grade_layout:
                 new MaterialDialog.Builder(getContext())
                         .title("输入所在年级")
-                        .items(R.array.grade)
+                        .items(R.array.grade_edit)
                         .itemsCallbackSingleChoice(0, new MaterialDialog.ListCallbackSingleChoice() {
                             @Override
                             public boolean onSelection(MaterialDialog dialog, View view, int which, CharSequence text) {
