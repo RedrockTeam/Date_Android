@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/title_comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingTop="8dp"
+        android:text="请给本次约会评分"
+        android:textColor="@color/blackSubhead"
+        android:textSize="22sp" />
+
+    <com.mredrock.date.widget.LoveView
+        android:id="@+id/comment_love"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/author_face_detail"
+        android:layout_toRightOf="@+id/author_face_detail"
+        android:padding="16dp"
+        app:scroll="true"
+        app:number="5"
+        app:radius="48dp" />
+
+    <Button
+        android:id="@+id/comment_sure_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/comment_sure_btn"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="确定"
+        android:textColor="@color/actionbarColor"
+        android:textSize="24sp" />
+</LinearLayout>

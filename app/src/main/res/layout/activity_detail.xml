@@ -54,6 +54,7 @@
                         android:layout_alignBottom="@+id/author_face_detail"
                         android:layout_marginLeft="16dp"
                         android:layout_toRightOf="@+id/author_face_detail"
+                        app:scroll="false"
                         app:number="5"
                         app:radius="16dp" />
 

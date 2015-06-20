@@ -13,7 +13,7 @@
         android:paddingRight="8dp"
         android:paddingTop="8dp"
         android:text="已报名"
-        android:textColor="@android:color/black"
+        android:textColor="@color/blackSubhead"
         android:textSize="22sp" />
 
     <include
