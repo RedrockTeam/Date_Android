@@ -3,6 +3,7 @@
     <declare-styleable name="love">
         <attr name="number" format="integer" />
         <attr name="radius" format="dimension"/>
+        <attr name="scroll" format="boolean"/>
     </declare-styleable>
 
 </resources>

@@ -8,6 +8,7 @@ public class Detail {
     public static final String[] GRAD = {"无限制", "大一", "大二", "大三", "大四", "其它"};
     public static final String[] COLLECTION = {"收藏", "已收藏"};
     public static final String[] REPORT = {"报名", "已报名"};
+    public static final String[] DATE = {"已结束", "成功(评价)", "受理中"};
 
     private String nickname;
     private String head;
@@ -26,6 +27,7 @@ public class Detail {
     private int gender_limit;
     private int cost_model = -1;
     private String signature;
+    private int date_status;
     private int grade_limit[] = {1,2,3,4};
     private int collection_status;
     private int apply_status;
@@ -102,6 +104,14 @@ public class Detail {
 
     public void setGender_limit(int gender_limit) {
         this.gender_limit = gender_limit;
+    }
+
+    public int getDate_status() {
+        return date_status;
+    }
+
+    public void setDate_status(int date_status) {
+        this.date_status = date_status;
     }
 
     public int[] getGrade_limit() {

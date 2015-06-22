@@ -76,4 +76,22 @@ public class DetailMode {
             }
         });
     }
+
+    public void getCommentFromServer(String date_id, String score, final OnDataCallback<String> callback) {
+        TokenParams params = new TokenParams();
+        params.put(Api.Key.Detail.DATE_ID, date_id);
+        params.put(Api.Key.Detail.SCORE, score);
+        RequestManager.getInstance().post(Api.Url.COMMENT, params, new ResultRequestCallback() {
+
+            @Override
+            public void success(String info) {
+                callback.callback(info);
+            }
+
+            @Override
+            public void error(String errorInfo) {
+                callback.error(errorInfo);
+            }
+        });
+    }
 }

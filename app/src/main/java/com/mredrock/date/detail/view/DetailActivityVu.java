@@ -11,6 +11,7 @@ import com.alibaba.fastjson.JSON;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.mredrock.date.R;
 import com.mredrock.date.app.BaseActivityVu;
+import com.mredrock.date.detail.presenter.CommentDialog;
 import com.mredrock.date.detail.presenter.DetailActivityPresenter;
 import com.mredrock.date.detail.presenter.DetailJoinedDialog;
 import com.mredrock.date.information.view.presenter.InfoActivityPresenter;
@@ -152,7 +153,12 @@ public class DetailActivityVu extends BaseActivityVu implements View.OnClickList
                 collectionBtn.setText(Detail.COLLECTION[list[0].getCollection_status()]);
                 reportBtn.setText(Detail.REPORT[list[0].getApply_status()]);
                 if (list[0].getApply_status() != 0) {
-                    reportBtn.setClickable(false);
+                    reportBtn.setText(Detail.DATE[list[0].getDate_status()]);
+                    if (list[0].getDate_status() == 1) {
+                        reportBtn.setClickable(true);
+                    } else {
+//                        reportBtn.setClickable(false);
+                    }
                 }
                 List<Detail.Join[]> listJoins = new ArrayList<Detail.Join[]>();
                 for (int j = 0; j < (list[0].getJoined().size() % 4 == 0 ? list[0].getJoined().size() / 4 : list[0].getJoined().size() / 4 + 1); j++) {
@@ -163,6 +169,9 @@ public class DetailActivityVu extends BaseActivityVu implements View.OnClickList
                         }
                     }
                     listJoins.add(join);
+                }
+                if (listJoins.size() <= 1) {
+                    more.setVisibility(View.INVISIBLE);
                 }
                 setjoined(listJoins);
             }
@@ -284,18 +293,22 @@ public class DetailActivityVu extends BaseActivityVu implements View.OnClickList
                 }
                 break;
             case R.id.report_detail:
-                detailMode.getReportFromService(data.getDate_id(), new OnDataCallback<String>() {
-                    @Override
-                    public void callback(String... list) {
-                        reportBtn.setText(Detail.REPORT[1]);
-                        reportBtn.setClickable(false);
-                    }
+                if (reportBtn.getText().toString().equals(Detail.REPORT[0])) {
+                    detailMode.getReportFromService(data.getDate_id(), new OnDataCallback<String>() {
+                        @Override
+                        public void callback(String... list) {
+                            reportBtn.setText(Detail.REPORT[1]);
+                            reportBtn.setClickable(false);
+                        }
 
-                    @Override
-                    public void error(String info) {
-                        Utils.Toast(info);
-                    }
-                });
+                        @Override
+                        public void error(String info) {
+                            Utils.Toast(info);
+                        }
+                    });
+                } else {
+                    new CommentDialog(data.getDate_id()).show(((DetailActivityPresenter) context).getFragmentManager(), "comment");
+                }
                 break;
             case R.id.more_detail:
                 new DetailJoinedDialog(joined).show(((DetailActivityPresenter) context).getFragmentManager(), "detail");

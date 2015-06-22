@@ -20,6 +20,8 @@ public class Api {
         public static final String CollectionDetail = BASE_URL + "/person/collect";
         public static final String CancleCollection = BASE_URL + "/person/rmcollection";
         public static final String Report = BASE_URL + "/date/report";
+        public static final String COMMENT = BASE_URL + "/date/report";
+
         public static final String EditInformation = BASE_URL + "/person/editdata";
         public static final String UploadFace = BASE_URL+"/person/uploadimg";
         public static final String Information = BASE_URL + "/person/userinfo";
@@ -60,6 +62,7 @@ public class Api {
             public static final String DATE_ID = "date_id";
             public static final String TOKEN = "token";
             public static final String UID = "uid";
+            public static final String SCORE = "score";
         }
 
 
