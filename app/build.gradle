@@ -25,6 +25,7 @@ dependencies {
     compile files('libs/JVolly.jar')
     compile 'com.facebook.fresco:fresco:0.3.0+'
     compile project(':jpagerView')
+    compile project(':imagetool')
     compile 'com.malinskiy:superrecyclerview:1.1.0'
     compile 'com.pnikosis:materialish-progress:1.5'
     compile 'com.umeng.analytics:analytics:latest.integration'
@@ -36,4 +37,5 @@ dependencies {
     compile 'com.alibaba:fastjson:1.2.5'
     compile 'com.wdullaer:materialdatetimepicker:1.3.0'
     compile 'com.google.code.gson:gson:2.3.1'
+
 }

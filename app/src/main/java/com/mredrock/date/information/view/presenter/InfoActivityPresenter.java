@@ -76,8 +76,13 @@ public class InfoActivityPresenter extends BaseActivityPresenter<InfoActivityVu>
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(resultCode==200){
-            getInformation();
+        if(requestCode==2){
+            if(resultCode==200){
+                getInformation();
+            }else if(resultCode==100){
+                vu.setPersonInformation(information);
+            }
+
         }
     }
 }

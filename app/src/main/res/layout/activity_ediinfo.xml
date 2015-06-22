@@ -34,9 +34,8 @@
                 android:layout_height="48dp"
                 android:layout_centerVertical="true"
                 app:progressBarImage="@drawable/ic_loading"
-                app:progressBarImageScaleType="centerInside"
+                app:progressBarImageScaleType="centerCrop"
                 app:roundAsCircle="true"
-                android:background="@drawable/ic_person"
                 android:layout_alignParentRight="true"
                 />
         </RelativeLayout>

@@ -18,6 +18,7 @@ import com.mredrock.date.widget.OnDataCallback;
 public class DrawerFragmentPresenter extends BaseFragmentPresenter<DrawerFragmentVu>{
     private AppointmentModel mAppointmentModel = new AppointmentModel();
     private LetterModel mLetterModel = new LetterModel();
+    public static String img_url;
     @Override
     public Class<DrawerFragmentVu> getVuClass() {
         return DrawerFragmentVu.class;
@@ -29,6 +30,7 @@ public class DrawerFragmentPresenter extends BaseFragmentPresenter<DrawerFragmen
             @Override
             public void onSuccess(String info, Information data) {
                 vu.setPerson(data);
+                img_url=data.getHead();
             }
 
             @Override

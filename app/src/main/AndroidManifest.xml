@@ -62,9 +62,12 @@
             android:label="@string/activity_collection"></activity>
         <activity
             android:name=".information.view.presenter.InfoActivityPresenter"
-            android:label="个人中心"></activity> <activity
+            android:label="个人中心"></activity>
+        <activity
             android:name=".information.view.presenter.EditInformationActivityPresenter"
-            android:label="资料编辑"></activity>
+            android:label="资料编辑"></activity> <activity
+            android:name=".information.view.presenter.UploadFaceActivityPresenter"
+            android:label="修改头像"></activity>
 
         <activity
             android:name=".setting.presenter.FeedbackActivity"

@@ -21,6 +21,7 @@ public class Api {
         public static final String CancleCollection = BASE_URL + "/person/rmcollection";
         public static final String Report = BASE_URL + "/date/report";
         public static final String EditInformation = BASE_URL + "/person/editdata";
+        public static final String UploadFace = BASE_URL+"/person/uploadimg";
         public static final String Information = BASE_URL + "/person/userinfo";
         public static final String CreateList = BASE_URL + "/person/create";
         public static final String Advice = BASE_URL + "/advice/advice";

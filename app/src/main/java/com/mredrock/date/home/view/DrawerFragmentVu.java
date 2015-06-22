@@ -16,6 +16,7 @@ import com.mredrock.date.app.IVu;
 import com.mredrock.date.home.presenter.CollectionActivityPresenter;
 import com.mredrock.date.home.presenter.CreateActivityPresenter;
 import com.mredrock.date.home.presenter.JoinActivityPresenter;
+import com.mredrock.date.information.view.presenter.UploadFaceActivityPresenter;
 import com.mredrock.date.model.bean.Information;
 import com.mredrock.date.setting.presenter.SettingActivityPresenter;
 import com.mredrock.date.information.view.presenter.InfoActivityPresenter;
@@ -55,6 +56,7 @@ public class DrawerFragmentVu implements IVu ,View.OnClickListener{
         tvCollectCount = (TextView) view.findViewById(R.id.collection_count);
         tvMessageCount = (TextView) view.findViewById(R.id.message_count);
         tvCreateCount = (TextView) view.findViewById(R.id.create_count);
+        tvFace.setOnClickListener(this);
         view.findViewById(R.id.create).setOnClickListener(this);
         view.findViewById(R.id.record).setOnClickListener(this);
         view.findViewById(R.id.collection).setOnClickListener(this);
@@ -126,6 +128,9 @@ public class DrawerFragmentVu implements IVu ,View.OnClickListener{
     @Override
     public void onClick(View v) {
         switch (v.getId()){
+            case R.id.face:
+                    ctx.startActivity(new Intent(ctx, UploadFaceActivityPresenter.class));
+                break;
             case R.id.dropdownbtn:
                 pop.show();
                 break;

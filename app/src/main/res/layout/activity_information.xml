@@ -24,9 +24,8 @@
                 android:layout_centerHorizontal="true"
                 android:layout_margin="16dp"
                 app:progressBarImage="@drawable/ic_loading"
-                app:progressBarImageScaleType="centerInside"
+                app:progressBarImageScaleType="centerCrop"
                 app:roundAsCircle="true"
-                android:background="@drawable/ic_person"
                 />
             <TextView
                 android:id="@+id/info_name"

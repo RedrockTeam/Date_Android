@@ -39,6 +39,7 @@ public class EditInforActivityVu extends BaseActivityVu implements View.OnClickL
     private RelativeLayout gender_edit;
     private TextView gender;
     private Information information;
+    private EditInformationActivityPresenter presenter;
     @Override
     protected void onCreate() {
         setView(R.layout.activity_ediinfo);
@@ -114,16 +115,21 @@ public class EditInforActivityVu extends BaseActivityVu implements View.OnClickL
         qq_edit.setOnClickListener(this);
         weixin_edit.setOnClickListener(this);
     }
-
+    public void setPresenter(EditInformationActivityPresenter presenter){
+        this.presenter=presenter;
+    }
     @Override
     protected void onToolbarInit(ActionBarActivity act, Toolbar toolbar) {
         super.onToolbarInit(act, toolbar);
         toolbar.setTitle("◊ ¡œ±‡º≠");
     }
-
     @Override
     public void onClick(View v) {
+
         switch (v.getId()){
+            case R.id.edit_touxiang_layout:
+                presenter.openEditFaceActivity();
+                break;
             case R.id.edit_name_layout:
                 new MaterialDialog.Builder(getContext())
                         .title(" ‰»Î≥∆Í«")
@@ -241,6 +247,11 @@ public class EditInforActivityVu extends BaseActivityVu implements View.OnClickL
                         .positiveText(R.string.ok)
                         .show();
                 break;
+        }
+    }
+    public void setImgUrl(String url){
+        if(url!=null){
+            face.setImageURI(Uri.parse(url));
         }
     }
 }

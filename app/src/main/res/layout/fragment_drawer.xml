@@ -17,6 +17,8 @@
                 android:id="@+id/face"
                 android:layout_margin="16dp"
                 android:layout_width="72dp"
+                app:progressBarImage="@drawable/ic_loading"
+                app:progressBarImageScaleType="centerCrop"
                 android:layout_height="72dp"
                 app:roundAsCircle="true"/>
         <TextView
