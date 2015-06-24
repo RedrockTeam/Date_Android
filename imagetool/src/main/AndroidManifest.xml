@@ -1,0 +1,13 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ant.jobgod.imagetool">
+
+    <application android:allowBackup="true" >
+        <activity android:name=".corpimage.CropImage"/>
+        <activity android:name=".corpimage.MonitoredActivity"/>
+        <activity android:name=".corpimage.NoSearchActivity"/>
+        <activity android:name=".imageprovider.net.NetImageSearchActivity"/>
+        <activity android:name=".photoview.ImageViewActivity"/>
+
+    </application>
+
+</manifest>
