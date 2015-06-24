@@ -78,7 +78,7 @@ public class UploadFaceActivityPresenter extends BaseActivityPresenter<UploadFac
             if(isFaceChanged){
                 upLoadFace();
             }else{
-                Utils.Toast("ÇëĞŞ¸ÄÍ·ÏñºóÔÙ±£´æ");
+                Utils.Toast("å¤´åƒæ²¡æœ‰ä¿®æ”¹");
             }
 
         }
@@ -87,8 +87,8 @@ public class UploadFaceActivityPresenter extends BaseActivityPresenter<UploadFac
     }
     public void showDialog(){
          dialog = new MaterialDialog.Builder(this)
-                .title("ÕıÔÚÉÏ´«")
-                .content("ÇëÉÔºó")
+                .title("æ­£åœ¨æäº¤")
+                .content("è¯·ç¨ç­‰")
                 .progress(true, 100)
                 .cancelable(false)
                 .show();
@@ -99,7 +99,7 @@ public class UploadFaceActivityPresenter extends BaseActivityPresenter<UploadFac
             @Override
             public void onSuccess(String info) {
                 dialog.dismiss();
-                Utils.Toast("ÉÏ´«³É¹¦");
+                Utils.Toast("ä¿®æ”¹å¤´åƒæˆåŠŸ");
                 setResult(200, new Intent(info));
                 UploadFaceActivityPresenter.this.finish();
             }
@@ -153,7 +153,7 @@ public class UploadFaceActivityPresenter extends BaseActivityPresenter<UploadFac
                     @Override
                     protected void onFailureImpl(DataSource<CloseableReference<CloseableImage>> closeableReferenceDataSource) {
                        dialog.dismiss();
-                        Utils.Toast("Í¼Æ¬ÏÂÔØÊ§°Ü");
+                        Utils.Toast("ç½‘ç»œä¸ç»™åŠ›");
                     }
                 };
                 final Handler handler = new Handler();

@@ -96,12 +96,12 @@ public class EditInforActivityVu extends BaseActivityVu implements View.OnClickL
             weixin.setText(personInfo.getWeixin());
         }
         if(personInfo.getGender()==null){
-                gender.setText("Å®");
+                gender.setText("æœªçŸ¥");
         }
         else if(personInfo.getGender().equals("1")){
-            gender.setText("ÄĞ");
+            gender.setText("ç”·");
         }else {
-            gender.setText("Å®");
+            gender.setText("å¥³");
         }
     }
     public void setListener(){
@@ -121,7 +121,7 @@ public class EditInforActivityVu extends BaseActivityVu implements View.OnClickL
     @Override
     protected void onToolbarInit(ActionBarActivity act, Toolbar toolbar) {
         super.onToolbarInit(act, toolbar);
-        toolbar.setTitle("×ÊÁÏ±à¼­");
+        toolbar.setTitle("èµ„æ–™ç¼–è¾‘");
     }
     @Override
     public void onClick(View v) {
@@ -132,7 +132,7 @@ public class EditInforActivityVu extends BaseActivityVu implements View.OnClickL
                 break;
             case R.id.edit_name_layout:
                 new MaterialDialog.Builder(getContext())
-                        .title("ÊäÈë³ÆêÇ")
+                        .title("è¾“å…¥æ˜µç§°")
                         .inputType(InputType.TYPE_CLASS_TEXT)
                         .input("", "", new MaterialDialog.InputCallback() {
                             @Override
@@ -145,7 +145,7 @@ public class EditInforActivityVu extends BaseActivityVu implements View.OnClickL
                 break;
             case R.id.edit_sign_layout:
                 new MaterialDialog.Builder(getContext())
-                        .title("ÊäÈë¸öĞÔÇ©Ãû")
+                        .title("è¾“å…¥ä¸ªæ€§ç­¾å")
                         .inputType(InputType.TYPE_CLASS_TEXT)
                         .input("", "", new MaterialDialog.InputCallback() {
                             @Override
@@ -158,7 +158,7 @@ public class EditInforActivityVu extends BaseActivityVu implements View.OnClickL
                 break;
             case R.id.edit_academy_layout:
                 new MaterialDialog.Builder(getContext())
-                        .title("ÊäÈëËùÔÚÑ§Ôº")
+                        .title("é€‰æ‹©å­¦é™¢")
                         .items(R.array.college_edit)
                         .itemsCallbackSingleChoice(0, new MaterialDialog.ListCallbackSingleChoice() {
                             @Override
@@ -175,7 +175,7 @@ public class EditInforActivityVu extends BaseActivityVu implements View.OnClickL
                 break;
             case R.id.edit_grade_layout:
                 new MaterialDialog.Builder(getContext())
-                        .title("ÊäÈëËùÔÚÄê¼¶")
+                        .title("é€‰æ‹©å¹´çº§")
                         .items(R.array.grade_edit)
                         .itemsCallbackSingleChoice(0, new MaterialDialog.ListCallbackSingleChoice() {
                             @Override
@@ -192,13 +192,13 @@ public class EditInforActivityVu extends BaseActivityVu implements View.OnClickL
                 break;
             case R.id.edit_tel_layout:
                 new MaterialDialog.Builder(getContext())
-                        .title("ÊäÈëÊÖ»úºÅ")
+                        .title("è¾“å…¥ç”µè¯")
                         .inputType(InputType.TYPE_CLASS_NUMBER)
                         .input("", "", new MaterialDialog.InputCallback() {
                             @Override
                             public void onInput(MaterialDialog materialDialog, CharSequence input) {
                                 if (!(input.toString().startsWith("1")&&input.toString().length()==11)){
-                                    Utils.Toast("ÊÖ»úºÅÊäÈë´íÎó");
+                                    Utils.Toast("ä½ åœ¨é€—æˆ‘ï¼Ÿæ‰‹æœºå·å¿…é¡»11ä½");
                                     return;
                                 }
                                 tel.setText(input);
@@ -209,7 +209,7 @@ public class EditInforActivityVu extends BaseActivityVu implements View.OnClickL
                 break;
             case R.id.edit_qq_layout:
                 new MaterialDialog.Builder(getContext())
-                        .title("ÊäÈëQQºÅ")
+                        .title("è¾“å…¥qq")
                         .inputType(InputType.TYPE_CLASS_NUMBER)
                         .input("", "", new MaterialDialog.InputCallback() {
                             @Override
@@ -222,7 +222,7 @@ public class EditInforActivityVu extends BaseActivityVu implements View.OnClickL
                 break;
             case R.id.edit_weixin_layout:
                 new MaterialDialog.Builder(getContext())
-                        .title("ÊäÈëÎ¢ĞÅºÅ")
+                        .title("è¾“å…¥å¾®ä¿¡å·")
                         .inputType(InputType.TYPE_CLASS_TEXT)
                         .input("", "", new MaterialDialog.InputCallback() {
                             @Override
@@ -234,7 +234,7 @@ public class EditInforActivityVu extends BaseActivityVu implements View.OnClickL
                 break;
             case R.id.edit_gender_layout:
                 new MaterialDialog.Builder(getContext())
-                        .title("ĞŞ¸ÄĞÔ±ğ£¨×¢:Ö»ÄÜĞŞ¸ÄÒ»´Î£©")
+                        .title("é€‰æ‹©æ€§åˆ«(åªèƒ½æ”¹ä¸€æ¬¡)")
                         .items(R.array.gender_edit)
                         .itemsCallbackSingleChoice(0, new MaterialDialog.ListCallbackSingleChoice() {
                             @Override

@@ -40,8 +40,8 @@ public class EditInformationActivityPresenter extends BaseActivityPresenter<Edit
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId()==R.id.infor_edit){
             final MaterialDialog dialog = new MaterialDialog.Builder(this)
-                    .title("ÕýÔÚÐÞ¸Ä")
-                    .content("ÇëÉÔºó")
+                    .title("æ­£åœ¨æäº¤")
+                    .content("è¯·ç¨ç­‰")
                     .progress(true, 100)
                     .cancelable(false)
                     .show();
