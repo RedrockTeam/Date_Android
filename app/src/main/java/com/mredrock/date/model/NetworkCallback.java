@@ -2,7 +2,9 @@ package com.mredrock.date.model;
 
 import com.android.http.RequestManager;
 import com.google.gson.Gson;
+import com.mredrock.date.app.APP;
 import com.mredrock.date.config.Api;
+import com.mredrock.date.util.Utils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -39,7 +41,10 @@ public abstract class NetworkCallback<T> implements RequestManager.RequestListen
                     success((T) jsonObject.getString(Api.Key.INFO));
                 }
 
-            } else {
+            } else if(status == Api.Code.PERMISSION_DENIED){
+                APP.getInstence().closeToLogin();
+                Utils.Toast("请重新登陆");
+            }else{
                 error(status, jsonObject.getString(Api.Key.INFO));
             }
 

@@ -30,8 +30,8 @@ public abstract class SimpleRequestCallback<T> implements RequestManager.Request
             jsonObject = new JSONObject(s);
             int status = jsonObject.getInt(Api.Key.STATUS);
             String info = jsonObject.getString(Api.Key.INFO);
-            T data = JSON.parseObject(jsonObject.getString(Api.Key.DATA), clazz);
             if (status == Api.Code.OK){
+                T data = JSON.parseObject(jsonObject.getString(Api.Key.DATA), clazz);
                 success(info,data);
             }else if (status == Api.Code.PERMISSION_DENIED){
                 authorizationFailure();

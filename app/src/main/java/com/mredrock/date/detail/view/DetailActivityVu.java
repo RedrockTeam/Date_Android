@@ -149,7 +149,7 @@ public class DetailActivityVu extends BaseActivityVu implements View.OnClickList
                 number.setText(list[0].getPeople_limit() + "");
                 socreLove.setStart(list[0].getUser_score());
                 content.setText(list[0].getContent());
-
+                data.setUser_id(list[0].getUser_id()+"");
                 collectionBtn.setText(Detail.COLLECTION[list[0].getCollection_status()]);
                 reportBtn.setText(Detail.REPORT[list[0].getApply_status()]);
                 if (list[0].getApply_status() != 0) {

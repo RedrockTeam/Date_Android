@@ -39,10 +39,15 @@ public class APP extends Application {
     }
 
     public void closeToLogin(){
-        Utils.getPreference().edit().clear().commit();
-        Context ctx = JActivityManager.getInstance().currentActivity();
-        ctx.startActivity(new Intent(ctx, LoginActivityPresenter.class));
-        JActivityManager.getInstance().popAllActivity();
+        try {
+            Utils.Log(JActivityManager.getInstance().currentActivity().getLocalClassName());
+            Utils.getPreference().edit().clear().commit();
+            Context ctx = JActivityManager.getInstance().currentActivity();
+            ctx.startActivity(new Intent(ctx, LoginActivityPresenter.class));
+            JActivityManager.getInstance().popAllActivity();
+        }catch (Exception e){
+
+        }
     }
 
     public String getUID(){
