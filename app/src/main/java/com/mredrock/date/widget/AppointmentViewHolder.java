@@ -61,7 +61,7 @@ public class AppointmentViewHolder extends BaseViewHolder<Appointment> {
         authorGender.setImageResource(data.getGender()==1?R.drawable.ic_man:R.drawable.ic_woman);
         title.setText(data.getTitle());
         address.setText(data.getPlace());
-        date.setText(new TimeTransform(data.getDate_at()).toString(new RecentDateFormater()));
+        date.setText(new TimeTransform(data.getDate_time()).toString(new RecentDateFormater()));
         cost.setText(itemView.getContext().getResources().getStringArray(R.array.cost)[data.getCost_model()]);
         releaseTime.setText(new TimeTransform(data.getCreated_at()).toString(new RecentDateFormater()));
     }

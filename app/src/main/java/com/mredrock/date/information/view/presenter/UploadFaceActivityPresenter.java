@@ -172,7 +172,7 @@ public class UploadFaceActivityPresenter extends BaseActivityPresenter<UploadFac
     }
 
     public void startCrop(Uri data,Uri output){
-        CropImageIntentBuilder cropImage = new CropImageIntentBuilder(960, 1080,960, 1080, output);
+        CropImageIntentBuilder cropImage = new CropImageIntentBuilder(360, 360,360, 360, output);
         cropImage.setSourceImage(data);
         startActivityForResult(cropImage.getIntent(this), REQUEST_CROP_PICTURE);
     }

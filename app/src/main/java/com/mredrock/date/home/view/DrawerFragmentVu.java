@@ -41,14 +41,6 @@ public class DrawerFragmentVu implements IVu ,View.OnClickListener{
     public void init(LayoutInflater inflater, ViewGroup container) {
         ctx = inflater.getContext();
         view = inflater.inflate(R.layout.fragment_drawer,container,false);
-        final View containerFace = view.findViewById(R.id.container_face);
-        containerFace.post(new Runnable() {
-            @Override
-            public void run() {
-                int width = Utils.getScreenWidth()-Utils.dip2px(56);
-                containerFace.setLayoutParams(new LinearLayout.LayoutParams(width, width * 9 / 16));
-            }
-        });
         tvFace = (SimpleDraweeView) view.findViewById(R.id.face);
         tvName = (TextView) view.findViewById(R.id.name);
         vDropdown = view.findViewById(R.id.dropdownbtn);
@@ -56,7 +48,7 @@ public class DrawerFragmentVu implements IVu ,View.OnClickListener{
         tvCollectCount = (TextView) view.findViewById(R.id.collection_count);
         tvMessageCount = (TextView) view.findViewById(R.id.message_count);
         tvCreateCount = (TextView) view.findViewById(R.id.create_count);
-        tvFace.setOnClickListener(this);
+        view.findViewById(R.id.container_face).setOnClickListener(this);
         view.findViewById(R.id.create).setOnClickListener(this);
         view.findViewById(R.id.record).setOnClickListener(this);
         view.findViewById(R.id.collection).setOnClickListener(this);
@@ -128,9 +120,6 @@ public class DrawerFragmentVu implements IVu ,View.OnClickListener{
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.face:
-                    ctx.startActivity(new Intent(ctx, UploadFaceActivityPresenter.class));
-                break;
             case R.id.dropdownbtn:
                 pop.show();
                 break;
@@ -149,6 +138,7 @@ public class DrawerFragmentVu implements IVu ,View.OnClickListener{
             case R.id.setting:
                 ctx.startActivity(new Intent(ctx, SettingActivityPresenter.class));
                 break;
+            case R.id.container_face:
             case R.id.information:
                 ctx.startActivity(new Intent(ctx, InfoActivityPresenter.class));
                 break;

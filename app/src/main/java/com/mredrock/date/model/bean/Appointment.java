@@ -11,7 +11,7 @@ public class Appointment {
     private String date_id;
     private String user_id;
     private long created_at;
-    private long date_at;
+    private long date_time;
     private String place;
     private String title;
     private int cost_model;
@@ -74,12 +74,12 @@ public class Appointment {
         this.created_at = created_at;
     }
 
-    public long getDate_at() {
-        return date_at;
+    public long getDate_time() {
+        return date_time;
     }
 
-    public void setDate_at(long date_at) {
-        this.date_at = date_at;
+    public void setDate_time(long date_time) {
+        this.date_time = date_time;
     }
 
     public String getPlace() {

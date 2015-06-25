@@ -2,6 +2,7 @@ package com.mredrock.date.home;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -123,7 +124,8 @@ public class MainHeader implements RecyclerArrayAdapter.HeaderView ,View.OnClick
         ListView listView = new ListView(ctx);
         listView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT));
         listView.setBackgroundColor(Color.WHITE);
-
+        listView.setDivider(new ColorDrawable(Color.LTGRAY));
+        listView.setDividerHeight(2);
         final PopupWindow finalMPopupWindow = createPopupWindow(listView, Utils.dip2px(56) * 3 + Utils.dip2px(0.5f) * 3);
         finalMPopupWindow.showAsDropDown(mSelectGroup);
         listView.setAdapter(new BaseAdapter() {

@@ -119,7 +119,7 @@ public class DetailActivityVu extends BaseActivityVu implements View.OnClickList
         authorGender.setImageResource(data.getGender() == 0 ? R.drawable.ic_man : R.drawable.ic_woman);
         title.setText(data.getTitle());
         place.setText(data.getPlace());
-        time.setText(new TimeTransform(data.getDate_at()).toString(new RecentDateFormater()));
+        time.setText(new TimeTransform(data.getDate_time()).toString(new RecentDateFormater()));
         cost.setText(getContext().getResources().getStringArray(R.array.cost)[data.getCost_model()]);
     }
 
